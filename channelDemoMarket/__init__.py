@@ -16,14 +16,16 @@ spark = SparkSingleton.get_instance()
 
 class Store(Channel):
     def __init__(self, _snapshot_date=None, _config: ConfigObj = ConfigObj()):
-        self.dtm = DateTimeManager(_snapshot_date=_snapshot_date, #Upper date limit to be included?
-                                   _dt_col="header_capture_month",
-                                   _dt_format="%Y-%m-%d %H:%M:%S",
+        self.dtm = DateTimeManager(
+                                   #1m, 3m, etc periods are computed with respect to snapshot_date. Sort of an upper limit.
+                                   _snapshot_date=_snapshot_date, 
+                                   _dt_col="header_capture_month", #Column in the data that contains datetime values.
+                                   _dt_format="%Y-%m-%d %H:%M:%S", #Datetime format.
                                    _date_format="%Y-%m-%d", #Format of the input snapshot date!
-                                   #_date_format="%Y-%m-%d %H:%M:%S",
                                    _config=_config,
-                                   #_partition_col="p_yyyymm",
-                                   _partition_dt_format="%Y%m"
+                                   #Do not include a partition_col. I suspect this is specific of the tpcds dataset.
+                                   #_partition_col="p_yyyymm", 
+                                   _partition_dt_format="%Y%m" #Likely irrelevant if partition_col not defined.
                                    )
         self.dtm.append_periods(["1m", "3m"])
         self.config = self.dtm.get_config()
@@ -64,8 +66,8 @@ class Store(Channel):
         try:
             df = spark.read.csv("market_data.csv", inferSchema=True, header=True)
             self.add_core("issuer", df, []) #!do not use p_yyyymm here.
-            #df = spark.read.csv("market_id.csv", inferSchema=True, header=True)
-            #self.add_core("bank_id", df, ["p_yyyymm"])
+            df = spark.read.csv("market_id.csv", inferSchema=True, header=True)
+            self.add_core("bank_id", df, [])
         except Exception as e:
             logger.warning("Error loading default cores. {}".format(str(e)))
             traceback.print_exc(file=sys.stdout)

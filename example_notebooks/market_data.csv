@@ -107,13 +107,13 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2016-07-01 00:00:00.000000000,Royal Bank,5,1,Fast Food Restaurants,157925.69,11703
 2017-12-01 00:00:00.000000000,CIBC,7,1,"Eating Places, Restaurants",49871258.53,1364739
 2016-02-01 00:00:00.000000000,Scotiabank,9,1,Fast Food Restaurants,8201202.39,833619
-2016-10-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Eating Places, Restaurants",14.12,2
+2016-10-01 00:00:00.000000000,BMO Bank of Montreal,2,2,"Eating Places, Restaurants",14.12,2
 2016-06-01 00:00:00.000000000,Scotiabank,5,1,"Drug Stores, Pharmacies",79140.89,2146
 2016-12-01 00:00:00.000000000,CIBC,7,1,Hardware Stores,85938418.96,1143449
 2017-05-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Fast Food Restaurants,11004326.17,1054822
 2018-08-01 00:00:00.000000000,Royal Bank,9,1,"Fuel Dispenser, Automated",18560547.96,702999
 2016-06-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,119998.85,9667
-2016-05-01 00:00:00.000000000,TD Canada Trust,4,1,Fast Food Restaurants,908.18,83
+2016-05-01 00:00:00.000000000,TD Canada Trust,4,2,Fast Food Restaurants,908.18,83
 2016-04-01 00:00:00.000000000,TD Canada Trust,5,1,"Eating Places, Restaurants",191210.20,6803
 2017-08-01 00:00:00.000000000,Scotiabank,9,1,Fast Food Restaurants,20528369.88,1991452
 2016-01-01 00:00:00.000000000,TD Canada Trust,3,1,"Grocery Stores, Supermarkets",101581.81,2336
@@ -136,7 +136,7 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2018-01-01 00:00:00.000000000,BMO Bank of Montreal,6,1,"Fuel Dispenser, Automated",0.00,0
 2019-01-01 00:00:00.000000000,CIBC,7,1,Hardware Stores,43928972.97,497966
 2016-06-01 00:00:00.000000000,TD Canada Trust,4,1,"Eating Places, Restaurants",62419.19,1739
-2017-02-01 00:00:00.000000000,TD Canada Trust,4,1,"Drug Stores, Pharmacies",0.01,1
+2017-02-01 00:00:00.000000000,TD Canada Trust,4,2,"Drug Stores, Pharmacies",0.01,1
 2017-12-01 00:00:00.000000000,TD Canada Trust,4,1,Hardware Stores,67.80,2
 2017-03-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",121083.86,2644
 2018-02-01 00:00:00.000000000,Royal Bank,3,1,"Eating Places, Restaurants",23526.48,712
@@ -151,7 +151,7 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2016-05-01 00:00:00.000000000,Royal Bank,2,1,"Grocery Stores, Supermarkets",760.23,21
 2019-01-01 00:00:00.000000000,BMO Bank of Montreal,3,1,"Fuel Dispenser, Automated",0.00,0
 2018-01-01 00:00:00.000000000,CIBC,3,1,Fast Food Restaurants,82.47,3
-2016-10-01 00:00:00.000000000,TD Canada Trust,3,1,Hardware Stores,119335.63,837
+2016-10-01 00:00:00.000000000,TD Canada Trust,3,2,Hardware Stores,119335.63,837
 2017-11-01 00:00:00.000000000,BMO Bank of Montreal,3,1,"Fuel Dispenser, Automated",0.00,0
 2016-05-01 00:00:00.000000000,Royal Bank,7,1,"Fuel Dispenser, Automated",69265793.68,1794736
 2016-06-01 00:00:00.000000000,TD Canada Trust,9,1,"Fuel Dispenser, Automated",10977306.01,541231
@@ -174,7 +174,7 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2017-08-01 00:00:00.000000000,CIBC,7,1,"Eating Places, Restaurants",54747686.90,1595696
 2016-03-01 00:00:00.000000000,CIBC,5,1,Fast Food Restaurants,139189.74,11520
 2017-04-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Eating Places, Restaurants",1966143.44,128612
-2016-04-01 00:00:00.000000000,BMO Bank of Montreal,4,1,"Grocery Stores, Supermarkets",42434.31,1067
+2016-04-01 00:00:00.000000000,BMO Bank of Montreal,4,2,"Grocery Stores, Supermarkets",42434.31,1067
 2016-12-01 00:00:00.000000000,CIBC,3,1,"Drug Stores, Pharmacies",1268.58,11
 2016-11-01 00:00:00.000000000,Royal Bank,9,1,"Fuel Dispenser, Automated",9340234.91,370447
 2018-08-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",109779.83,2345
@@ -220,9 +220,9 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2016-10-01 00:00:00.000000000,CIBC,3,1,"Drug Stores, Pharmacies",372.70,10
 2016-03-01 00:00:00.000000000,CIBC,7,1,Fast Food Restaurants,31161376.40,2588104
 2017-05-01 00:00:00.000000000,Royal Bank,4,1,"Drug Stores, Pharmacies",37.74,2
-2018-06-01 00:00:00.000000000,TD Canada Trust,7,1,Hardware Stores,111819213.87,1300736
+2018-06-01 00:00:00.000000000,TD Canada Trust,7,2,Hardware Stores,111819213.87,1300736
 2016-06-01 00:00:00.000000000,Royal Bank,9,1,"Drug Stores, Pharmacies",31724952.97,1425322
-2018-11-01 00:00:00.000000000,TD Canada Trust,7,1,"Drug Stores, Pharmacies",77823712.13,1753608
+2018-11-01 00:00:00.000000000,TD Canada Trust,7,2,"Drug Stores, Pharmacies",77823712.13,1753608
 2018-02-01 00:00:00.000000000,Royal Bank,3,1,"Fuel Dispenser, Automated",39.15,1
 2016-08-01 00:00:00.000000000,CIBC,9,1,"Fuel Dispenser, Automated",6618164.38,301874
 2017-08-01 00:00:00.000000000,CIBC,9,1,"Drug Stores, Pharmacies",24960310.49,1156084
@@ -281,280 +281,280 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2017-10-01 00:00:00.000000000,Scotiabank,2,1,"Eating Places, Restaurants",57.65,4
 2018-06-01 00:00:00.000000000,CIBC,7,1,"Grocery Stores, Supermarkets",51692695.81,986413
 2016-11-01 00:00:00.000000000,Scotiabank,3,1,"Drug Stores, Pharmacies",61.06,2
-2017-09-01 00:00:00.000000000,Scotiabank,2,1,"Fuel Dispenser, Automated",283.96,63
-2016-03-01 00:00:00.000000000,Royal Bank,7,1,Fast Food Restaurants,29285410.92,2205524
-2017-10-01 00:00:00.000000000,BMO Bank of Montreal,4,1,"Fuel Dispenser, Automated",0.00,0
-2017-02-01 00:00:00.000000000,CIBC,3,1,"Eating Places, Restaurants",15.72,1
-2016-11-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Fuel Dispenser, Automated",28956427.24,766066
-2017-12-01 00:00:00.000000000,TD Canada Trust,5,1,"Grocery Stores, Supermarkets",209403.40,4293
-2018-07-01 00:00:00.000000000,Scotiabank,5,1,Fast Food Restaurants,65479.79,4599
-2016-03-01 00:00:00.000000000,Royal Bank,5,1,"Grocery Stores, Supermarkets",236136.23,5106
-2019-01-01 00:00:00.000000000,TD Canada Trust,3,1,"Grocery Stores, Supermarkets",244.68,9
-2018-09-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,197380.83,1880
-2017-09-01 00:00:00.000000000,Scotiabank,4,1,"Eating Places, Restaurants",46.09,3
-2017-03-01 00:00:00.000000000,Scotiabank,5,1,Hardware Stores,137520.85,1842
-2018-07-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Fuel Dispenser, Automated",44053695.21,966888
-2016-11-01 00:00:00.000000000,CIBC,2,1,Fast Food Restaurants,315.27,24
-2019-01-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Grocery Stores, Supermarkets",81033.91,1573
-2018-03-01 00:00:00.000000000,CIBC,3,1,"Grocery Stores, Supermarkets",267.66,3
-2016-06-01 00:00:00.000000000,TD Canada Trust,2,1,"Fuel Dispenser, Automated",2027.84,194
-2016-03-01 00:00:00.000000000,Royal Bank,9,1,"Eating Places, Restaurants",3815705.53,314467
-2018-04-01 00:00:00.000000000,Scotiabank,5,1,Fast Food Restaurants,63290.52,4483
-2016-01-01 00:00:00.000000000,BMO Bank of Montreal,5,1,Hardware Stores,143780.61,2249
-2017-10-01 00:00:00.000000000,TD Canada Trust,3,1,Fast Food Restaurants,389.54,27
-2016-06-01 00:00:00.000000000,CIBC,5,1,"Grocery Stores, Supermarkets",164781.00,3956
-2017-04-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,248098.15,3594
-2016-09-01 00:00:00.000000000,TD Canada Trust,3,1,"Fuel Dispenser, Automated",102573.61,2645
-2016-04-01 00:00:00.000000000,CIBC,4,1,"Eating Places, Restaurants",44442.48,1298
-2018-02-01 00:00:00.000000000,Scotiabank,2,1,"Grocery Stores, Supermarkets",162.43,7
-2018-03-01 00:00:00.000000000,CIBC,2,1,"Fuel Dispenser, Automated",7.96,71
-2017-02-01 00:00:00.000000000,Scotiabank,9,1,"Eating Places, Restaurants",2664424.59,200175
-2017-06-01 00:00:00.000000000,TD Canada Trust,2,1,Hardware Stores,20659.74,661
-2019-01-01 00:00:00.000000000,TD Canada Trust,2,1,"Fuel Dispenser, Automated",589.09,135
-2016-09-01 00:00:00.000000000,TD Canada Trust,9,1,"Fuel Dispenser, Automated",10506702.35,526643
-2018-11-01 00:00:00.000000000,Scotiabank,4,1,Fast Food Restaurants,60.23,6
-2017-12-01 00:00:00.000000000,Scotiabank,7,1,"Drug Stores, Pharmacies",69329952.47,1493181
-2018-05-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",102599.05,2238
-2018-02-01 00:00:00.000000000,Royal Bank,9,1,"Drug Stores, Pharmacies",46316326.59,2034763
-2017-07-01 00:00:00.000000000,Royal Bank,3,1,"Grocery Stores, Supermarkets",145653.70,2024
-2018-09-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Fast Food Restaurants,19914414.55,1770870
-2016-04-01 00:00:00.000000000,CIBC,9,1,"Drug Stores, Pharmacies",10140937.25,491539
-2017-04-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Eating Places, Restaurants",34784783.10,1015970
-2018-02-01 00:00:00.000000000,TD Canada Trust,3,1,Hardware Stores,2864.10,9
-2017-02-01 00:00:00.000000000,Scotiabank,3,1,Hardware Stores,406.77,3
-2018-04-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Fuel Dispenser, Automated",3898.15,100
-2017-08-01 00:00:00.000000000,TD Canada Trust,7,1,"Eating Places, Restaurants",88919089.89,2466541
-2017-08-01 00:00:00.000000000,CIBC,7,1,"Grocery Stores, Supermarkets",55175620.20,1190991
-2017-03-01 00:00:00.000000000,Royal Bank,4,1,"Fuel Dispenser, Automated",0.00,0
-2016-11-01 00:00:00.000000000,Scotiabank,9,1,"Fuel Dispenser, Automated",3512596.12,144114
-2018-09-01 00:00:00.000000000,Royal Bank,7,1,Hardware Stores,72751046.94,768879
-2018-05-01 00:00:00.000000000,Scotiabank,2,1,"Eating Places, Restaurants",296.74,6
-2018-12-01 00:00:00.000000000,CIBC,2,1,Hardware Stores,525.87,7
-2016-03-01 00:00:00.000000000,Royal Bank,4,1,Hardware Stores,32463.75,886
-2018-02-01 00:00:00.000000000,TD Canada Trust,7,1,"Fuel Dispenser, Automated",78261106.14,1799203
-2018-01-01 00:00:00.000000000,TD Canada Trust,3,1,"Drug Stores, Pharmacies",4537.63,62
-2016-09-01 00:00:00.000000000,Scotiabank,7,1,Hardware Stores,53658361.16,763765
-2018-06-01 00:00:00.000000000,TD Canada Trust,5,1,"Eating Places, Restaurants",171301.17,4682
-2016-07-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,24914084.54,2041086
-2016-03-01 00:00:00.000000000,Royal Bank,3,1,Hardware Stores,508571.67,7665
-2017-09-01 00:00:00.000000000,Royal Bank,7,1,"Fuel Dispenser, Automated",72463199.74,1697262
-2016-06-01 00:00:00.000000000,TD Canada Trust,5,1,"Fuel Dispenser, Automated",23198.55,562
-2017-04-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Grocery Stores, Supermarkets",5021698.82,207123
-2018-06-01 00:00:00.000000000,CIBC,3,1,"Eating Places, Restaurants",81.08,2
-2018-04-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Grocery Stores, Supermarkets",8529962.36,348889
-2017-09-01 00:00:00.000000000,BMO Bank of Montreal,6,1,"Fuel Dispenser, Automated",0.00,0
-2016-06-01 00:00:00.000000000,Royal Bank,4,1,"Grocery Stores, Supermarkets",56643.08,1375
-2016-07-01 00:00:00.000000000,TD Canada Trust,7,1,Hardware Stores,98658866.16,1375060
-2016-01-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,2267957.60,86693
-2016-08-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Fast Food Restaurants,3310889.80,315452
-2018-05-01 00:00:00.000000000,CIBC,7,1,"Drug Stores, Pharmacies",46619501.21,1099848
-2017-05-01 00:00:00.000000000,CIBC,4,1,"Fuel Dispenser, Automated",0.00,0
-2017-01-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Eating Places, Restaurants",81912.00,2598
-2017-12-01 00:00:00.000000000,Royal Bank,5,1,"Drug Stores, Pharmacies",287620.42,4229
-2017-08-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,9975679.33,355331
-2016-12-01 00:00:00.000000000,Royal Bank,9,1,"Drug Stores, Pharmacies",50018526.47,1999785
-2016-02-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,18768750.71,1945731
-2017-09-01 00:00:00.000000000,CIBC,2,1,"Fuel Dispenser, Automated",59.71,91
-2018-12-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Eating Places, Restaurants",8217447.49,407259
-2016-05-01 00:00:00.000000000,TD Canada Trust,3,1,"Grocery Stores, Supermarkets",93993.35,2097
-2018-03-01 00:00:00.000000000,Royal Bank,9,1,Fast Food Restaurants,47355271.39,4296789
-2016-03-01 00:00:00.000000000,Scotiabank,2,1,"Eating Places, Restaurants",46.78,3
-2017-04-01 00:00:00.000000000,Scotiabank,7,1,"Drug Stores, Pharmacies",48204364.85,1321807
-2018-02-01 00:00:00.000000000,BMO Bank of Montreal,3,1,"Eating Places, Restaurants",25.13,1
-2016-03-01 00:00:00.000000000,Royal Bank,2,1,"Grocery Stores, Supermarkets",938.70,24
-2017-08-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Eating Places, Restaurants",35532020.53,1020954
-2016-08-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,22288264.94,1813034
-2018-05-01 00:00:00.000000000,TD Canada Trust,3,1,"Eating Places, Restaurants",1663.09,31
-2016-06-01 00:00:00.000000000,Royal Bank,9,1,"Fuel Dispenser, Automated",14109932.60,605353
-2017-08-01 00:00:00.000000000,TD Canada Trust,3,1,Fast Food Restaurants,764.69,50
-2018-05-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",32062666.31,689611
-2018-11-01 00:00:00.000000000,Royal Bank,5,1,"Eating Places, Restaurants",160466.11,4450
-2018-02-01 00:00:00.000000000,CIBC,4,1,"Fuel Dispenser, Automated",0.00,0
-2016-07-01 00:00:00.000000000,CIBC,9,1,"Fuel Dispenser, Automated",6429374.69,291320
-2016-12-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",123962.98,2568
-2016-03-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",24028740.07,635697
-2017-03-01 00:00:00.000000000,BMO Bank of Montreal,5,1,Fast Food Restaurants,66384.37,5287
-2018-05-01 00:00:00.000000000,Scotiabank,2,1,"Grocery Stores, Supermarkets",168.30,5
-2016-07-01 00:00:00.000000000,Scotiabank,7,1,"Fuel Dispenser, Automated",45363610.01,1240581
-2017-04-01 00:00:00.000000000,TD Canada Trust,9,1,"Grocery Stores, Supermarkets",15472237.37,733507
-2019-01-01 00:00:00.000000000,Scotiabank,9,1,"Eating Places, Restaurants",10014005.20,577490
-2017-04-01 00:00:00.000000000,TD Canada Trust,2,1,"Eating Places, Restaurants",18.47,3
-2018-01-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,136592.14,1781
-2017-11-01 00:00:00.000000000,Royal Bank,9,1,"Eating Places, Restaurants",11343134.18,725988
-2016-06-01 00:00:00.000000000,TD Canada Trust,2,1,Fast Food Restaurants,151.53,10
-2018-07-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Drug Stores, Pharmacies",34691436.36,867285
-2018-09-01 00:00:00.000000000,Scotiabank,6,1,"Fuel Dispenser, Automated",0.00,0
-2016-09-01 00:00:00.000000000,TD Canada Trust,5,1,"Drug Stores, Pharmacies",152386.96,3929
-2018-07-01 00:00:00.000000000,CIBC,7,1,"Fuel Dispenser, Automated",70735972.80,1519419
-2016-12-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Eating Places, Restaurants",31734282.94,930570
-2016-03-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,22873203.30,1901675
-2018-02-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",106289.34,2265
-2016-04-01 00:00:00.000000000,CIBC,4,1,Fast Food Restaurants,20922.39,3515
-2017-05-01 00:00:00.000000000,CIBC,2,1,"Grocery Stores, Supermarkets",1179.77,26
-2016-07-01 00:00:00.000000000,BMO Bank of Montreal,4,1,"Fuel Dispenser, Automated",850176.02,23421
-2018-02-01 00:00:00.000000000,Scotiabank,7,1,Hardware Stores,35226528.41,453050
-2018-05-01 00:00:00.000000000,Royal Bank,5,1,Hardware Stores,360545.67,4106
-2017-10-01 00:00:00.000000000,Royal Bank,5,1,"Grocery Stores, Supermarkets",342292.46,6289
-2016-03-01 00:00:00.000000000,Scotiabank,3,1,"Drug Stores, Pharmacies",20.73,2
-2017-02-01 00:00:00.000000000,BMO Bank of Montreal,2,1,Hardware Stores,250.00,1
-2018-10-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Fuel Dispenser, Automated",44483891.25,972813
-2018-07-01 00:00:00.000000000,Scotiabank,2,1,Fast Food Restaurants,464.66,38
-2017-09-01 00:00:00.000000000,TD Canada Trust,3,1,"Eating Places, Restaurants",1283.34,29
-2017-12-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Drug Stores, Pharmacies",130898.56,2679
-2018-03-01 00:00:00.000000000,Royal Bank,3,1,"Eating Places, Restaurants",27484.17,728
-2018-09-01 00:00:00.000000000,Royal Bank,3,1,"Fuel Dispenser, Automated",28.93,2
-2016-03-01 00:00:00.000000000,BMO Bank of Montreal,3,1,Hardware Stores,28.93,1
-2018-12-01 00:00:00.000000000,TD Canada Trust,3,1,"Fuel Dispenser, Automated",0.00,0
-2017-07-01 00:00:00.000000000,Scotiabank,9,1,Fast Food Restaurants,19951603.54,1922664
-2016-01-01 00:00:00.000000000,Scotiabank,9,1,Hardware Stores,2840629.27,110134
-2016-05-01 00:00:00.000000000,TD Canada Trust,7,1,"Fuel Dispenser, Automated",89135561.36,2436430
-2016-11-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",31085068.40,733343
-2017-06-01 00:00:00.000000000,Scotiabank,4,1,Fast Food Restaurants,1.00,1
-2017-08-01 00:00:00.000000000,Royal Bank,7,1,Hardware Stores,73094333.14,878455
-2016-08-01 00:00:00.000000000,Royal Bank,4,1,"Drug Stores, Pharmacies",94.37,3
-2018-01-01 00:00:00.000000000,Royal Bank,7,1,"Grocery Stores, Supermarkets",66872092.80,1190401
-2018-06-01 00:00:00.000000000,Royal Bank,5,1,"Eating Places, Restaurants",204645.79,5728
-2016-11-01 00:00:00.000000000,TD Canada Trust,3,1,"Eating Places, Restaurants",6028.14,161
-2018-06-01 00:00:00.000000000,TD Canada Trust,9,1,"Drug Stores, Pharmacies",42254645.04,2145890
-2017-12-01 00:00:00.000000000,Royal Bank,9,1,Fast Food Restaurants,45942598.79,4003833
-2018-04-01 00:00:00.000000000,TD Canada Trust,3,1,Fast Food Restaurants,478.48,30
-2019-01-01 00:00:00.000000000,CIBC,7,1,"Grocery Stores, Supermarkets",46202456.12,830659
-2018-12-01 00:00:00.000000000,TD Canada Trust,9,1,"Fuel Dispenser, Automated",14473711.98,568151
-2016-03-01 00:00:00.000000000,Scotiabank,7,1,Hardware Stores,41242201.46,620977
-2016-01-01 00:00:00.000000000,Scotiabank,5,1,"Eating Places, Restaurants",95617.74,3381
-2016-07-01 00:00:00.000000000,BMO Bank of Montreal,3,1,Fast Food Restaurants,36.95,4
-2018-11-01 00:00:00.000000000,BMO Bank of Montreal,2,1,Fast Food Restaurants,231.36,12
-2017-02-01 00:00:00.000000000,TD Canada Trust,9,1,Hardware Stores,6026840.26,250767
-2017-04-01 00:00:00.000000000,Royal Bank,7,1,"Eating Places, Restaurants",68427933.67,1958026
-2017-03-01 00:00:00.000000000,TD Canada Trust,2,1,Fast Food Restaurants,121.24,11
-2017-03-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Grocery Stores, Supermarkets",108410.07,2370
-2018-09-01 00:00:00.000000000,CIBC,7,1,"Eating Places, Restaurants",47324592.61,1234310
-2016-09-01 00:00:00.000000000,TD Canada Trust,2,1,"Fuel Dispenser, Automated",882.84,142
-2018-08-01 00:00:00.000000000,Scotiabank,5,1,"Eating Places, Restaurants",95142.50,2654
-2018-09-01 00:00:00.000000000,TD Canada Trust,5,1,Hardware Stores,256464.60,2578
-2017-08-01 00:00:00.000000000,BMO Bank of Montreal,5,1,Fast Food Restaurants,85282.15,6665
-2016-03-01 00:00:00.000000000,TD Canada Trust,2,1,"Fuel Dispenser, Automated",1391.33,110
-2017-06-01 00:00:00.000000000,Scotiabank,4,1,"Drug Stores, Pharmacies",35.67,1
-2016-05-01 00:00:00.000000000,Scotiabank,4,1,Fast Food Restaurants,359.12,34
-2017-03-01 00:00:00.000000000,Scotiabank,9,1,Hardware Stores,4393459.65,167051
-2016-05-01 00:00:00.000000000,Royal Bank,3,1,"Eating Places, Restaurants",705170.99,24203
-2017-01-01 00:00:00.000000000,Royal Bank,2,1,"Grocery Stores, Supermarkets",1133.21,21
-2017-09-01 00:00:00.000000000,Royal Bank,2,1,"Fuel Dispenser, Automated",396.68,130
-2018-07-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,15118044.94,1026665
-2018-08-01 00:00:00.000000000,CIBC,9,1,"Grocery Stores, Supermarkets",22210721.70,930102
-2017-06-01 00:00:00.000000000,Royal Bank,5,1,"Grocery Stores, Supermarkets",307011.85,5985
-2018-12-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Hardware Stores,9052168.64,281928
-2017-06-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Grocery Stores, Supermarkets",102421.16,2377
-2018-07-01 00:00:00.000000000,Royal Bank,3,1,Fast Food Restaurants,23771.67,1904
-2018-01-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Drug Stores, Pharmacies",88388.71,2178
-2016-07-01 00:00:00.000000000,CIBC,4,1,"Eating Places, Restaurants",44381.30,952
-2017-03-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Grocery Stores, Supermarkets",518.16,12
-2018-12-01 00:00:00.000000000,CIBC,7,1,Fast Food Restaurants,18632837.18,1110882
-2018-12-01 00:00:00.000000000,Scotiabank,9,1,"Grocery Stores, Supermarkets",14008027.22,538659
-2016-04-01 00:00:00.000000000,CIBC,5,1,"Drug Stores, Pharmacies",138594.85,3965
-2018-05-01 00:00:00.000000000,CIBC,3,1,"Drug Stores, Pharmacies",206.21,5
-2018-03-01 00:00:00.000000000,Royal Bank,4,1,"Drug Stores, Pharmacies",7.56,1
-2016-02-01 00:00:00.000000000,CIBC,9,1,"Grocery Stores, Supermarkets",2223671.48,103503
-2017-10-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,44656314.14,4294610
-2018-06-01 00:00:00.000000000,Royal Bank,2,1,"Drug Stores, Pharmacies",1.37,1
-2017-02-01 00:00:00.000000000,Scotiabank,4,1,"Eating Places, Restaurants",15.97,1
-2016-08-01 00:00:00.000000000,TD Canada Trust,2,1,Hardware Stores,15557.84,533
-2018-06-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",31818594.11,668860
-2018-09-01 00:00:00.000000000,CIBC,9,1,"Eating Places, Restaurants",13953596.30,793811
-2016-02-01 00:00:00.000000000,TD Canada Trust,2,1,"Drug Stores, Pharmacies",152.77,1
-2018-06-01 00:00:00.000000000,Royal Bank,4,1,"Grocery Stores, Supermarkets",21.90,3
-2016-06-01 00:00:00.000000000,TD Canada Trust,4,1,"Fuel Dispenser, Automated",1384096.14,39626
-2017-10-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,241973.05,3049
-2017-08-01 00:00:00.000000000,Scotiabank,7,1,"Drug Stores, Pharmacies",44300432.83,1199953
-2016-07-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",27419767.66,684862
-2016-10-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Fuel Dispenser, Automated",319.19,51
-2018-04-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Eating Places, Restaurants",33480865.72,892778
-2016-01-01 00:00:00.000000000,CIBC,3,1,"Grocery Stores, Supermarkets",414.15,10
-2018-06-01 00:00:00.000000000,Royal Bank,2,1,Fast Food Restaurants,600.32,49
-2017-11-01 00:00:00.000000000,Royal Bank,4,1,Hardware Stores,46.31,1
-2017-07-01 00:00:00.000000000,CIBC,3,1,Fast Food Restaurants,46.84,6
-2016-11-01 00:00:00.000000000,BMO Bank of Montreal,6,1,"Fuel Dispenser, Automated",0.00,0
-2016-04-01 00:00:00.000000000,CIBC,4,1,"Drug Stores, Pharmacies",25.60,1
-2017-02-01 00:00:00.000000000,TD Canada Trust,5,1,"Drug Stores, Pharmacies",137812.89,3192
-2018-11-01 00:00:00.000000000,Royal Bank,3,1,"Fuel Dispenser, Automated",0.00,0
-2017-12-01 00:00:00.000000000,TD Canada Trust,9,1,Hardware Stores,13192777.46,480967
-2018-11-01 00:00:00.000000000,CIBC,5,1,"Eating Places, Restaurants",109331.74,2875
-2016-05-01 00:00:00.000000000,BMO Bank of Montreal,4,1,"Fuel Dispenser, Automated",974172.12,27357
-2016-08-01 00:00:00.000000000,CIBC,5,1,"Fuel Dispenser, Automated",27483.42,900
-2017-02-01 00:00:00.000000000,CIBC,5,1,Fast Food Restaurants,92370.05,7315
-2016-03-01 00:00:00.000000000,TD Canada Trust,5,1,"Fuel Dispenser, Automated",19880.43,569
-2016-07-01 00:00:00.000000000,Royal Bank,3,1,Hardware Stores,1003422.88,14630
-2016-02-01 00:00:00.000000000,Scotiabank,7,1,Fast Food Restaurants,20520920.77,1621392
-2016-05-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Eating Places, Restaurants",4.20,1
-2018-10-01 00:00:00.000000000,Royal Bank,3,1,"Eating Places, Restaurants",35057.49,627
-2016-07-01 00:00:00.000000000,Royal Bank,4,1,Hardware Stores,3423.20,118
-2017-10-01 00:00:00.000000000,Royal Bank,9,1,"Eating Places, Restaurants",11226018.97,720928
-2016-09-01 00:00:00.000000000,Scotiabank,2,1,"Grocery Stores, Supermarkets",364.34,8
-2016-01-01 00:00:00.000000000,Scotiabank,5,1,"Fuel Dispenser, Automated",10957.83,341
-2018-04-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Fast Food Restaurants,16366434.75,1491827
-2017-09-01 00:00:00.000000000,Scotiabank,7,1,"Fuel Dispenser, Automated",43927943.48,1082937
-2017-08-01 00:00:00.000000000,CIBC,3,1,"Grocery Stores, Supermarkets",496.97,7
-2018-05-01 00:00:00.000000000,TD Canada Trust,2,1,Fast Food Restaurants,210.98,18
-2016-02-01 00:00:00.000000000,CIBC,3,1,Hardware Stores,2392.56,9
-2017-07-01 00:00:00.000000000,TD Canada Trust,2,1,"Eating Places, Restaurants",145.10,16
-2018-08-01 00:00:00.000000000,CIBC,3,1,"Fuel Dispenser, Automated",0.00,0
-2017-12-01 00:00:00.000000000,Royal Bank,5,1,Hardware Stores,356335.45,3690
-2016-11-01 00:00:00.000000000,CIBC,9,1,"Eating Places, Restaurants",3058044.79,238339
-2017-09-01 00:00:00.000000000,Scotiabank,9,1,"Eating Places, Restaurants",4833650.69,327461
-2016-01-01 00:00:00.000000000,Scotiabank,2,1,"Grocery Stores, Supermarkets",463.13,10
-2018-08-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",30872977.97,652465
-2017-05-01 00:00:00.000000000,Scotiabank,5,1,"Eating Places, Restaurants",87768.53,2992
-2018-12-01 00:00:00.000000000,CIBC,9,1,"Eating Places, Restaurants",15088770.49,787545
-2016-05-01 00:00:00.000000000,Royal Bank,5,1,"Grocery Stores, Supermarkets",237761.65,5002
-2016-10-01 00:00:00.000000000,BMO Bank of Montreal,2,1,Fast Food Restaurants,297.38,25
-2017-06-01 00:00:00.000000000,Royal Bank,5,1,"Eating Places, Restaurants",250815.47,7672
-2016-02-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",100218.65,2437
-2017-07-01 00:00:00.000000000,Scotiabank,3,1,"Eating Places, Restaurants",13.28,1
-2018-07-01 00:00:00.000000000,Royal Bank,4,1,"Fuel Dispenser, Automated",0.00,0
-2016-08-01 00:00:00.000000000,Royal Bank,4,1,"Grocery Stores, Supermarkets",15582.23,399
-2018-04-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,14834090.13,994061
-2018-01-01 00:00:00.000000000,CIBC,5,1,Fast Food Restaurants,71759.22,5153
-2017-03-01 00:00:00.000000000,Royal Bank,5,1,"Drug Stores, Pharmacies",161282.15,3407
-2016-02-01 00:00:00.000000000,BMO Bank of Montreal,4,1,Fast Food Restaurants,13244.53,1974
-2016-04-01 00:00:00.000000000,CIBC,4,1,Hardware Stores,8967.46,260
-2017-08-01 00:00:00.000000000,TD Canada Trust,4,1,Hardware Stores,299.16,2
-2018-08-01 00:00:00.000000000,Royal Bank,7,1,"Drug Stores, Pharmacies",56430795.80,1217147
-2016-09-01 00:00:00.000000000,Scotiabank,4,1,Hardware Stores,2381.71,86
-2018-08-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Fuel Dispenser, Automated",46742543.27,1021335
-2016-09-01 00:00:00.000000000,Scotiabank,5,1,"Fuel Dispenser, Automated",7113.42,221
-2017-04-01 00:00:00.000000000,Royal Bank,3,1,Fast Food Restaurants,28114.76,2356
-2018-07-01 00:00:00.000000000,TD Canada Trust,9,1,"Grocery Stores, Supermarkets",21132511.35,1004810
-2019-01-01 00:00:00.000000000,TD Canada Trust,5,1,"Eating Places, Restaurants",135636.78,3576
-2017-01-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,16938302.86,1285887
-2018-12-01 00:00:00.000000000,TD Canada Trust,4,1,"Eating Places, Restaurants",44.94,1
-2018-09-01 00:00:00.000000000,TD Canada Trust,7,1,"Fuel Dispenser, Automated",112849372.24,2451916
-2016-11-01 00:00:00.000000000,Royal Bank,2,1,Fast Food Restaurants,234.02,19
-2018-05-01 00:00:00.000000000,TD Canada Trust,3,1,Hardware Stores,2426.53,22
-2016-05-01 00:00:00.000000000,CIBC,7,1,"Fuel Dispenser, Automated",55923945.43,1537176
-2018-07-01 00:00:00.000000000,TD Canada Trust,9,1,"Drug Stores, Pharmacies",41728774.68,2148388
-2018-12-01 00:00:00.000000000,TD Canada Trust,5,1,"Fuel Dispenser, Automated",137.75,7
-2017-11-01 00:00:00.000000000,Royal Bank,2,1,"Fuel Dispenser, Automated",577.21,208
-2018-03-01 00:00:00.000000000,Royal Bank,7,1,Fast Food Restaurants,22403194.46,1461244
-2017-08-01 00:00:00.000000000,TD Canada Trust,7,1,"Grocery Stores, Supermarkets",72790882.90,1563915
-2016-06-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,5319213.22,186033
-2018-05-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,102923.48,7315
-2017-07-01 00:00:00.000000000,TD Canada Trust,7,1,Hardware Stores,101486118.06,1305539
-2017-04-01 00:00:00.000000000,CIBC,3,1,Fast Food Restaurants,31.88,3
-2017-04-01 00:00:00.000000000,CIBC,2,1,"Drug Stores, Pharmacies",22.84,1
-2017-06-01 00:00:00.000000000,Royal Bank,2,1,Fast Food Restaurants,147.19,11
-2018-06-01 00:00:00.000000000,TD Canada Trust,7,1,Fast Food Restaurants,39118256.35,2676894
-2016-11-01 00:00:00.000000000,Royal Bank,7,1,"Grocery Stores, Supermarkets",61242015.13,1259645
-2017-03-01 00:00:00.000000000,TD Canada Trust,3,1,"Grocery Stores, Supermarkets",2276.39,72
-2018-12-01 00:00:00.000000000,Royal Bank,7,1,Hardware Stores,92346601.32,958563
-2017-11-01 00:00:00.000000000,Royal Bank,3,1,"Drug Stores, Pharmacies",72199.50,1668
-2017-06-01 00:00:00.000000000,CIBC,7,1,"Drug Stores, Pharmacies",57209791.49,1495547
-2016-05-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,25019807.03,2643535
-2018-11-01 00:00:00.000000000,Royal Bank,5,1,Fast Food Restaurants,78118.23,4977
-2016-03-01 00:00:00.000000000,TD Canada Trust,7,1,Hardware Stores,63648044.89,927390
-2017-06-01 00:00:00.000000000,BMO Bank of Montreal,2,1,Fast Food Restaurants,36.60,4
-2017-03-01 00:00:00.000000000,Scotiabank,7,1,"Drug Stores, Pharmacies",45626089.27,1276550
-2017-02-01 00:00:00.000000000,CIBC,7,1,Fast Food Restaurants,23599286.64,1754595
-2017-06-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Drug Stores, Pharmacies",40989085.36,1109354
+2017-09-01 00:00:00.000000000,Scotiabank,2,2,"Fuel Dispenser, Automated",283.96,63
+2016-03-01 00:00:00.000000000,Royal Bank,7,2,Fast Food Restaurants,29285410.92,2205524
+2017-10-01 00:00:00.000000000,BMO Bank of Montreal,4,2,"Fuel Dispenser, Automated",0.00,0
+2017-02-01 00:00:00.000000000,CIBC,3,2,"Eating Places, Restaurants",15.72,1
+2016-11-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Fuel Dispenser, Automated",28956427.24,766066
+2017-12-01 00:00:00.000000000,TD Canada Trust,5,2,"Grocery Stores, Supermarkets",209403.40,4293
+2018-07-01 00:00:00.000000000,Scotiabank,5,2,Fast Food Restaurants,65479.79,4599
+2016-03-01 00:00:00.000000000,Royal Bank,5,2,"Grocery Stores, Supermarkets",236136.23,5106
+2019-01-01 00:00:00.000000000,TD Canada Trust,3,2,"Grocery Stores, Supermarkets",244.68,9
+2018-09-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,197380.83,1880
+2017-09-01 00:00:00.000000000,Scotiabank,4,2,"Eating Places, Restaurants",46.09,3
+2017-03-01 00:00:00.000000000,Scotiabank,5,2,Hardware Stores,137520.85,1842
+2018-07-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Fuel Dispenser, Automated",44053695.21,966888
+2016-11-01 00:00:00.000000000,CIBC,2,2,Fast Food Restaurants,315.27,24
+2019-01-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Grocery Stores, Supermarkets",81033.91,1573
+2018-03-01 00:00:00.000000000,CIBC,3,2,"Grocery Stores, Supermarkets",267.66,3
+2016-06-01 00:00:00.000000000,TD Canada Trust,2,2,"Fuel Dispenser, Automated",2027.84,194
+2016-03-01 00:00:00.000000000,Royal Bank,9,2,"Eating Places, Restaurants",3815705.53,314467
+2018-04-01 00:00:00.000000000,Scotiabank,5,2,Fast Food Restaurants,63290.52,4483
+2016-01-01 00:00:00.000000000,BMO Bank of Montreal,5,2,Hardware Stores,143780.61,2249
+2017-10-01 00:00:00.000000000,TD Canada Trust,3,2,Fast Food Restaurants,389.54,27
+2016-06-01 00:00:00.000000000,CIBC,5,2,"Grocery Stores, Supermarkets",164781.00,3956
+2017-04-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,248098.15,3594
+2016-09-01 00:00:00.000000000,TD Canada Trust,3,2,"Fuel Dispenser, Automated",102573.61,2645
+2016-04-01 00:00:00.000000000,CIBC,4,2,"Eating Places, Restaurants",44442.48,1298
+2018-02-01 00:00:00.000000000,Scotiabank,2,2,"Grocery Stores, Supermarkets",162.43,7
+2018-03-01 00:00:00.000000000,CIBC,2,2,"Fuel Dispenser, Automated",7.96,71
+2017-02-01 00:00:00.000000000,Scotiabank,9,2,"Eating Places, Restaurants",2664424.59,200175
+2017-06-01 00:00:00.000000000,TD Canada Trust,2,2,Hardware Stores,20659.74,661
+2019-01-01 00:00:00.000000000,TD Canada Trust,2,2,"Fuel Dispenser, Automated",589.09,135
+2016-09-01 00:00:00.000000000,TD Canada Trust,9,2,"Fuel Dispenser, Automated",10506702.35,526643
+2018-11-01 00:00:00.000000000,Scotiabank,4,2,Fast Food Restaurants,60.23,6
+2017-12-01 00:00:00.000000000,Scotiabank,7,2,"Drug Stores, Pharmacies",69329952.47,1493181
+2018-05-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",102599.05,2238
+2018-02-01 00:00:00.000000000,Royal Bank,9,2,"Drug Stores, Pharmacies",46316326.59,2034763
+2017-07-01 00:00:00.000000000,Royal Bank,3,2,"Grocery Stores, Supermarkets",145653.70,2024
+2018-09-01 00:00:00.000000000,BMO Bank of Montreal,9,2,Fast Food Restaurants,19914414.55,1770870
+2016-04-01 00:00:00.000000000,CIBC,9,2,"Drug Stores, Pharmacies",10140937.25,491539
+2017-04-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Eating Places, Restaurants",34784783.10,1015970
+2018-02-01 00:00:00.000000000,TD Canada Trust,3,2,Hardware Stores,2864.10,9
+2017-02-01 00:00:00.000000000,Scotiabank,3,2,Hardware Stores,406.77,3
+2018-04-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Fuel Dispenser, Automated",3898.15,100
+2017-08-01 00:00:00.000000000,TD Canada Trust,7,2,"Eating Places, Restaurants",88919089.89,2466541
+2017-08-01 00:00:00.000000000,CIBC,7,2,"Grocery Stores, Supermarkets",55175620.20,1190991
+2017-03-01 00:00:00.000000000,Royal Bank,4,2,"Fuel Dispenser, Automated",0.00,0
+2016-11-01 00:00:00.000000000,Scotiabank,9,2,"Fuel Dispenser, Automated",3512596.12,144114
+2018-09-01 00:00:00.000000000,Royal Bank,7,2,Hardware Stores,72751046.94,768879
+2018-05-01 00:00:00.000000000,Scotiabank,2,2,"Eating Places, Restaurants",296.74,6
+2018-12-01 00:00:00.000000000,CIBC,2,2,Hardware Stores,525.87,7
+2016-03-01 00:00:00.000000000,Royal Bank,4,2,Hardware Stores,32463.75,886
+2018-02-01 00:00:00.000000000,TD Canada Trust,7,2,"Fuel Dispenser, Automated",78261106.14,1799203
+2018-01-01 00:00:00.000000000,TD Canada Trust,3,2,"Drug Stores, Pharmacies",4537.63,62
+2016-09-01 00:00:00.000000000,Scotiabank,7,2,Hardware Stores,53658361.16,763765
+2018-06-01 00:00:00.000000000,TD Canada Trust,5,2,"Eating Places, Restaurants",171301.17,4682
+2016-07-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,24914084.54,2041086
+2016-03-01 00:00:00.000000000,Royal Bank,3,2,Hardware Stores,508571.67,7665
+2017-09-01 00:00:00.000000000,Royal Bank,7,2,"Fuel Dispenser, Automated",72463199.74,1697262
+2016-06-01 00:00:00.000000000,TD Canada Trust,5,2,"Fuel Dispenser, Automated",23198.55,562
+2017-04-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Grocery Stores, Supermarkets",5021698.82,207123
+2018-06-01 00:00:00.000000000,CIBC,3,2,"Eating Places, Restaurants",81.08,2
+2018-04-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Grocery Stores, Supermarkets",8529962.36,348889
+2017-09-01 00:00:00.000000000,BMO Bank of Montreal,6,2,"Fuel Dispenser, Automated",0.00,0
+2016-06-01 00:00:00.000000000,Royal Bank,4,2,"Grocery Stores, Supermarkets",56643.08,1375
+2016-07-01 00:00:00.000000000,TD Canada Trust,7,2,Hardware Stores,98658866.16,1375060
+2016-01-01 00:00:00.000000000,CIBC,9,2,Hardware Stores,2267957.60,86693
+2016-08-01 00:00:00.000000000,BMO Bank of Montreal,9,2,Fast Food Restaurants,3310889.80,315452
+2018-05-01 00:00:00.000000000,CIBC,7,2,"Drug Stores, Pharmacies",46619501.21,1099848
+2017-05-01 00:00:00.000000000,CIBC,4,2,"Fuel Dispenser, Automated",0.00,0
+2017-01-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Eating Places, Restaurants",81912.00,2598
+2017-12-01 00:00:00.000000000,Royal Bank,5,2,"Drug Stores, Pharmacies",287620.42,4229
+2017-08-01 00:00:00.000000000,CIBC,9,2,Hardware Stores,9975679.33,355331
+2016-12-01 00:00:00.000000000,Royal Bank,9,2,"Drug Stores, Pharmacies",50018526.47,1999785
+2016-02-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,18768750.71,1945731
+2017-09-01 00:00:00.000000000,CIBC,2,2,"Fuel Dispenser, Automated",59.71,91
+2018-12-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Eating Places, Restaurants",8217447.49,407259
+2016-05-01 00:00:00.000000000,TD Canada Trust,3,2,"Grocery Stores, Supermarkets",93993.35,2097
+2018-03-01 00:00:00.000000000,Royal Bank,9,2,Fast Food Restaurants,47355271.39,4296789
+2016-03-01 00:00:00.000000000,Scotiabank,2,2,"Eating Places, Restaurants",46.78,3
+2017-04-01 00:00:00.000000000,Scotiabank,7,2,"Drug Stores, Pharmacies",48204364.85,1321807
+2018-02-01 00:00:00.000000000,BMO Bank of Montreal,3,2,"Eating Places, Restaurants",25.13,1
+2016-03-01 00:00:00.000000000,Royal Bank,2,2,"Grocery Stores, Supermarkets",938.70,24
+2017-08-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Eating Places, Restaurants",35532020.53,1020954
+2016-08-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,22288264.94,1813034
+2018-05-01 00:00:00.000000000,TD Canada Trust,3,2,"Eating Places, Restaurants",1663.09,31
+2016-06-01 00:00:00.000000000,Royal Bank,9,2,"Fuel Dispenser, Automated",14109932.60,605353
+2017-08-01 00:00:00.000000000,TD Canada Trust,3,2,Fast Food Restaurants,764.69,50
+2018-05-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",32062666.31,689611
+2018-11-01 00:00:00.000000000,Royal Bank,5,2,"Eating Places, Restaurants",160466.11,4450
+2018-02-01 00:00:00.000000000,CIBC,4,2,"Fuel Dispenser, Automated",0.00,0
+2016-07-01 00:00:00.000000000,CIBC,9,2,"Fuel Dispenser, Automated",6429374.69,291320
+2016-12-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",123962.98,2568
+2016-03-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",24028740.07,635697
+2017-03-01 00:00:00.000000000,BMO Bank of Montreal,5,2,Fast Food Restaurants,66384.37,5287
+2018-05-01 00:00:00.000000000,Scotiabank,2,2,"Grocery Stores, Supermarkets",168.30,5
+2016-07-01 00:00:00.000000000,Scotiabank,7,2,"Fuel Dispenser, Automated",45363610.01,1240581
+2017-04-01 00:00:00.000000000,TD Canada Trust,9,2,"Grocery Stores, Supermarkets",15472237.37,733507
+2019-01-01 00:00:00.000000000,Scotiabank,9,2,"Eating Places, Restaurants",10014005.20,577490
+2017-04-01 00:00:00.000000000,TD Canada Trust,2,2,"Eating Places, Restaurants",18.47,3
+2018-01-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,136592.14,1781
+2017-11-01 00:00:00.000000000,Royal Bank,9,2,"Eating Places, Restaurants",11343134.18,725988
+2016-06-01 00:00:00.000000000,TD Canada Trust,2,2,Fast Food Restaurants,151.53,10
+2018-07-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Drug Stores, Pharmacies",34691436.36,867285
+2018-09-01 00:00:00.000000000,Scotiabank,6,2,"Fuel Dispenser, Automated",0.00,0
+2016-09-01 00:00:00.000000000,TD Canada Trust,5,2,"Drug Stores, Pharmacies",152386.96,3929
+2018-07-01 00:00:00.000000000,CIBC,7,2,"Fuel Dispenser, Automated",70735972.80,1519419
+2016-12-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Eating Places, Restaurants",31734282.94,930570
+2016-03-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,22873203.30,1901675
+2018-02-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",106289.34,2265
+2016-04-01 00:00:00.000000000,CIBC,4,2,Fast Food Restaurants,20922.39,3515
+2017-05-01 00:00:00.000000000,CIBC,2,2,"Grocery Stores, Supermarkets",1179.77,26
+2016-07-01 00:00:00.000000000,BMO Bank of Montreal,4,2,"Fuel Dispenser, Automated",850176.02,23421
+2018-02-01 00:00:00.000000000,Scotiabank,7,2,Hardware Stores,35226528.41,453050
+2018-05-01 00:00:00.000000000,Royal Bank,5,2,Hardware Stores,360545.67,4106
+2017-10-01 00:00:00.000000000,Royal Bank,5,2,"Grocery Stores, Supermarkets",342292.46,6289
+2016-03-01 00:00:00.000000000,Scotiabank,3,2,"Drug Stores, Pharmacies",20.73,2
+2017-02-01 00:00:00.000000000,BMO Bank of Montreal,2,2,Hardware Stores,250.00,1
+2018-10-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Fuel Dispenser, Automated",44483891.25,972813
+2018-07-01 00:00:00.000000000,Scotiabank,2,2,Fast Food Restaurants,464.66,38
+2017-09-01 00:00:00.000000000,TD Canada Trust,3,2,"Eating Places, Restaurants",1283.34,29
+2017-12-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Drug Stores, Pharmacies",130898.56,2679
+2018-03-01 00:00:00.000000000,Royal Bank,3,2,"Eating Places, Restaurants",27484.17,728
+2018-09-01 00:00:00.000000000,Royal Bank,3,2,"Fuel Dispenser, Automated",28.93,2
+2016-03-01 00:00:00.000000000,BMO Bank of Montreal,3,2,Hardware Stores,28.93,1
+2018-12-01 00:00:00.000000000,TD Canada Trust,3,2,"Fuel Dispenser, Automated",0.00,0
+2017-07-01 00:00:00.000000000,Scotiabank,9,2,Fast Food Restaurants,19951603.54,1922664
+2016-01-01 00:00:00.000000000,Scotiabank,9,2,Hardware Stores,2840629.27,110134
+2016-05-01 00:00:00.000000000,TD Canada Trust,7,2,"Fuel Dispenser, Automated",89135561.36,2436430
+2016-11-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",31085068.40,733343
+2017-06-01 00:00:00.000000000,Scotiabank,4,2,Fast Food Restaurants,1.00,1
+2017-08-01 00:00:00.000000000,Royal Bank,7,2,Hardware Stores,73094333.14,878455
+2016-08-01 00:00:00.000000000,Royal Bank,4,2,"Drug Stores, Pharmacies",94.37,3
+2018-01-01 00:00:00.000000000,Royal Bank,7,2,"Grocery Stores, Supermarkets",66872092.80,1190401
+2018-06-01 00:00:00.000000000,Royal Bank,5,2,"Eating Places, Restaurants",204645.79,5728
+2016-11-01 00:00:00.000000000,TD Canada Trust,3,2,"Eating Places, Restaurants",6028.14,161
+2018-06-01 00:00:00.000000000,TD Canada Trust,9,2,"Drug Stores, Pharmacies",42254645.04,2145890
+2017-12-01 00:00:00.000000000,Royal Bank,9,2,Fast Food Restaurants,45942598.79,4003833
+2018-04-01 00:00:00.000000000,TD Canada Trust,3,2,Fast Food Restaurants,478.48,30
+2019-01-01 00:00:00.000000000,CIBC,7,2,"Grocery Stores, Supermarkets",46202456.12,830659
+2018-12-01 00:00:00.000000000,TD Canada Trust,9,2,"Fuel Dispenser, Automated",14473711.98,568151
+2016-03-01 00:00:00.000000000,Scotiabank,7,2,Hardware Stores,41242201.46,620977
+2016-01-01 00:00:00.000000000,Scotiabank,5,2,"Eating Places, Restaurants",95617.74,3381
+2016-07-01 00:00:00.000000000,BMO Bank of Montreal,3,2,Fast Food Restaurants,36.95,4
+2018-11-01 00:00:00.000000000,BMO Bank of Montreal,2,2,Fast Food Restaurants,231.36,12
+2017-02-01 00:00:00.000000000,TD Canada Trust,9,2,Hardware Stores,6026840.26,250767
+2017-04-01 00:00:00.000000000,Royal Bank,7,2,"Eating Places, Restaurants",68427933.67,1958026
+2017-03-01 00:00:00.000000000,TD Canada Trust,2,2,Fast Food Restaurants,121.24,11
+2017-03-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Grocery Stores, Supermarkets",108410.07,2370
+2018-09-01 00:00:00.000000000,CIBC,7,2,"Eating Places, Restaurants",47324592.61,1234310
+2016-09-01 00:00:00.000000000,TD Canada Trust,2,2,"Fuel Dispenser, Automated",882.84,142
+2018-08-01 00:00:00.000000000,Scotiabank,5,2,"Eating Places, Restaurants",95142.50,2654
+2018-09-01 00:00:00.000000000,TD Canada Trust,5,2,Hardware Stores,256464.60,2578
+2017-08-01 00:00:00.000000000,BMO Bank of Montreal,5,2,Fast Food Restaurants,85282.15,6665
+2016-03-01 00:00:00.000000000,TD Canada Trust,2,2,"Fuel Dispenser, Automated",1391.33,110
+2017-06-01 00:00:00.000000000,Scotiabank,4,2,"Drug Stores, Pharmacies",35.67,1
+2016-05-01 00:00:00.000000000,Scotiabank,4,2,Fast Food Restaurants,359.12,34
+2017-03-01 00:00:00.000000000,Scotiabank,9,2,Hardware Stores,4393459.65,167051
+2016-05-01 00:00:00.000000000,Royal Bank,3,2,"Eating Places, Restaurants",705170.99,24203
+2017-01-01 00:00:00.000000000,Royal Bank,2,2,"Grocery Stores, Supermarkets",1133.21,21
+2017-09-01 00:00:00.000000000,Royal Bank,2,2,"Fuel Dispenser, Automated",396.68,130
+2018-07-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,15118044.94,1026665
+2018-08-01 00:00:00.000000000,CIBC,9,2,"Grocery Stores, Supermarkets",22210721.70,930102
+2017-06-01 00:00:00.000000000,Royal Bank,5,2,"Grocery Stores, Supermarkets",307011.85,5985
+2018-12-01 00:00:00.000000000,BMO Bank of Montreal,9,2,Hardware Stores,9052168.64,281928
+2017-06-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Grocery Stores, Supermarkets",102421.16,2377
+2018-07-01 00:00:00.000000000,Royal Bank,3,2,Fast Food Restaurants,23771.67,1904
+2018-01-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Drug Stores, Pharmacies",88388.71,2178
+2016-07-01 00:00:00.000000000,CIBC,4,2,"Eating Places, Restaurants",44381.30,952
+2017-03-01 00:00:00.000000000,BMO Bank of Montreal,2,2,"Grocery Stores, Supermarkets",518.16,12
+2018-12-01 00:00:00.000000000,CIBC,7,2,Fast Food Restaurants,18632837.18,1110882
+2018-12-01 00:00:00.000000000,Scotiabank,9,2,"Grocery Stores, Supermarkets",14008027.22,538659
+2016-04-01 00:00:00.000000000,CIBC,5,2,"Drug Stores, Pharmacies",138594.85,3965
+2018-05-01 00:00:00.000000000,CIBC,3,2,"Drug Stores, Pharmacies",206.21,5
+2018-03-01 00:00:00.000000000,Royal Bank,4,2,"Drug Stores, Pharmacies",7.56,1
+2016-02-01 00:00:00.000000000,CIBC,9,2,"Grocery Stores, Supermarkets",2223671.48,103503
+2017-10-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,44656314.14,4294610
+2018-06-01 00:00:00.000000000,Royal Bank,2,2,"Drug Stores, Pharmacies",1.37,1
+2017-02-01 00:00:00.000000000,Scotiabank,4,2,"Eating Places, Restaurants",15.97,1
+2016-08-01 00:00:00.000000000,TD Canada Trust,2,2,Hardware Stores,15557.84,533
+2018-06-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",31818594.11,668860
+2018-09-01 00:00:00.000000000,CIBC,9,2,"Eating Places, Restaurants",13953596.30,793811
+2016-02-01 00:00:00.000000000,TD Canada Trust,2,2,"Drug Stores, Pharmacies",152.77,1
+2018-06-01 00:00:00.000000000,Royal Bank,4,2,"Grocery Stores, Supermarkets",21.90,3
+2016-06-01 00:00:00.000000000,TD Canada Trust,4,2,"Fuel Dispenser, Automated",1384096.14,39626
+2017-10-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,241973.05,3049
+2017-08-01 00:00:00.000000000,Scotiabank,7,2,"Drug Stores, Pharmacies",44300432.83,1199953
+2016-07-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",27419767.66,684862
+2016-10-01 00:00:00.000000000,BMO Bank of Montreal,2,2,"Fuel Dispenser, Automated",319.19,51
+2018-04-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Eating Places, Restaurants",33480865.72,892778
+2016-01-01 00:00:00.000000000,CIBC,3,2,"Grocery Stores, Supermarkets",414.15,10
+2018-06-01 00:00:00.000000000,Royal Bank,2,2,Fast Food Restaurants,600.32,49
+2017-11-01 00:00:00.000000000,Royal Bank,4,2,Hardware Stores,46.31,1
+2017-07-01 00:00:00.000000000,CIBC,3,2,Fast Food Restaurants,46.84,6
+2016-11-01 00:00:00.000000000,BMO Bank of Montreal,6,2,"Fuel Dispenser, Automated",0.00,0
+2016-04-01 00:00:00.000000000,CIBC,4,2,"Drug Stores, Pharmacies",25.60,1
+2017-02-01 00:00:00.000000000,TD Canada Trust,5,2,"Drug Stores, Pharmacies",137812.89,3192
+2018-11-01 00:00:00.000000000,Royal Bank,3,2,"Fuel Dispenser, Automated",0.00,0
+2017-12-01 00:00:00.000000000,TD Canada Trust,9,2,Hardware Stores,13192777.46,480967
+2018-11-01 00:00:00.000000000,CIBC,5,2,"Eating Places, Restaurants",109331.74,2875
+2016-05-01 00:00:00.000000000,BMO Bank of Montreal,4,2,"Fuel Dispenser, Automated",974172.12,27357
+2016-08-01 00:00:00.000000000,CIBC,5,2,"Fuel Dispenser, Automated",27483.42,900
+2017-02-01 00:00:00.000000000,CIBC,5,2,Fast Food Restaurants,92370.05,7315
+2016-03-01 00:00:00.000000000,TD Canada Trust,5,2,"Fuel Dispenser, Automated",19880.43,569
+2016-07-01 00:00:00.000000000,Royal Bank,3,2,Hardware Stores,1003422.88,14630
+2016-02-01 00:00:00.000000000,Scotiabank,7,2,Fast Food Restaurants,20520920.77,1621392
+2016-05-01 00:00:00.000000000,BMO Bank of Montreal,2,2,"Eating Places, Restaurants",4.20,1
+2018-10-01 00:00:00.000000000,Royal Bank,3,2,"Eating Places, Restaurants",35057.49,627
+2016-07-01 00:00:00.000000000,Royal Bank,4,2,Hardware Stores,3423.20,118
+2017-10-01 00:00:00.000000000,Royal Bank,9,2,"Eating Places, Restaurants",11226018.97,720928
+2016-09-01 00:00:00.000000000,Scotiabank,2,2,"Grocery Stores, Supermarkets",364.34,8
+2016-01-01 00:00:00.000000000,Scotiabank,5,2,"Fuel Dispenser, Automated",10957.83,341
+2018-04-01 00:00:00.000000000,BMO Bank of Montreal,9,2,Fast Food Restaurants,16366434.75,1491827
+2017-09-01 00:00:00.000000000,Scotiabank,7,2,"Fuel Dispenser, Automated",43927943.48,1082937
+2017-08-01 00:00:00.000000000,CIBC,3,2,"Grocery Stores, Supermarkets",496.97,7
+2018-05-01 00:00:00.000000000,TD Canada Trust,2,2,Fast Food Restaurants,210.98,18
+2016-02-01 00:00:00.000000000,CIBC,3,2,Hardware Stores,2392.56,9
+2017-07-01 00:00:00.000000000,TD Canada Trust,2,2,"Eating Places, Restaurants",145.10,16
+2018-08-01 00:00:00.000000000,CIBC,3,2,"Fuel Dispenser, Automated",0.00,0
+2017-12-01 00:00:00.000000000,Royal Bank,5,2,Hardware Stores,356335.45,3690
+2016-11-01 00:00:00.000000000,CIBC,9,2,"Eating Places, Restaurants",3058044.79,238339
+2017-09-01 00:00:00.000000000,Scotiabank,9,2,"Eating Places, Restaurants",4833650.69,327461
+2016-01-01 00:00:00.000000000,Scotiabank,2,2,"Grocery Stores, Supermarkets",463.13,10
+2018-08-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",30872977.97,652465
+2017-05-01 00:00:00.000000000,Scotiabank,5,2,"Eating Places, Restaurants",87768.53,2992
+2018-12-01 00:00:00.000000000,CIBC,9,2,"Eating Places, Restaurants",15088770.49,787545
+2016-05-01 00:00:00.000000000,Royal Bank,5,2,"Grocery Stores, Supermarkets",237761.65,5002
+2016-10-01 00:00:00.000000000,BMO Bank of Montreal,2,2,Fast Food Restaurants,297.38,25
+2017-06-01 00:00:00.000000000,Royal Bank,5,2,"Eating Places, Restaurants",250815.47,7672
+2016-02-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",100218.65,2437
+2017-07-01 00:00:00.000000000,Scotiabank,3,2,"Eating Places, Restaurants",13.28,1
+2018-07-01 00:00:00.000000000,Royal Bank,4,2,"Fuel Dispenser, Automated",0.00,0
+2016-08-01 00:00:00.000000000,Royal Bank,4,2,"Grocery Stores, Supermarkets",15582.23,399
+2018-04-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,14834090.13,994061
+2018-01-01 00:00:00.000000000,CIBC,5,2,Fast Food Restaurants,71759.22,5153
+2017-03-01 00:00:00.000000000,Royal Bank,5,2,"Drug Stores, Pharmacies",161282.15,3407
+2016-02-01 00:00:00.000000000,BMO Bank of Montreal,4,2,Fast Food Restaurants,13244.53,1974
+2016-04-01 00:00:00.000000000,CIBC,4,2,Hardware Stores,8967.46,260
+2017-08-01 00:00:00.000000000,TD Canada Trust,4,2,Hardware Stores,299.16,2
+2018-08-01 00:00:00.000000000,Royal Bank,7,2,"Drug Stores, Pharmacies",56430795.80,1217147
+2016-09-01 00:00:00.000000000,Scotiabank,4,2,Hardware Stores,2381.71,86
+2018-08-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Fuel Dispenser, Automated",46742543.27,1021335
+2016-09-01 00:00:00.000000000,Scotiabank,5,2,"Fuel Dispenser, Automated",7113.42,221
+2017-04-01 00:00:00.000000000,Royal Bank,3,2,Fast Food Restaurants,28114.76,2356
+2018-07-01 00:00:00.000000000,TD Canada Trust,9,2,"Grocery Stores, Supermarkets",21132511.35,1004810
+2019-01-01 00:00:00.000000000,TD Canada Trust,5,2,"Eating Places, Restaurants",135636.78,3576
+2017-01-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,16938302.86,1285887
+2018-12-01 00:00:00.000000000,TD Canada Trust,4,2,"Eating Places, Restaurants",44.94,1
+2018-09-01 00:00:00.000000000,TD Canada Trust,7,2,"Fuel Dispenser, Automated",112849372.24,2451916
+2016-11-01 00:00:00.000000000,Royal Bank,2,2,Fast Food Restaurants,234.02,19
+2018-05-01 00:00:00.000000000,TD Canada Trust,3,2,Hardware Stores,2426.53,22
+2016-05-01 00:00:00.000000000,CIBC,7,2,"Fuel Dispenser, Automated",55923945.43,1537176
+2018-07-01 00:00:00.000000000,TD Canada Trust,9,2,"Drug Stores, Pharmacies",41728774.68,2148388
+2018-12-01 00:00:00.000000000,TD Canada Trust,5,2,"Fuel Dispenser, Automated",137.75,7
+2017-11-01 00:00:00.000000000,Royal Bank,2,2,"Fuel Dispenser, Automated",577.21,208
+2018-03-01 00:00:00.000000000,Royal Bank,7,2,Fast Food Restaurants,22403194.46,1461244
+2017-08-01 00:00:00.000000000,TD Canada Trust,7,2,"Grocery Stores, Supermarkets",72790882.90,1563915
+2016-06-01 00:00:00.000000000,CIBC,9,2,Hardware Stores,5319213.22,186033
+2018-05-01 00:00:00.000000000,TD Canada Trust,5,2,Fast Food Restaurants,102923.48,7315
+2017-07-01 00:00:00.000000000,TD Canada Trust,7,2,Hardware Stores,101486118.06,1305539
+2017-04-01 00:00:00.000000000,CIBC,3,2,Fast Food Restaurants,31.88,3
+2017-04-01 00:00:00.000000000,CIBC,2,2,"Drug Stores, Pharmacies",22.84,1
+2017-06-01 00:00:00.000000000,Royal Bank,2,2,Fast Food Restaurants,147.19,11
+2018-06-01 00:00:00.000000000,TD Canada Trust,7,2,Fast Food Restaurants,39118256.35,2676894
+2016-11-01 00:00:00.000000000,Royal Bank,7,2,"Grocery Stores, Supermarkets",61242015.13,1259645
+2017-03-01 00:00:00.000000000,TD Canada Trust,3,2,"Grocery Stores, Supermarkets",2276.39,72
+2018-12-01 00:00:00.000000000,Royal Bank,7,2,Hardware Stores,92346601.32,958563
+2017-11-01 00:00:00.000000000,Royal Bank,3,2,"Drug Stores, Pharmacies",72199.50,1668
+2017-06-01 00:00:00.000000000,CIBC,7,2,"Drug Stores, Pharmacies",57209791.49,1495547
+2016-05-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,25019807.03,2643535
+2018-11-01 00:00:00.000000000,Royal Bank,5,2,Fast Food Restaurants,78118.23,4977
+2016-03-01 00:00:00.000000000,TD Canada Trust,7,2,Hardware Stores,63648044.89,927390
+2017-06-01 00:00:00.000000000,BMO Bank of Montreal,2,2,Fast Food Restaurants,36.60,4
+2017-03-01 00:00:00.000000000,Scotiabank,7,2,"Drug Stores, Pharmacies",45626089.27,1276550
+2017-02-01 00:00:00.000000000,CIBC,7,2,Fast Food Restaurants,23599286.64,1754595
+2017-06-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Drug Stores, Pharmacies",40989085.36,1109354
 2016-12-01 00:00:00.000000000,Royal Bank,3,1,Fast Food Restaurants,29216.18,2579
 2018-11-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Drug Stores, Pharmacies",35932878.82,827547
 2017-05-01 00:00:00.000000000,Scotiabank,5,1,"Fuel Dispenser, Automated",1688.43,66
@@ -565,122 +565,122 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2017-09-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Fuel Dispenser, Automated",310.86,73
 2018-06-01 00:00:00.000000000,BMO Bank of Montreal,2,1,Hardware Stores,275.98,4
 2017-08-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Drug Stores, Pharmacies",12506014.35,564550
-2017-03-01 00:00:00.000000000,CIBC,5,1,"Eating Places, Restaurants",133229.24,4371
-2016-04-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Fast Food Restaurants,525.34,55
-2018-12-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,79659.46,5135
-2016-08-01 00:00:00.000000000,BMO Bank of Montreal,3,1,Fast Food Restaurants,11.29,1
-2016-08-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",25357452.34,647330
-2016-09-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",97245.92,2406
-2017-08-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,42111715.94,4161270
-2017-02-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Grocery Stores, Supermarkets",3897808.07,158948
-2018-09-01 00:00:00.000000000,CIBC,2,1,"Eating Places, Restaurants",235.41,16
-2018-10-01 00:00:00.000000000,TD Canada Trust,3,1,Hardware Stores,467.38,7
-2016-05-01 00:00:00.000000000,Scotiabank,3,1,"Drug Stores, Pharmacies",40.86,2
-2018-12-01 00:00:00.000000000,Royal Bank,9,1,"Fuel Dispenser, Automated",17591945.16,649466
-2018-06-01 00:00:00.000000000,CIBC,2,1,"Fuel Dispenser, Automated",0.00,113
-2017-01-01 00:00:00.000000000,TD Canada Trust,5,1,Hardware Stores,208866.98,2912
-2018-10-01 00:00:00.000000000,TD Canada Trust,7,1,"Fuel Dispenser, Automated",114361097.34,2494103
-2018-12-01 00:00:00.000000000,TD Canada Trust,7,1,"Eating Places, Restaurants",75842899.86,1827209
-2018-04-01 00:00:00.000000000,TD Canada Trust,5,1,"Grocery Stores, Supermarkets",175626.57,3750
-2017-05-01 00:00:00.000000000,Royal Bank,9,1,"Drug Stores, Pharmacies",44454134.46,1961429
-2016-01-01 00:00:00.000000000,CIBC,7,1,Hardware Stores,47656138.07,789696
-2017-01-01 00:00:00.000000000,TD Canada Trust,3,1,"Fuel Dispenser, Automated",220.26,6
-2016-10-01 00:00:00.000000000,CIBC,2,1,"Grocery Stores, Supermarkets",190.91,5
-2018-05-01 00:00:00.000000000,CIBC,2,1,"Fuel Dispenser, Automated",130.24,96
-2017-01-01 00:00:00.000000000,TD Canada Trust,9,1,"Fuel Dispenser, Automated",5655312.44,252922
-2018-02-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,98370.97,6846
-2018-01-01 00:00:00.000000000,TD Canada Trust,5,1,"Fuel Dispenser, Automated",9699.55,243
-2018-10-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,166129.57,1731
-2016-05-01 00:00:00.000000000,CIBC,3,1,"Fuel Dispenser, Automated",163.52,3
-2016-03-01 00:00:00.000000000,BMO Bank of Montreal,3,1,"Eating Places, Restaurants",0.10,1
-2018-10-01 00:00:00.000000000,Royal Bank,5,1,Fast Food Restaurants,84372.48,5560
-2016-03-01 00:00:00.000000000,Royal Bank,5,1,Hardware Stores,195537.32,2675
-2017-11-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Grocery Stores, Supermarkets",102360.61,2162
-2018-07-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Eating Places, Restaurants",88060.99,2461
-2017-02-01 00:00:00.000000000,Scotiabank,5,1,Hardware Stores,85651.54,1491
-2018-02-01 00:00:00.000000000,Royal Bank,5,1,Hardware Stores,152531.05,1819
-2016-11-01 00:00:00.000000000,TD Canada Trust,3,1,"Fuel Dispenser, Automated",149.33,4
-2018-03-01 00:00:00.000000000,CIBC,7,1,"Drug Stores, Pharmacies",49356806.00,1178194
-2018-09-01 00:00:00.000000000,CIBC,3,1,"Grocery Stores, Supermarkets",161.44,2
-2019-01-01 00:00:00.000000000,CIBC,3,1,"Drug Stores, Pharmacies",97.95,1
-2016-12-01 00:00:00.000000000,CIBC,5,1,"Grocery Stores, Supermarkets",222351.19,4359
-2018-05-01 00:00:00.000000000,Scotiabank,7,1,Hardware Stores,72210238.86,926733
-2018-07-01 00:00:00.000000000,Scotiabank,2,1,"Fuel Dispenser, Automated",66.83,87
-2017-10-01 00:00:00.000000000,Scotiabank,5,1,"Fuel Dispenser, Automated",0.00,5
-2017-07-01 00:00:00.000000000,TD Canada Trust,4,1,Hardware Stores,116.87,3
-2018-11-01 00:00:00.000000000,CIBC,7,1,"Grocery Stores, Supermarkets",46250762.66,856266
-2016-03-01 00:00:00.000000000,TD Canada Trust,4,1,Hardware Stores,22678.21,615
-2016-11-01 00:00:00.000000000,Scotiabank,9,1,Fast Food Restaurants,14080484.63,1398011
-2016-10-01 00:00:00.000000000,TD Canada Trust,3,1,"Drug Stores, Pharmacies",80869.52,1629
-2017-10-01 00:00:00.000000000,TD Canada Trust,2,1,"Grocery Stores, Supermarkets",983.46,30
-2016-06-01 00:00:00.000000000,Royal Bank,9,1,"Eating Places, Restaurants",4356220.15,329149
-2018-02-01 00:00:00.000000000,TD Canada Trust,2,1,"Eating Places, Restaurants",16.66,4
-2017-03-01 00:00:00.000000000,Scotiabank,7,1,Fast Food Restaurants,22327103.82,1723049
-2017-02-01 00:00:00.000000000,Royal Bank,9,1,Hardware Stores,10099295.70,358282
-2016-05-01 00:00:00.000000000,CIBC,9,1,"Grocery Stores, Supermarkets",3344540.81,154391
-2017-07-01 00:00:00.000000000,Scotiabank,3,1,"Grocery Stores, Supermarkets",33.07,1
-2017-04-01 00:00:00.000000000,Scotiabank,7,1,"Grocery Stores, Supermarkets",36933200.91,844595
-2017-01-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Drug Stores, Pharmacies",102570.80,2637
-2016-05-01 00:00:00.000000000,CIBC,5,1,Fast Food Restaurants,129230.26,10970
-2018-03-01 00:00:00.000000000,BMO Bank of Montreal,5,1,Fast Food Restaurants,52898.69,3769
-2016-12-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,392654.78,5365
-2018-11-01 00:00:00.000000000,TD Canada Trust,5,1,"Grocery Stores, Supermarkets",131112.42,2679
-2016-03-01 00:00:00.000000000,TD Canada Trust,9,1,Hardware Stores,5200621.56,214023
-2016-02-01 00:00:00.000000000,CIBC,7,1,"Eating Places, Restaurants",42819397.68,1413560
-2018-02-01 00:00:00.000000000,TD Canada Trust,2,1,Hardware Stores,12564.52,449
-2018-08-01 00:00:00.000000000,Scotiabank,7,1,"Fuel Dispenser, Automated",64261968.12,1421704
-2018-10-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,12744095.68,455226
-2017-12-01 00:00:00.000000000,CIBC,4,1,"Fuel Dispenser, Automated",0.00,0
-2017-05-01 00:00:00.000000000,CIBC,5,1,"Drug Stores, Pharmacies",128964.17,3148
-2016-04-01 00:00:00.000000000,Royal Bank,5,1,"Drug Stores, Pharmacies",191392.34,4569
-2017-01-01 00:00:00.000000000,BMO Bank of Montreal,4,1,Hardware Stores,71.28,2
-2018-07-01 00:00:00.000000000,CIBC,3,1,"Drug Stores, Pharmacies",63.00,1
-2016-11-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Fast Food Restaurants,19177637.92,1509606
-2018-07-01 00:00:00.000000000,CIBC,3,1,Hardware Stores,111.85,1
-2017-04-01 00:00:00.000000000,Scotiabank,5,1,Fast Food Restaurants,63940.60,4781
-2017-08-01 00:00:00.000000000,Scotiabank,5,1,"Eating Places, Restaurants",97129.38,2939
-2016-01-01 00:00:00.000000000,Royal Bank,2,1,Hardware Stores,450120.16,3492
-2016-09-01 00:00:00.000000000,Royal Bank,5,1,"Fuel Dispenser, Automated",13730.11,428
-2017-10-01 00:00:00.000000000,TD Canada Trust,3,1,"Fuel Dispenser, Automated",0.00,0
-2018-06-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Fast Food Restaurants,18568299.77,1702410
-2018-04-01 00:00:00.000000000,TD Canada Trust,9,1,"Drug Stores, Pharmacies",40442437.10,2046213
-2018-08-01 00:00:00.000000000,Royal Bank,4,1,"Fuel Dispenser, Automated",0.00,0
-2016-07-01 00:00:00.000000000,TD Canada Trust,9,1,"Drug Stores, Pharmacies",26701315.10,1345443
-2017-07-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Drug Stores, Pharmacies",98834.14,2679
-2016-08-01 00:00:00.000000000,CIBC,7,1,Fast Food Restaurants,31318891.11,2466973
-2016-06-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Hardware Stores,53908528.45,814800
-2016-12-01 00:00:00.000000000,CIBC,3,1,Hardware Stores,1349.40,8
-2018-10-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",101769.16,2126
-2016-11-01 00:00:00.000000000,CIBC,4,1,Fast Food Restaurants,0.01,1
-2019-01-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Fuel Dispenser, Automated",33303485.96,811663
-2017-09-01 00:00:00.000000000,BMO Bank of Montreal,5,1,Fast Food Restaurants,76662.86,5793
-2017-08-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",35598842.56,783469
-2017-08-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Drug Stores, Pharmacies",104758.05,2823
-2018-03-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",116481.72,2382
-2016-08-01 00:00:00.000000000,Royal Bank,7,1,"Grocery Stores, Supermarkets",51725495.95,1106386
-2016-06-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Eating Places, Restaurants",21.75,2
-2017-09-01 00:00:00.000000000,BMO Bank of Montreal,3,1,"Fuel Dispenser, Automated",0.00,0
-2016-03-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,22034057.61,2284722
-2016-04-01 00:00:00.000000000,TD Canada Trust,4,1,"Grocery Stores, Supermarkets",122839.80,3033
-2018-05-01 00:00:00.000000000,Royal Bank,9,1,"Eating Places, Restaurants",16176076.23,936501
-2018-07-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,102163.93,7084
-2017-08-01 00:00:00.000000000,Royal Bank,2,1,"Grocery Stores, Supermarkets",726.04,21
-2017-05-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",99342.96,2368
-2018-05-01 00:00:00.000000000,Scotiabank,5,1,"Fuel Dispenser, Automated",2465.90,58
-2017-03-01 00:00:00.000000000,Royal Bank,2,1,"Drug Stores, Pharmacies",33.29,2
-2016-11-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Drug Stores, Pharmacies",6975860.04,311028
-2017-04-01 00:00:00.000000000,Royal Bank,9,1,"Fuel Dispenser, Automated",10784146.66,415696
-2016-11-01 00:00:00.000000000,BMO Bank of Montreal,2,1,"Fuel Dispenser, Automated",0.00,38
-2016-11-01 00:00:00.000000000,CIBC,3,1,"Drug Stores, Pharmacies",271.20,7
-2017-06-01 00:00:00.000000000,TD Canada Trust,7,1,"Drug Stores, Pharmacies",89285361.78,2250070
-2018-10-01 00:00:00.000000000,CIBC,3,1,Hardware Stores,452.95,3
-2016-08-01 00:00:00.000000000,CIBC,4,1,"Fuel Dispenser, Automated",895643.80,25038
-2016-05-01 00:00:00.000000000,Royal Bank,5,1,Fast Food Restaurants,131403.36,9887
-2016-07-01 00:00:00.000000000,Scotiabank,2,1,"Grocery Stores, Supermarkets",212.12,7
-2016-06-01 00:00:00.000000000,CIBC,4,1,"Eating Places, Restaurants",36932.20,956
-2019-01-01 00:00:00.000000000,TD Canada Trust,3,1,"Drug Stores, Pharmacies",1440.67,26
-2017-09-01 00:00:00.000000000,Scotiabank,7,1,"Drug Stores, Pharmacies",44169123.04,1199889
-2018-04-01 00:00:00.000000000,BMO Bank of Montreal,3,1,Hardware Stores,104.34,2
+2017-03-01 00:00:00.000000000,CIBC,5,2,"Eating Places, Restaurants",133229.24,4371
+2016-04-01 00:00:00.000000000,BMO Bank of Montreal,9,2,Fast Food Restaurants,525.34,55
+2018-12-01 00:00:00.000000000,TD Canada Trust,5,2,Fast Food Restaurants,79659.46,5135
+2016-08-01 00:00:00.000000000,BMO Bank of Montreal,3,2,Fast Food Restaurants,11.29,1
+2016-08-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",25357452.34,647330
+2016-09-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",97245.92,2406
+2017-08-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,42111715.94,4161270
+2017-02-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Grocery Stores, Supermarkets",3897808.07,158948
+2018-09-01 00:00:00.000000000,CIBC,2,2,"Eating Places, Restaurants",235.41,16
+2018-10-01 00:00:00.000000000,TD Canada Trust,3,2,Hardware Stores,467.38,7
+2016-05-01 00:00:00.000000000,Scotiabank,3,2,"Drug Stores, Pharmacies",40.86,2
+2018-12-01 00:00:00.000000000,Royal Bank,9,2,"Fuel Dispenser, Automated",17591945.16,649466
+2018-06-01 00:00:00.000000000,CIBC,2,2,"Fuel Dispenser, Automated",0.00,113
+2017-01-01 00:00:00.000000000,TD Canada Trust,5,2,Hardware Stores,208866.98,2912
+2018-10-01 00:00:00.000000000,TD Canada Trust,7,2,"Fuel Dispenser, Automated",114361097.34,2494103
+2018-12-01 00:00:00.000000000,TD Canada Trust,7,2,"Eating Places, Restaurants",75842899.86,1827209
+2018-04-01 00:00:00.000000000,TD Canada Trust,5,2,"Grocery Stores, Supermarkets",175626.57,3750
+2017-05-01 00:00:00.000000000,Royal Bank,9,2,"Drug Stores, Pharmacies",44454134.46,1961429
+2016-01-01 00:00:00.000000000,CIBC,7,2,Hardware Stores,47656138.07,789696
+2017-01-01 00:00:00.000000000,TD Canada Trust,3,2,"Fuel Dispenser, Automated",220.26,6
+2016-10-01 00:00:00.000000000,CIBC,2,2,"Grocery Stores, Supermarkets",190.91,5
+2018-05-01 00:00:00.000000000,CIBC,2,2,"Fuel Dispenser, Automated",130.24,96
+2017-01-01 00:00:00.000000000,TD Canada Trust,9,2,"Fuel Dispenser, Automated",5655312.44,252922
+2018-02-01 00:00:00.000000000,TD Canada Trust,5,2,Fast Food Restaurants,98370.97,6846
+2018-01-01 00:00:00.000000000,TD Canada Trust,5,2,"Fuel Dispenser, Automated",9699.55,243
+2018-10-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,166129.57,1731
+2016-05-01 00:00:00.000000000,CIBC,3,2,"Fuel Dispenser, Automated",163.52,3
+2016-03-01 00:00:00.000000000,BMO Bank of Montreal,3,2,"Eating Places, Restaurants",0.10,1
+2018-10-01 00:00:00.000000000,Royal Bank,5,2,Fast Food Restaurants,84372.48,5560
+2016-03-01 00:00:00.000000000,Royal Bank,5,2,Hardware Stores,195537.32,2675
+2017-11-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Grocery Stores, Supermarkets",102360.61,2162
+2018-07-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Eating Places, Restaurants",88060.99,2461
+2017-02-01 00:00:00.000000000,Scotiabank,5,2,Hardware Stores,85651.54,1491
+2018-02-01 00:00:00.000000000,Royal Bank,5,2,Hardware Stores,152531.05,1819
+2016-11-01 00:00:00.000000000,TD Canada Trust,3,2,"Fuel Dispenser, Automated",149.33,4
+2018-03-01 00:00:00.000000000,CIBC,7,2,"Drug Stores, Pharmacies",49356806.00,1178194
+2018-09-01 00:00:00.000000000,CIBC,3,2,"Grocery Stores, Supermarkets",161.44,2
+2019-01-01 00:00:00.000000000,CIBC,3,2,"Drug Stores, Pharmacies",97.95,1
+2016-12-01 00:00:00.000000000,CIBC,5,2,"Grocery Stores, Supermarkets",222351.19,4359
+2018-05-01 00:00:00.000000000,Scotiabank,7,2,Hardware Stores,72210238.86,926733
+2018-07-01 00:00:00.000000000,Scotiabank,2,2,"Fuel Dispenser, Automated",66.83,87
+2017-10-01 00:00:00.000000000,Scotiabank,5,2,"Fuel Dispenser, Automated",0.00,5
+2017-07-01 00:00:00.000000000,TD Canada Trust,4,2,Hardware Stores,116.87,3
+2018-11-01 00:00:00.000000000,CIBC,7,2,"Grocery Stores, Supermarkets",46250762.66,856266
+2016-03-01 00:00:00.000000000,TD Canada Trust,4,2,Hardware Stores,22678.21,615
+2016-11-01 00:00:00.000000000,Scotiabank,9,2,Fast Food Restaurants,14080484.63,1398011
+2016-10-01 00:00:00.000000000,TD Canada Trust,3,2,"Drug Stores, Pharmacies",80869.52,1629
+2017-10-01 00:00:00.000000000,TD Canada Trust,2,2,"Grocery Stores, Supermarkets",983.46,30
+2016-06-01 00:00:00.000000000,Royal Bank,9,2,"Eating Places, Restaurants",4356220.15,329149
+2018-02-01 00:00:00.000000000,TD Canada Trust,2,2,"Eating Places, Restaurants",16.66,4
+2017-03-01 00:00:00.000000000,Scotiabank,7,2,Fast Food Restaurants,22327103.82,1723049
+2017-02-01 00:00:00.000000000,Royal Bank,9,2,Hardware Stores,10099295.70,358282
+2016-05-01 00:00:00.000000000,CIBC,9,2,"Grocery Stores, Supermarkets",3344540.81,154391
+2017-07-01 00:00:00.000000000,Scotiabank,3,2,"Grocery Stores, Supermarkets",33.07,1
+2017-04-01 00:00:00.000000000,Scotiabank,7,2,"Grocery Stores, Supermarkets",36933200.91,844595
+2017-01-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Drug Stores, Pharmacies",102570.80,2637
+2016-05-01 00:00:00.000000000,CIBC,5,2,Fast Food Restaurants,129230.26,10970
+2018-03-01 00:00:00.000000000,BMO Bank of Montreal,5,2,Fast Food Restaurants,52898.69,3769
+2016-12-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,392654.78,5365
+2018-11-01 00:00:00.000000000,TD Canada Trust,5,2,"Grocery Stores, Supermarkets",131112.42,2679
+2016-03-01 00:00:00.000000000,TD Canada Trust,9,2,Hardware Stores,5200621.56,214023
+2016-02-01 00:00:00.000000000,CIBC,7,2,"Eating Places, Restaurants",42819397.68,1413560
+2018-02-01 00:00:00.000000000,TD Canada Trust,2,2,Hardware Stores,12564.52,449
+2018-08-01 00:00:00.000000000,Scotiabank,7,2,"Fuel Dispenser, Automated",64261968.12,1421704
+2018-10-01 00:00:00.000000000,CIBC,9,2,Hardware Stores,12744095.68,455226
+2017-12-01 00:00:00.000000000,CIBC,4,2,"Fuel Dispenser, Automated",0.00,0
+2017-05-01 00:00:00.000000000,CIBC,5,2,"Drug Stores, Pharmacies",128964.17,3148
+2016-04-01 00:00:00.000000000,Royal Bank,5,2,"Drug Stores, Pharmacies",191392.34,4569
+2017-01-01 00:00:00.000000000,BMO Bank of Montreal,4,2,Hardware Stores,71.28,2
+2018-07-01 00:00:00.000000000,CIBC,3,2,"Drug Stores, Pharmacies",63.00,1
+2016-11-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Fast Food Restaurants,19177637.92,1509606
+2018-07-01 00:00:00.000000000,CIBC,3,2,Hardware Stores,111.85,1
+2017-04-01 00:00:00.000000000,Scotiabank,5,2,Fast Food Restaurants,63940.60,4781
+2017-08-01 00:00:00.000000000,Scotiabank,5,2,"Eating Places, Restaurants",97129.38,2939
+2016-01-01 00:00:00.000000000,Royal Bank,2,2,Hardware Stores,450120.16,3492
+2016-09-01 00:00:00.000000000,Royal Bank,5,2,"Fuel Dispenser, Automated",13730.11,428
+2017-10-01 00:00:00.000000000,TD Canada Trust,3,2,"Fuel Dispenser, Automated",0.00,0
+2018-06-01 00:00:00.000000000,BMO Bank of Montreal,9,2,Fast Food Restaurants,18568299.77,1702410
+2018-04-01 00:00:00.000000000,TD Canada Trust,9,2,"Drug Stores, Pharmacies",40442437.10,2046213
+2018-08-01 00:00:00.000000000,Royal Bank,4,2,"Fuel Dispenser, Automated",0.00,0
+2016-07-01 00:00:00.000000000,TD Canada Trust,9,2,"Drug Stores, Pharmacies",26701315.10,1345443
+2017-07-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Drug Stores, Pharmacies",98834.14,2679
+2016-08-01 00:00:00.000000000,CIBC,7,2,Fast Food Restaurants,31318891.11,2466973
+2016-06-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Hardware Stores,53908528.45,814800
+2016-12-01 00:00:00.000000000,CIBC,3,2,Hardware Stores,1349.40,8
+2018-10-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",101769.16,2126
+2016-11-01 00:00:00.000000000,CIBC,4,2,Fast Food Restaurants,0.01,1
+2019-01-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Fuel Dispenser, Automated",33303485.96,811663
+2017-09-01 00:00:00.000000000,BMO Bank of Montreal,5,2,Fast Food Restaurants,76662.86,5793
+2017-08-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",35598842.56,783469
+2017-08-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Drug Stores, Pharmacies",104758.05,2823
+2018-03-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",116481.72,2382
+2016-08-01 00:00:00.000000000,Royal Bank,7,2,"Grocery Stores, Supermarkets",51725495.95,1106386
+2016-06-01 00:00:00.000000000,BMO Bank of Montreal,2,2,"Eating Places, Restaurants",21.75,2
+2017-09-01 00:00:00.000000000,BMO Bank of Montreal,3,2,"Fuel Dispenser, Automated",0.00,0
+2016-03-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,22034057.61,2284722
+2016-04-01 00:00:00.000000000,TD Canada Trust,4,2,"Grocery Stores, Supermarkets",122839.80,3033
+2018-05-01 00:00:00.000000000,Royal Bank,9,2,"Eating Places, Restaurants",16176076.23,936501
+2018-07-01 00:00:00.000000000,TD Canada Trust,5,2,Fast Food Restaurants,102163.93,7084
+2017-08-01 00:00:00.000000000,Royal Bank,2,2,"Grocery Stores, Supermarkets",726.04,21
+2017-05-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",99342.96,2368
+2018-05-01 00:00:00.000000000,Scotiabank,5,2,"Fuel Dispenser, Automated",2465.90,58
+2017-03-01 00:00:00.000000000,Royal Bank,2,2,"Drug Stores, Pharmacies",33.29,2
+2016-11-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Drug Stores, Pharmacies",6975860.04,311028
+2017-04-01 00:00:00.000000000,Royal Bank,9,2,"Fuel Dispenser, Automated",10784146.66,415696
+2016-11-01 00:00:00.000000000,BMO Bank of Montreal,2,2,"Fuel Dispenser, Automated",0.00,38
+2016-11-01 00:00:00.000000000,CIBC,3,2,"Drug Stores, Pharmacies",271.20,7
+2017-06-01 00:00:00.000000000,TD Canada Trust,7,2,"Drug Stores, Pharmacies",89285361.78,2250070
+2018-10-01 00:00:00.000000000,CIBC,3,2,Hardware Stores,452.95,3
+2016-08-01 00:00:00.000000000,CIBC,4,2,"Fuel Dispenser, Automated",895643.80,25038
+2016-05-01 00:00:00.000000000,Royal Bank,5,2,Fast Food Restaurants,131403.36,9887
+2016-07-01 00:00:00.000000000,Scotiabank,2,2,"Grocery Stores, Supermarkets",212.12,7
+2016-06-01 00:00:00.000000000,CIBC,4,2,"Eating Places, Restaurants",36932.20,956
+2019-01-01 00:00:00.000000000,TD Canada Trust,3,2,"Drug Stores, Pharmacies",1440.67,26
+2017-09-01 00:00:00.000000000,Scotiabank,7,2,"Drug Stores, Pharmacies",44169123.04,1199889
+2018-04-01 00:00:00.000000000,BMO Bank of Montreal,3,2,Hardware Stores,104.34,2
 2017-07-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,136319.95,10015
 2019-01-01 00:00:00.000000000,Scotiabank,9,1,"Drug Stores, Pharmacies",25678441.04,1178330
 2018-05-01 00:00:00.000000000,BMO Bank of Montreal,9,1,Hardware Stores,8358759.83,273418
@@ -4327,103 +4327,103 @@ header_capture_month,issuer_name,chip_indicator_uid,product_uid,description,purc
 2017-05-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,10295873.43,355711
 2017-02-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,4809914.11,180870
 2019-01-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,53035252.79,4854743
-2017-12-01 00:00:00.000000000,Scotiabank,9,1,"Fuel Dispenser, Automated",5341734.54,201913
-2016-02-01 00:00:00.000000000,Scotiabank,9,1,"Eating Places, Restaurants",1404976.14,122390
-2016-07-01 00:00:00.000000000,CIBC,9,1,"Eating Places, Restaurants",2168146.97,160187
-2018-03-01 00:00:00.000000000,Scotiabank,7,1,"Eating Places, Restaurants",41607915.24,1166606
-2016-02-01 00:00:00.000000000,CIBC,7,1,"Grocery Stores, Supermarkets",36801917.15,896110
-2017-09-01 00:00:00.000000000,Royal Bank,4,1,"Eating Places, Restaurants",81.15,2
-2017-12-01 00:00:00.000000000,BMO Bank of Montreal,7,1,Hardware Stores,53465477.27,634315
-2016-08-01 00:00:00.000000000,Scotiabank,4,1,Fast Food Restaurants,314.39,26
-2017-02-01 00:00:00.000000000,Scotiabank,2,1,Fast Food Restaurants,15.71,3
-2018-06-01 00:00:00.000000000,CIBC,3,1,"Fuel Dispenser, Automated",0.00,0
-2016-10-01 00:00:00.000000000,TD Canada Trust,7,1,"Grocery Stores, Supermarkets",58105135.49,1372852
-2016-05-01 00:00:00.000000000,Scotiabank,5,1,"Grocery Stores, Supermarkets",106049.38,2432
-2016-03-01 00:00:00.000000000,Royal Bank,4,1,Fast Food Restaurants,36617.99,5405
-2016-09-01 00:00:00.000000000,Royal Bank,9,1,Hardware Stores,13164653.64,441195
-2017-04-01 00:00:00.000000000,Scotiabank,2,1,"Fuel Dispenser, Automated",138.11,39
-2016-10-01 00:00:00.000000000,Scotiabank,9,1,Hardware Stores,4906953.58,181067
-2018-04-01 00:00:00.000000000,CIBC,2,1,"Grocery Stores, Supermarkets",457.77,11
-2016-09-01 00:00:00.000000000,CIBC,2,1,"Eating Places, Restaurants",4.94,6
-2017-03-01 00:00:00.000000000,Royal Bank,2,1,"Grocery Stores, Supermarkets",997.89,24
-2016-12-01 00:00:00.000000000,CIBC,5,1,Fast Food Restaurants,120912.19,9097
-2018-01-01 00:00:00.000000000,TD Canada Trust,9,1,"Grocery Stores, Supermarkets",17387332.82,800760
-2016-10-01 00:00:00.000000000,BMO Bank of Montreal,4,1,"Fuel Dispenser, Automated",74.41,2
-2018-09-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Eating Places, Restaurants",7293261.58,399544
-2016-12-01 00:00:00.000000000,Royal Bank,3,1,"Eating Places, Restaurants",42628.86,1195
-2017-10-01 00:00:00.000000000,CIBC,2,1,"Eating Places, Restaurants",30.04,2
-2017-09-01 00:00:00.000000000,Royal Bank,4,1,"Fuel Dispenser, Automated",0.00,0
-2019-01-01 00:00:00.000000000,Scotiabank,2,1,"Eating Places, Restaurants",56.64,6
-2017-07-01 00:00:00.000000000,Royal Bank,5,1,Fast Food Restaurants,144587.68,10424
-2017-08-01 00:00:00.000000000,Scotiabank,5,1,"Fuel Dispenser, Automated",1042.39,35
-2018-09-01 00:00:00.000000000,CIBC,9,1,"Drug Stores, Pharmacies",36781463.85,1691969
-2018-05-01 00:00:00.000000000,TD Canada Trust,2,1,Hardware Stores,22997.56,723
-2016-08-01 00:00:00.000000000,Scotiabank,9,1,"Eating Places, Restaurants",2047296.00,153271
-2018-12-01 00:00:00.000000000,Scotiabank,7,1,Fast Food Restaurants,19773824.47,1297455
-2018-07-01 00:00:00.000000000,Royal Bank,2,1,"Grocery Stores, Supermarkets",259.73,14
-2017-12-01 00:00:00.000000000,Scotiabank,5,1,Fast Food Restaurants,73740.72,5032
-2017-03-01 00:00:00.000000000,CIBC,7,1,"Grocery Stores, Supermarkets",55054239.42,1209769
-2016-09-01 00:00:00.000000000,Royal Bank,7,1,"Drug Stores, Pharmacies",67033473.34,1655029
-2018-10-01 00:00:00.000000000,Scotiabank,3,1,"Fuel Dispenser, Automated",0.00,0
-2016-02-01 00:00:00.000000000,CIBC,5,1,Hardware Stores,179860.12,3134
-2017-10-01 00:00:00.000000000,CIBC,9,1,"Drug Stores, Pharmacies",28123418.32,1289555
-2016-11-01 00:00:00.000000000,Scotiabank,7,1,"Grocery Stores, Supermarkets",31674374.72,760749
-2018-03-01 00:00:00.000000000,Scotiabank,5,1,Fast Food Restaurants,65812.75,4650
-2017-01-01 00:00:00.000000000,CIBC,9,1,"Grocery Stores, Supermarkets",9726649.40,408023
-2016-02-01 00:00:00.000000000,Royal Bank,3,1,"Fuel Dispenser, Automated",444819.23,16167
-2018-07-01 00:00:00.000000000,TD Canada Trust,3,1,"Eating Places, Restaurants",941.21,20
-2017-06-01 00:00:00.000000000,TD Canada Trust,5,1,Fast Food Restaurants,119936.47,9318
-2018-09-01 00:00:00.000000000,Royal Bank,2,1,Hardware Stores,603721.00,4954
-2017-01-01 00:00:00.000000000,CIBC,7,1,Hardware Stores,45312177.10,664908
-2018-06-01 00:00:00.000000000,Scotiabank,3,1,"Grocery Stores, Supermarkets",120.83,2
-2018-11-01 00:00:00.000000000,Royal Bank,5,1,"Fuel Dispenser, Automated",55.69,5
-2016-03-01 00:00:00.000000000,TD Canada Trust,7,1,Fast Food Restaurants,42327064.50,3432013
-2018-07-01 00:00:00.000000000,TD Canada Trust,4,1,"Fuel Dispenser, Automated",0.00,0
-2017-10-01 00:00:00.000000000,Scotiabank,2,1,Fast Food Restaurants,70.45,8
-2018-01-01 00:00:00.000000000,TD Canada Trust,2,1,Fast Food Restaurants,149.86,13
-2016-03-01 00:00:00.000000000,Royal Bank,7,1,"Fuel Dispenser, Automated",60915825.15,1667925
-2018-05-01 00:00:00.000000000,Royal Bank,5,1,Fast Food Restaurants,92388.88,6431
-2017-07-01 00:00:00.000000000,Royal Bank,9,1,Hardware Stores,21031380.29,687383
-2016-08-01 00:00:00.000000000,TD Canada Trust,9,1,"Drug Stores, Pharmacies",27061235.98,1373814
-2019-01-01 00:00:00.000000000,Royal Bank,5,1,"Grocery Stores, Supermarkets",263320.56,4306
-2019-01-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Eating Places, Restaurants",7847946.36,421538
-2017-11-01 00:00:00.000000000,Royal Bank,9,1,"Fuel Dispenser, Automated",12232699.21,458133
-2016-01-01 00:00:00.000000000,Royal Bank,5,1,"Grocery Stores, Supermarkets",255194.28,5207
-2016-05-01 00:00:00.000000000,TD Canada Trust,9,1,Hardware Stores,8957213.53,342803
-2017-08-01 00:00:00.000000000,Royal Bank,2,1,Fast Food Restaurants,36.71,4
-2016-11-01 00:00:00.000000000,TD Canada Trust,2,1,Hardware Stores,15364.36,501
-2016-09-01 00:00:00.000000000,CIBC,9,1,Hardware Stores,5413899.76,195708
-2018-06-01 00:00:00.000000000,Scotiabank,7,1,Fast Food Restaurants,20879772.96,1530821
-2016-02-01 00:00:00.000000000,Royal Bank,7,1,"Drug Stores, Pharmacies",74620808.89,1956178
-2017-03-01 00:00:00.000000000,CIBC,5,1,Fast Food Restaurants,105716.54,8485
-2016-06-01 00:00:00.000000000,TD Canada Trust,7,1,"Drug Stores, Pharmacies",93495591.70,2539297
-2017-07-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,41579137.28,4072653
-2019-01-01 00:00:00.000000000,CIBC,9,1,"Drug Stores, Pharmacies",38083711.61,1712218
-2017-06-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Drug Stores, Pharmacies",83143.24,2382
-2018-05-01 00:00:00.000000000,CIBC,7,1,"Eating Places, Restaurants",52743696.10,1365678
-2016-04-01 00:00:00.000000000,BMO Bank of Montreal,5,1,"Eating Places, Restaurants",79392.75,2817
-2016-02-01 00:00:00.000000000,Scotiabank,5,1,Hardware Stores,117183.10,1648
-2018-07-01 00:00:00.000000000,CIBC,3,1,Fast Food Restaurants,40.22,3
-2016-03-01 00:00:00.000000000,TD Canada Trust,4,1,"Drug Stores, Pharmacies",76.26,3
-2017-11-01 00:00:00.000000000,TD Canada Trust,7,1,Hardware Stores,106994679.35,1236767
-2017-05-01 00:00:00.000000000,Royal Bank,9,1,"Grocery Stores, Supermarkets",27394205.35,1088612
-2018-03-01 00:00:00.000000000,CIBC,2,1,"Grocery Stores, Supermarkets",558.29,16
-2017-12-01 00:00:00.000000000,Royal Bank,4,1,"Fuel Dispenser, Automated",0.00,0
-2016-04-01 00:00:00.000000000,Royal Bank,5,1,Hardware Stores,308848.22,3779
-2018-10-01 00:00:00.000000000,CIBC,5,1,"Eating Places, Restaurants",112973.74,3055
-2017-04-01 00:00:00.000000000,Scotiabank,3,1,"Eating Places, Restaurants",70.67,2
-2016-07-01 00:00:00.000000000,Royal Bank,9,1,"Eating Places, Restaurants",4911943.28,346422
-2018-07-01 00:00:00.000000000,TD Canada Trust,9,1,Fast Food Restaurants,54012693.79,5106187
-2016-01-01 00:00:00.000000000,Scotiabank,4,1,Fast Food Restaurants,23796.75,3329
-2017-12-01 00:00:00.000000000,BMO Bank of Montreal,4,1,"Grocery Stores, Supermarkets",16.05,1
-2018-06-01 00:00:00.000000000,Royal Bank,2,1,"Fuel Dispenser, Automated",651.65,173
-2016-02-01 00:00:00.000000000,BMO Bank of Montreal,9,1,"Drug Stores, Pharmacies",666.41,22
-2016-05-01 00:00:00.000000000,Scotiabank,5,1,Hardware Stores,198076.05,2978
-2017-08-01 00:00:00.000000000,Royal Bank,7,1,"Drug Stores, Pharmacies",60611080.48,1383890
-2017-09-01 00:00:00.000000000,Royal Bank,5,1,"Fuel Dispenser, Automated",2272.82,41
-2018-11-01 00:00:00.000000000,Royal Bank,7,1,"Grocery Stores, Supermarkets",63856774.51,1101827
-2016-10-01 00:00:00.000000000,BMO Bank of Montreal,7,1,"Grocery Stores, Supermarkets",30035012.91,731017
-2018-01-01 00:00:00.000000000,Royal Bank,7,1,Hardware Stores,52699582.71,634057
+2017-12-01 00:00:00.000000000,Scotiabank,9,2,"Fuel Dispenser, Automated",5341734.54,201913
+2016-02-01 00:00:00.000000000,Scotiabank,9,2,"Eating Places, Restaurants",1404976.14,122390
+2016-07-01 00:00:00.000000000,CIBC,9,2,"Eating Places, Restaurants",2168146.97,160187
+2018-03-01 00:00:00.000000000,Scotiabank,7,2,"Eating Places, Restaurants",41607915.24,1166606
+2016-02-01 00:00:00.000000000,CIBC,7,2,"Grocery Stores, Supermarkets",36801917.15,896110
+2017-09-01 00:00:00.000000000,Royal Bank,4,2,"Eating Places, Restaurants",81.15,2
+2017-12-01 00:00:00.000000000,BMO Bank of Montreal,7,2,Hardware Stores,53465477.27,634315
+2016-08-01 00:00:00.000000000,Scotiabank,4,2,Fast Food Restaurants,314.39,26
+2017-02-01 00:00:00.000000000,Scotiabank,2,2,Fast Food Restaurants,15.71,3
+2018-06-01 00:00:00.000000000,CIBC,3,2,"Fuel Dispenser, Automated",0.00,0
+2016-10-01 00:00:00.000000000,TD Canada Trust,7,2,"Grocery Stores, Supermarkets",58105135.49,1372852
+2016-05-01 00:00:00.000000000,Scotiabank,5,2,"Grocery Stores, Supermarkets",106049.38,2432
+2016-03-01 00:00:00.000000000,Royal Bank,4,2,Fast Food Restaurants,36617.99,5405
+2016-09-01 00:00:00.000000000,Royal Bank,9,2,Hardware Stores,13164653.64,441195
+2017-04-01 00:00:00.000000000,Scotiabank,2,2,"Fuel Dispenser, Automated",138.11,39
+2016-10-01 00:00:00.000000000,Scotiabank,9,2,Hardware Stores,4906953.58,181067
+2018-04-01 00:00:00.000000000,CIBC,2,2,"Grocery Stores, Supermarkets",457.77,11
+2016-09-01 00:00:00.000000000,CIBC,2,2,"Eating Places, Restaurants",4.94,6
+2017-03-01 00:00:00.000000000,Royal Bank,2,2,"Grocery Stores, Supermarkets",997.89,24
+2016-12-01 00:00:00.000000000,CIBC,5,2,Fast Food Restaurants,120912.19,9097
+2018-01-01 00:00:00.000000000,TD Canada Trust,9,2,"Grocery Stores, Supermarkets",17387332.82,800760
+2016-10-01 00:00:00.000000000,BMO Bank of Montreal,4,2,"Fuel Dispenser, Automated",74.41,2
+2018-09-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Eating Places, Restaurants",7293261.58,399544
+2016-12-01 00:00:00.000000000,Royal Bank,3,2,"Eating Places, Restaurants",42628.86,1195
+2017-10-01 00:00:00.000000000,CIBC,2,2,"Eating Places, Restaurants",30.04,2
+2017-09-01 00:00:00.000000000,Royal Bank,4,2,"Fuel Dispenser, Automated",0.00,0
+2019-01-01 00:00:00.000000000,Scotiabank,2,2,"Eating Places, Restaurants",56.64,6
+2017-07-01 00:00:00.000000000,Royal Bank,5,2,Fast Food Restaurants,144587.68,10424
+2017-08-01 00:00:00.000000000,Scotiabank,5,2,"Fuel Dispenser, Automated",1042.39,35
+2018-09-01 00:00:00.000000000,CIBC,9,2,"Drug Stores, Pharmacies",36781463.85,1691969
+2018-05-01 00:00:00.000000000,TD Canada Trust,2,2,Hardware Stores,22997.56,723
+2016-08-01 00:00:00.000000000,Scotiabank,9,2,"Eating Places, Restaurants",2047296.00,153271
+2018-12-01 00:00:00.000000000,Scotiabank,7,2,Fast Food Restaurants,19773824.47,1297455
+2018-07-01 00:00:00.000000000,Royal Bank,2,2,"Grocery Stores, Supermarkets",259.73,14
+2017-12-01 00:00:00.000000000,Scotiabank,5,2,Fast Food Restaurants,73740.72,5032
+2017-03-01 00:00:00.000000000,CIBC,7,2,"Grocery Stores, Supermarkets",55054239.42,1209769
+2016-09-01 00:00:00.000000000,Royal Bank,7,2,"Drug Stores, Pharmacies",67033473.34,1655029
+2018-10-01 00:00:00.000000000,Scotiabank,3,2,"Fuel Dispenser, Automated",0.00,0
+2016-02-01 00:00:00.000000000,CIBC,5,2,Hardware Stores,179860.12,3134
+2017-10-01 00:00:00.000000000,CIBC,9,2,"Drug Stores, Pharmacies",28123418.32,1289555
+2016-11-01 00:00:00.000000000,Scotiabank,7,2,"Grocery Stores, Supermarkets",31674374.72,760749
+2018-03-01 00:00:00.000000000,Scotiabank,5,2,Fast Food Restaurants,65812.75,4650
+2017-01-01 00:00:00.000000000,CIBC,9,2,"Grocery Stores, Supermarkets",9726649.40,408023
+2016-02-01 00:00:00.000000000,Royal Bank,3,2,"Fuel Dispenser, Automated",444819.23,16167
+2018-07-01 00:00:00.000000000,TD Canada Trust,3,2,"Eating Places, Restaurants",941.21,20
+2017-06-01 00:00:00.000000000,TD Canada Trust,5,2,Fast Food Restaurants,119936.47,9318
+2018-09-01 00:00:00.000000000,Royal Bank,2,2,Hardware Stores,603721.00,4954
+2017-01-01 00:00:00.000000000,CIBC,7,2,Hardware Stores,45312177.10,664908
+2018-06-01 00:00:00.000000000,Scotiabank,3,2,"Grocery Stores, Supermarkets",120.83,2
+2018-11-01 00:00:00.000000000,Royal Bank,5,2,"Fuel Dispenser, Automated",55.69,5
+2016-03-01 00:00:00.000000000,TD Canada Trust,7,2,Fast Food Restaurants,42327064.50,3432013
+2018-07-01 00:00:00.000000000,TD Canada Trust,4,2,"Fuel Dispenser, Automated",0.00,0
+2017-10-01 00:00:00.000000000,Scotiabank,2,2,Fast Food Restaurants,70.45,8
+2018-01-01 00:00:00.000000000,TD Canada Trust,2,2,Fast Food Restaurants,149.86,13
+2016-03-01 00:00:00.000000000,Royal Bank,7,2,"Fuel Dispenser, Automated",60915825.15,1667925
+2018-05-01 00:00:00.000000000,Royal Bank,5,2,Fast Food Restaurants,92388.88,6431
+2017-07-01 00:00:00.000000000,Royal Bank,9,2,Hardware Stores,21031380.29,687383
+2016-08-01 00:00:00.000000000,TD Canada Trust,9,2,"Drug Stores, Pharmacies",27061235.98,1373814
+2019-01-01 00:00:00.000000000,Royal Bank,5,2,"Grocery Stores, Supermarkets",263320.56,4306
+2019-01-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Eating Places, Restaurants",7847946.36,421538
+2017-11-01 00:00:00.000000000,Royal Bank,9,2,"Fuel Dispenser, Automated",12232699.21,458133
+2016-01-01 00:00:00.000000000,Royal Bank,5,2,"Grocery Stores, Supermarkets",255194.28,5207
+2016-05-01 00:00:00.000000000,TD Canada Trust,9,2,Hardware Stores,8957213.53,342803
+2017-08-01 00:00:00.000000000,Royal Bank,2,2,Fast Food Restaurants,36.71,4
+2016-11-01 00:00:00.000000000,TD Canada Trust,2,2,Hardware Stores,15364.36,501
+2016-09-01 00:00:00.000000000,CIBC,9,2,Hardware Stores,5413899.76,195708
+2018-06-01 00:00:00.000000000,Scotiabank,7,2,Fast Food Restaurants,20879772.96,1530821
+2016-02-01 00:00:00.000000000,Royal Bank,7,2,"Drug Stores, Pharmacies",74620808.89,1956178
+2017-03-01 00:00:00.000000000,CIBC,5,2,Fast Food Restaurants,105716.54,8485
+2016-06-01 00:00:00.000000000,TD Canada Trust,7,2,"Drug Stores, Pharmacies",93495591.70,2539297
+2017-07-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,41579137.28,4072653
+2019-01-01 00:00:00.000000000,CIBC,9,2,"Drug Stores, Pharmacies",38083711.61,1712218
+2017-06-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Drug Stores, Pharmacies",83143.24,2382
+2018-05-01 00:00:00.000000000,CIBC,7,2,"Eating Places, Restaurants",52743696.10,1365678
+2016-04-01 00:00:00.000000000,BMO Bank of Montreal,5,2,"Eating Places, Restaurants",79392.75,2817
+2016-02-01 00:00:00.000000000,Scotiabank,5,2,Hardware Stores,117183.10,1648
+2018-07-01 00:00:00.000000000,CIBC,3,2,Fast Food Restaurants,40.22,3
+2016-03-01 00:00:00.000000000,TD Canada Trust,4,2,"Drug Stores, Pharmacies",76.26,3
+2017-11-01 00:00:00.000000000,TD Canada Trust,7,2,Hardware Stores,106994679.35,1236767
+2017-05-01 00:00:00.000000000,Royal Bank,9,2,"Grocery Stores, Supermarkets",27394205.35,1088612
+2018-03-01 00:00:00.000000000,CIBC,2,2,"Grocery Stores, Supermarkets",558.29,16
+2017-12-01 00:00:00.000000000,Royal Bank,4,2,"Fuel Dispenser, Automated",0.00,0
+2016-04-01 00:00:00.000000000,Royal Bank,5,2,Hardware Stores,308848.22,3779
+2018-10-01 00:00:00.000000000,CIBC,5,2,"Eating Places, Restaurants",112973.74,3055
+2017-04-01 00:00:00.000000000,Scotiabank,3,2,"Eating Places, Restaurants",70.67,2
+2016-07-01 00:00:00.000000000,Royal Bank,9,2,"Eating Places, Restaurants",4911943.28,346422
+2018-07-01 00:00:00.000000000,TD Canada Trust,9,2,Fast Food Restaurants,54012693.79,5106187
+2016-01-01 00:00:00.000000000,Scotiabank,4,2,Fast Food Restaurants,23796.75,3329
+2017-12-01 00:00:00.000000000,BMO Bank of Montreal,4,2,"Grocery Stores, Supermarkets",16.05,1
+2018-06-01 00:00:00.000000000,Royal Bank,2,2,"Fuel Dispenser, Automated",651.65,173
+2016-02-01 00:00:00.000000000,BMO Bank of Montreal,9,2,"Drug Stores, Pharmacies",666.41,22
+2016-05-01 00:00:00.000000000,Scotiabank,5,2,Hardware Stores,198076.05,2978
+2017-08-01 00:00:00.000000000,Royal Bank,7,2,"Drug Stores, Pharmacies",60611080.48,1383890
+2017-09-01 00:00:00.000000000,Royal Bank,5,2,"Fuel Dispenser, Automated",2272.82,41
+2018-11-01 00:00:00.000000000,Royal Bank,7,2,"Grocery Stores, Supermarkets",63856774.51,1101827
+2016-10-01 00:00:00.000000000,BMO Bank of Montreal,7,2,"Grocery Stores, Supermarkets",30035012.91,731017
+2018-01-01 00:00:00.000000000,Royal Bank,7,2,Hardware Stores,52699582.71,634057
 2016-06-01 00:00:00.000000000,CIBC,9,1,"Eating Places, Restaurants",1864606.48,145815
 2017-05-01 00:00:00.000000000,Scotiabank,2,1,Fast Food Restaurants,35.45,2
 2017-02-01 00:00:00.000000000,CIBC,9,1,"Grocery Stores, Supermarkets",10363089.10,434970
