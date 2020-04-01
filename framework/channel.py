@@ -167,24 +167,6 @@ class Channel:
         else:
             d = Data(table, partition_cols)
 
-        # TODO - Add this back in to support nested partition columns
-        # TODO - But it will require a few tweaks
-        # if len(partition_cols) > 0 and len(self.partition_start) > 0:
-        #     tf_filters = [col(tfc) >= self.partition_start[i] for i, tfc in enumerate(d.partition_cols)]
-        #     where_clause = tf_filters[0]
-        #     for f in tf_filters[1:]:
-        #         where_clause &= f
-        #     print("Applying filter {} to dataframe {}".format(where_clause, name))
-        #     d.df = d.df.filter(where_clause)
-        #
-        # if len(partition_cols) > 0 and len(self.partition_end) > 0:
-        #     tf_filters = [col(tfc) <= self.partition_end[i] for i, tfc in enumerate(d.partition_cols)]
-        #     where_clause = tf_filters[0]
-        #     for f in tf_filters[1:]:
-        #         where_clause &= f
-        #     print("Applying filter {} to dataframe {}".format(where_clause, name))
-        #     d.df = d.df.filter(where_clause)
-
         datalist[name] = d
 
     def remove_core(self, name: str):
