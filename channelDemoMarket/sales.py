@@ -31,15 +31,15 @@ class Sales(FeatureFamily):
         self._create_feature(inspect.currentframe())
         return self
 
-    @multipliable
-    def totalQuantity(self,
-                      _name="total_quantity",
-                      _base_col='purchase_txn_cnt',  ##how does it know where to pull this column from?
-                      _filter=[F.col('purchase_txn_cnt') > 0],
-                      _negative_value=0,
-                      _agg_func=F.sum):  # by default features are multipliable
-        self._create_feature(inspect.currentframe())
-        return self
+    #@multipliable
+    #def totalQuantity(self,
+    #                  _name="total_quantity",
+    #                  _base_col='purchase_txn_cnt',  ##how does it know where to pull this column from?
+    #                  _filter=[F.col('purchase_txn_cnt') > 0],
+    #                  _negative_value=0,
+    #                  _agg_func=F.sum):  # by default features are multipliable
+    #    self._create_feature(inspect.currentframe())
+    #    return self
 
     '''
     @multipliable
