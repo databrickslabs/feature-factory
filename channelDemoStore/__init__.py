@@ -60,9 +60,9 @@ class Store(Channel):
 
     def _create_default_cores(self):
         try:
-            df = spark.read.table("tomes_tpcds_1tb.store_sales_enhanced")
+            df = spark.read.table("tomes_tpcds_delta_1tb.store_sales_enhanced")
             self.add_core("store_sales", df, ["p_yyyymm"])
-            df = spark.read.table("tomes_tpcds_1tb.store_returns_enhanced")
+            df = spark.read.table("tomes_tpcds_delta_1tb.store_returns_enhanced")
             self.add_core("store_returns", df, ["p_yyyymm"])
         except Exception as e:
             logger.warning("Error loading default cores. {}".format(str(e)))
@@ -72,11 +72,11 @@ class Store(Channel):
 
     def _create_default_sources(self):
         try:
-            df = spark.read.table("tomes_tpcds_1tb.item")
+            df = spark.read.table("tomes_tpcds_delta_1tb.item")
             self.add_source("item", df, [])
-            df = spark.read.table("tomes_tpcds_1tb.store")
+            df = spark.read.table("tomes_tpcds_delta_1tb.store")
             self.add_source("store", df, [])
-            df = spark.read.table('tomes_tpcds_1tb.date_dim')
+            df = spark.read.table('tomes_tpcds_delta_1tb.date_dim')
             self.add_source('date', df, [])
 
         except Exception as e:

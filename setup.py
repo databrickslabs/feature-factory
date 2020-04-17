@@ -14,7 +14,7 @@ def read(fname):
 
 setup(
     name='featurefactory',
-    version="0.12.5",
+    version="0.12.6",
     author="Databricks",
     packages=find_packages(exclude=['tests', 'tests.*', 'data', 'data.*', 'notebook', 'notebook.*']),
     install_requires=[
