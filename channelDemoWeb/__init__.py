@@ -61,9 +61,9 @@ class Web(Channel):
 
     def _create_default_cores(self):
         try:
-            df = spark.read.table("tomes_tpcds_1tb.web_sales_enhanced")
+            df = spark.read.table("tomes_tpcds_delta_1tb.web_sales_enhanced")
             self.add_core("web_sales", df, ["p_yyyymm"])
-            df = spark.read.table("tomes_tpcds_1tb.web_returns_enhanced")
+            df = spark.read.table("tomes_tpcds_delta_1tb.web_returns_enhanced")
             self.add_core("web_returns", df, ["p_yyyymm"])
 
         except Exception as e:
@@ -74,11 +74,11 @@ class Web(Channel):
 
     def _create_default_sources(self):
         try:
-            df = spark.read.table("tomes_tpcds_1tb.item")
+            df = spark.read.table("tomes_tpcds_delta_1tb.item")
             self.add_source("item", df, [])
-            df = spark.read.table("tomes_tpcds_1tb.inventory")
+            df = spark.read.table("tomes_tpcds_delta_1tb.inventory")
             self.add_source("inventory", df, [])
-            df = spark.read.table('tomes_tpcds_1tb.date_dim')
+            df = spark.read.table('tomes_tpcds_delta_1tb.date_dim')
             self.add_source('date', df, [])
 
         except Exception as e:

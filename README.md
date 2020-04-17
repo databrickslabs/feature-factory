@@ -16,6 +16,14 @@ it is not meant to stand alone. The accelerator must be forked and configured fo
 All of the next few sections have more detailed documentation below. This section is meant as a high-level
 overview of the way the different objects tie together and how they can be implemented for a specific use case. 
 
+Please check out the [Demo](Demo) section where you'll find a Databricks Archive which includes everying needed
+to get the example up and running including:
+* TPC-DS generator scripts
+* TPC-DS library
+* Enhancement table scripts
+* A detailed demo of how to use basic thru advanced features.
+
+
 As with most complex concepts, the simplest way to understand is to review an example; that's specifically what this
 repo is, an example of an implemented feature factory. The framework is a strong basis upon which additional concepts
 can be easily built but it's meant to be fully extensible for your needs.
