@@ -7,7 +7,7 @@ it is not meant to stand alone. The accelerator must be forked and configured fo
 ## Getting Started
 1. Fork the repo
 2. Replace channel with a concept relevant to your organization
-3. Replace the Feature Family implementations for your otganization (i.e. `ChannelDemoCatalog`)
+3. Replace the Feature Family implementations for your organization (i.e. `ChannelDemoCatalog`)
 4. Implement the Feature Families for each of your organization's concepts
 5. Implement each metric within each Feature Family with the proper logic for the metric
 6. Implement joiners, group_bys and multipliers as necessary
@@ -144,7 +144,7 @@ The following sections will explain the usage of Feature Factory in details.
 ## 1. The Channel Class 
 The Channel class implements the Feature Factory's framework. This class must be created and customized 
 based on the caveats, contingencies, and uniqueness of the data at hand. As this class is defined by the organization
-it can be extended as much as necessary to accomodate the needs of its users.
+it can be extended as much as necessary to accommodate the needs of its users.
 
 For the remainder of this section an instance of Store will be created and used in examples. The Store object 
 inherits from Channel and can be found in the channelDemoStore directory. `Store` will be used for examples. 
@@ -155,7 +155,7 @@ store = Store(_snapshot_date=2001-12-31)
 
 The snapshot date as referenced above is an extremely important concept for the Feature Factory. With analysis
 and especially Machine Learning (ML) most concepts revolve around a date since many ML models are trained on
-one set of data from one point in time and validated against future data and tested against futher future data.
+one set of data from one point in time and validated against future data and tested against further future data.
 If a time based approach such as "snapshot_date" does not make sense for your organization, simple change the 
 implementation to what's suitable for you. There will be additional changes needed to use some of the core
 framework but it will become obvious as you begin to implement and the necessary changes should become obvious as well. 
@@ -168,7 +168,7 @@ Configurations can be added in one of two ways - inherently through the partner 
 instantiated. 
 
 The config object is meant to: 
-1. Enable faster onboarding through sharing of basic configs between teamates
+1. Enable faster onboarding through sharing of basic configs between teammates
 2. Ensure repeatability between feature creation runs
 3. Facilitate visibility into sometimes complex and hidden minutia (i.e. dates formats/ranges and join logic)
 
@@ -266,11 +266,11 @@ multipliers. Base features themselves have a variety of parameters, however at i
 filter (optional), and an aggregate function. Below is a full list of attributes:
 * _name: name of the feature
 * _base_col: the column(s) from which the feature is derived when the filter is true or there is no filter.
-            Note base_col is of type column meaning it can be compled such as
+            Note base_col is of type column meaning it can be compiled such as
 ```python
 base_col = F.concat(F.col("POS_TRANS_ID"), F.col("TRANS_DATE"), F.col("STORE_ID"), F.col("POS_TILL_NUM")
 ``` 
-* _filter: the condition to choose base_col or nagative_value
+* _filter: the condition to choose base_col or negative_value
 * _negative_value: the value the feature is derived from when the filter condition is false
 * _agg_func: the aggregation functions for computing the feature value from base_col or negative_value
 * _agg_alias: alias name
