@@ -14,7 +14,7 @@ def read(fname):
 
 setup(
     name='featurefactory',
-    version="0.12.6",
+    version="0.12.7",
     author="Databricks",
     packages=find_packages(exclude=['tests', 'tests.*', 'data', 'data.*', 'notebook', 'notebook.*']),
     install_requires=[
@@ -22,12 +22,12 @@ setup(
     ],
     description='feature factory',
     long_description=read('README.md'),
-    license='Apache License 2.0',
+    license=read('LICENSE'),
     classifiers=[
         'Intended Audience :: Developers',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.7.5',
     ],
-    keywords='L1 databricks feature factory',
+    keywords='Databricks Feature Factory Framework',
     url=''
     # scripts=[],
     # data_files=datafiles
