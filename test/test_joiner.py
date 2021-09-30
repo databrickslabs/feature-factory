@@ -13,12 +13,12 @@ class TestJoiner(unittest.TestCase):
         self.source_name = "partner_offer_dim"
 
     def test_populate_joiners(self):
-        partner = Store(_snapshot_date=20190130)
+        partner = Store(_snapshot_date="2019-01-30")
         joiners_config = partner.config.get_or_else("joiners.sales", {})
         assert len(joiners_config) == 3
 
     def test_joiner_count(self):
-        partner = Store(_snapshot_date=20190130)
+        partner = Store(_snapshot_date="2019-01-30")
         joiners_config = partner.config.get_or_else("joiners.sales", {})
         features, _ = partner.sales.get_all()
         f = features.features["net_sales"]
