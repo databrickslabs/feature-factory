@@ -74,7 +74,7 @@ class Helpers:
         filter_vals = []
         filter_cols = col_list
 
-        if len(col_list) == 0:
+        if not col_list:
             for (dcol, dtype) in df.drop(*ignore_cols).dtypes:
                 if dtype == 'string':
                     if self._get_approx_distinct_count_for_col(df, dcol, _rsd=rsd) <= approx_distinct:
@@ -103,7 +103,7 @@ class Helpers:
         :param alias:
         :return:
         """
-        return ''.join(ch for ch in alias if ch.isalnum() or ch in ['-', '_'])
+        return ''.join(ch for ch in alias if ch.isalnum() or ch in ['-', '_']).strip('_-')
 
     def _to_list(self, items):
         """

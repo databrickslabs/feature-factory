@@ -34,7 +34,10 @@ class Feature:
         :param _joiners: config of table joining for this feature
         """
         self.name = _name
-        self.base_col = _base_col if type(_base_col) is Column else col(_base_col)
+        if isinstance(_base_col, Feature):
+            self.base_col = _base_col.assembled_column
+        else:
+            self.base_col = _base_col if type(_base_col) is Column else col(_base_col)
         self.filter = _filter if type(_filter) is list else [_filter]
         self.negative_value = _negative_value if _negative_value != "" else None
         self.output_alias = _name if _agg_alias is None else _agg_alias

@@ -32,8 +32,10 @@ class Feature_Factory():
         # Validation - If features, passed in is dict, convert to list of vals, etc.
         # groupBy_cols = self.helpers._to_list(groupBy_cols)
         groupBy_cols, groupBy_joiners = self.helpers._extract_groupby_joiner(groupBy_cols)
+        groupBy_cols = [gc.assembled_column if isinstance(gc, Feature) else gc for gc in groupBy_cols]
         features, dups = self.helpers._dedup_fast(df, [feature for feature_set in feature_sets for feature in feature_set.features.values()])
-        df = self.helpers._resolve_feature_joiners(df, features, groupBy_joiners).repartition(*groupBy_cols)
+        # df = self.helpers._resolve_feature_joiners(df, features, groupBy_joiners).repartition(*groupBy_cols)
+        df = df.repartition(*groupBy_cols)
 
         # feature_cols = []
         agg_cols = []
