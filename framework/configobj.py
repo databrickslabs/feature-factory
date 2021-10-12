@@ -35,12 +35,12 @@ class ConfigObj:
         return obj
 
     def _serialize_value(self, v):
-        from framework.feature_factory.data import Data
+        from framework.feature_factory.data import DataSrc
         if isinstance(v, Column):
             return v._jc.toString()
         elif isinstance(v, DataFrame):
             return "df..."
-        elif isinstance(v, Data):
+        elif isinstance(v, DataSrc):
             return "data..."
         else:
             return v

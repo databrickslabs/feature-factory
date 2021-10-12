@@ -6,7 +6,7 @@ from framework.feature_factory.helpers import Helpers
 import pyspark.sql.functions as f
 import json
 from pyspark.sql.types import StructType
-from local_spark_singleton import SparkSingleton
+from .local_spark_singleton import SparkSingleton
 
 class CommonFeatures(ImmutableDictBase):
     def __init__(self):
@@ -59,9 +59,9 @@ class StoreSales(CommonFeatures, Filters):
 
 class TestFeatureDict(unittest.TestCase):
     def setUp(self):
-        with open("./data/sales_store_schema.json") as f:
+        with open("test/data/sales_store_schema.json") as f:
             sales_schema = StructType.fromJson(json.load(f))
-            self.sales_df = SparkSingleton.get_instance().read.csv("./data/sales_store_tpcds.csv", schema=sales_schema, header=True)
+            self.sales_df = SparkSingleton.get_instance().read.csv("test/data/sales_store_tpcds.csv", schema=sales_schema, header=True)
 
     def test_feature_dict(self):
         helpers = Helpers()

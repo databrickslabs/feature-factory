@@ -1,5 +1,5 @@
 from framework.feature_factory import Feature_Factory
-from framework.feature_factory.data import Data
+from framework.feature_factory.data import DataSrc
 from framework.feature_factory.dtm import DateTimeManager
 from pyspark.sql.functions import col
 from pyspark.sql.dataframe import DataFrame
@@ -144,7 +144,7 @@ class Channel:
 
         self._add_data(self.cores, name, table, partition_col)
 
-    def add_source(self, name: str, table: DataFrame, partition_col=[]):
+    def add_source(self, name: str, table: DataFrame, partition_col=[], joiners=[]):
         """
         Adds a source to the partner.
         :param name:
@@ -152,9 +152,9 @@ class Channel:
         :param partition_col: the columns to be filtered using partition_start and partition_end
         :return:
         """
-        self._add_data(self.sources, name, table, partition_col)
+        self._add_data(self.sources, name, table, partition_col, joiners)
 
-    def _add_data(self, datalist: dict, name: str, table: DataFrame, partition_cols=[]):
+    def _add_data(self, datalist: dict, name: str, table: DataFrame, partition_cols=[], joiners=[]):
         # if name not in datalist:
 
         if len(partition_cols) > 0:
@@ -163,9 +163,9 @@ class Channel:
                 end=self.partition_end,
                 partition_col=partition_cols[0],
                 input_fmt=self.dtm.partition_dt_format)
-            d = Data(table.filter(p_filter), partition_cols)
+            d = DataSrc(table.filter(p_filter), partition_cols, joiners)
         else:
-            d = Data(table, partition_cols)
+            d = DataSrc(table, partition_cols, joiners)
 
         # TODO - Add this back in to support nested partition columns
         # TODO - But it will require a few tweaks

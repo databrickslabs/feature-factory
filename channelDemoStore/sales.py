@@ -7,7 +7,7 @@ from framework.feature_factory import Helpers
 from framework.configobj import ConfigObj
 import inspect
 
-joiner_func = Helpers()._register_joiner_func()
+# joiner_func = Helpers()._register_joiner_func()
 multipliable = Helpers()._register_feature_func()
 base_feat = Helpers()._register_feature_func()
 
@@ -17,7 +17,7 @@ class Sales(FeatureFamily):
     def __init__(self, config=ConfigObj()):
         self._multipliable_feat_func = multipliable
         self._base_feat_func = base_feat
-        self._joiner_func = joiner_func
+        # self._joiner_func = joiner_func
         # self._build_all()
         FeatureFamily.__init__(self, config)
 
@@ -67,32 +67,32 @@ class Sales(FeatureFamily):
     # Complex Joiner
     # This is an example of a complex joiner but it's usually better to create to main dfs and join
     # Them to add these kinds of features (ones that require an agg at a different level)
-    @joiner_func
-    def join_store_net_profit_by_division(self):
-        data_set_join_key = "joiners.sales.store_net_profit_by_division"
-        if not self.config.contains(data_set_join_key):
-            store_df: DataFrame = F.broadcast(self.config.get_or_else("sources.store", None).df)
-            store_sales_df: DataFrame = self.config.get_or_else("cores.store_sales", None).df
-            store_profit_by_div_df = store_sales_df.join(store_df.withColumnRenamed("s_store_sk", "ss_store_sk"), ["ss_store_sk"])\
-                .groupBy(F.col("s_division_id")).agg(F.sum(F.col("ss_net_profit")).alias("net_profit_by_div"))
-            conf = {'target_join_df': store_profit_by_div_df,
-                    'filter_condition': ["s_division_id"],
-                    'join_type': 'left',
-                    'optmizer': "broadcast"}
-            self.config.add(data_set_join_key, conf)
-        else:
-            print("sources.store is already loaded to create join_store_division_dim.")
+    # @joiner_func
+    # def join_store_net_profit_by_division(self):
+    #     data_set_join_key = "joiners.sales.store_net_profit_by_division"
+    #     if not self.config.contains(data_set_join_key):
+    #         store_df: DataFrame = F.broadcast(self.config.get_or_else("sources.store", None).df)
+    #         store_sales_df: DataFrame = self.config.get_or_else("cores.store_sales", None).df
+    #         store_profit_by_div_df = store_sales_df.join(store_df.withColumnRenamed("s_store_sk", "ss_store_sk"), ["ss_store_sk"])\
+    #             .groupBy(F.col("s_division_id")).agg(F.sum(F.col("ss_net_profit")).alias("net_profit_by_div"))
+    #         conf = {'target_join_df': store_profit_by_div_df,
+    #                 'filter_condition': ["s_division_id"],
+    #                 'join_type': 'left',
+    #                 'optmizer': "broadcast"}
+    #         self.config.add(data_set_join_key, conf)
+    #     else:
+    #         print("sources.store is already loaded to create join_store_division_dim.")
 
     # Simple Joiner
     # If the feature simply needs data from another table, specify the join logic here.
-    @joiner_func
-    def join_store(self):
-        data_set_join_key = "joiners.sales.store"
-        if not self.config.contains(data_set_join_key):
-            conf = {'target_join_df': 'sources.store',
-                    'filter_condition': F.col("ss_store_sk") == F.col('s_store_sk'),
-                    'join_type': 'inner',
-                    'optmizer': "broadcast"}
-            self.config.add(data_set_join_key, conf)
-        else:
-            print("sources.store is already loaded to create join_store_location_dim.")
+    # @joiner_func
+    # def join_store(self):
+    #     data_set_join_key = "joiners.sales.store"
+    #     if not self.config.contains(data_set_join_key):
+    #         conf = {'target_join_df': 'sources.store',
+    #                 'filter_condition': F.col("ss_store_sk") == F.col('s_store_sk'),
+    #                 'join_type': 'inner',
+    #                 'optmizer': "broadcast"}
+    #         self.config.add(data_set_join_key, conf)
+    #     else:
+    #         print("sources.store is already loaded to create join_store_location_dim.")

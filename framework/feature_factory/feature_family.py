@@ -19,7 +19,7 @@ class FeatureFamily:
         self._base_features = OrderedDict()
         self._groupy_cols = []
         self.config = _config
-        self._populate_joiners()
+        # self._populate_joiners()
         self._build_all()
 
     # before appending any features make sure it doesn't already exist
@@ -83,10 +83,10 @@ class FeatureFamily:
     def _reset_features(self):
         self._features = OrderedDict()
 
-    def _populate_joiners(self):
-        if hasattr(self, "_joiner_func"):
-            for join_key, func in self._joiner_func.all.items():
-                func(self)
+    # def _populate_joiners(self):
+    #     if hasattr(self, "_joiner_func"):
+    #         for join_key, func in self._joiner_func.all.items():
+    #             func(self)
 
     def get_all(self):
         self._features = OrderedDict(self._multipliable_features)
