@@ -86,49 +86,6 @@ class Feature:
         that_copy = that._clone("colname")
         return this_copy._equals(that_copy)
 
-    # def _add_joiner(self, join_key: str, partner_conf: ConfigObj):
-    #     joiner = partner_conf.get_or_else(join_key, {})
-    #     if join_key in self.joiners:
-    #         print("{} has been added already.".format(join_key))
-    #     else:
-    #         self.joiners[join_key] = joiner
-    #         # self._create_joiner_df(joiner, partner_conf)
-    #
-    # def _populate_joiner_df(self, partner_conf: ConfigObj):
-    #     for k, joiner in self.joiners.items():
-    #         self._create_joiner_df(joiner, partner_conf)
-    #
-    # def _remove_joiner(self, join_key: str):
-    #     if join_key in self.joiners:
-    #         del self.joiners[join_key]
-    #         print("{} deleted from joiners.".format(join_key))
-    #     else:
-    #         print("{} not in joiner. No action for delete.".format(join_key))
-    #
-    # def _clear_joiner(self):
-    #     self.joiners.clear()
-    #
-    # def _create_joiner_df(self, joiner: dict, partner_conf: ConfigObj):
-    #     """
-    #     Tries to create a dataframe from target_join_df of a joiner.
-    #     If the sources/cores does not contain the dataframe, keep the target_join_df as path string.
-    #     The path may be resovled later when more df is added to the partner.
-    #     :param joiner:
-    #     :param partner_conf:
-    #     :return:
-    #     """
-    #     if "target_join_df" in joiner:
-    #         if not isinstance(joiner["target_join_df"], DataFrame):
-    #             df_path = joiner["target_join_df"]
-    #             df_parts = [p.strip() for p in df_path.split(".")]
-    #             cores = partner_conf.get_or_else("cores", {})
-    #             sources = partner_conf.get_or_else("sources", {})
-    #             data_source = cores if df_parts[0] == "cores" else sources
-    #             if df_parts[1] in data_source:
-    #                 joiner["target_join_df"] = data_source[df_parts[1]].df
-    #
-    #         return joiner["target_join_df"]
-    #     return None
 
 class FeatureSet:
 

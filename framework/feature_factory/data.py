@@ -12,7 +12,6 @@ class Joiner:
 
 
 class DataSrc:
-    # convert str to col automatically
     def __init__(self, df: DataFrame, partitionCols:List[Union[str, Column]] = [], joiners: List[Joiner] = []):
         helpers = Helpers()
         self._df = df

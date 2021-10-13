@@ -7,7 +7,9 @@ from framework.spark_singleton import SparkSingleton
 from framework.configobj import ConfigObj
 import sys, traceback, logging
 from featurefamily_common.groupbys import GroupByCommon
+from framework.feature_factory.data import Joiner
 from pyspark.sql import functions as F
+from pyspark.sql.dataframe import DataFrame
 
 logger = logging.getLogger(__name__)
 
@@ -26,8 +28,7 @@ class Store(Channel):
         self.dtm.append_periods(["1m", "3m", "6m", "12m"])
         self.config = self.dtm.get_config()
         Channel.__init__(self, "Store", self.dtm, self.config)
-        self._create_default_cores()
-        self._create_default_sources()
+        self._create_data_source()
         self.sales = Sales(self.config)
         self.groupby = Store._GroupBy(self)
 
@@ -58,26 +59,26 @@ class Store(Channel):
         trends = TrendsCommon(featureSet_to_trend, trend_ranges, dtm, time_helpers)
         return trends
 
-    def _create_default_cores(self):
+    def _create_data_source(self):
         try:
-            df = spark.read.table("tomes_tpcds_delta_1tb.store_sales_enhanced")
-            self.add_core("store_sales", df, ["p_yyyymm"])
-            df = spark.read.table("tomes_tpcds_delta_1tb.store_returns_enhanced")
-            self.add_core("store_returns", df, ["p_yyyymm"])
-        except Exception as e:
-            logger.warning("Error loading default cores. {}".format(str(e)))
-            traceback.print_exc(file=sys.stdout)
+            item_df = spark.read.table("tomes_tpcds_delta_1tb_item")
+            store_df = spark.read.table("tomes_tpcds_delta_1tb_store")
+            # date_df = spark.read.table('tomes_tpcds_delta_1tb.date_dim')
 
-        return self.cores
+            store_sales_df = spark.read.table("tomes_tpcds_delta_1tb_store_sales_enhanced")
+            # store_returns_df = spark.read.table("tomes_tpcds_delta_1tb.store_returns_enhanced")
 
-    def _create_default_sources(self):
-        try:
-            df = spark.read.table("tomes_tpcds_delta_1tb.item")
-            self.add_source("item", df, [])
-            df = spark.read.table("tomes_tpcds_delta_1tb.store")
-            self.add_source("store", df, [])
-            df = spark.read.table('tomes_tpcds_delta_1tb.date_dim')
-            self.add_source('date', df, [])
+            store_profit_by_div_df = store_sales_df.join(
+                store_df.withColumnRenamed("s_store_sk", "ss_store_sk"),
+                ["ss_store_sk"]
+            ) \
+            .groupBy(F.col("s_division_id")).agg(F.sum(F.col("ss_net_profit")).alias("net_profit_by_div"))
+            joiner1 = Joiner(store_profit_by_div_df, on=["s_division_id"], how="left")
+            joiner2 = Joiner(store_df, on=F.col("ss_store_sk") == F.col('s_store_sk'), how="inner")
+
+            self.add_source("store_sales", store_sales_df, ["p_yyyymm"], joiners=[joiner1, joiner2])
+            self.add_source("store", store_df)
+            self.add_source("item", item_df)
 
         except Exception as e:
             logger.warning("Error loading default sources. {}".format(str(e)))

@@ -25,15 +25,3 @@ class SalesCommon:
     def transfer_features(self, cls):
         for fn, func in self._feat_func.all.items():
             setattr(cls, fn, func)
-
-    # @feat_func
-    # def totalAmrmEarned(self,
-    #                     _name="total_gross_sales",
-    #                     _base_col="gross_sales",
-    #                     _filter=[],
-    #                     _negative_value=0,
-    #                     _agg_func=F.sum,
-    #                     _agg_alias=None):
-    #
-    #     self._create_feature(inspect.currentframe())
-    #     return self

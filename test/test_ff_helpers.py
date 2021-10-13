@@ -10,8 +10,11 @@ import re
 class TestFeatureFactoryHelpers(unittest.TestCase):
 
     def setUp(self):
+        data_base_dir = "test/data"
         self.spark = SparkSingleton.get_instance()
         self.helpers = Helpers()
+        self.item_df = self.spark.read.csv(f"{data_base_dir}/tomes_tpcds_delta_1tb_item.csv", inferSchema=True,
+                                       header=True)
 
     def test_to_list(self):
         l = self.helpers._to_list(["col1", "col2", "col3"])
@@ -79,9 +82,12 @@ class TestFeatureFactoryHelpers(unittest.TestCase):
         # equals = col1._jc.equals(col2._jc)
         equals = col1_str == col2_str
         assert not equals, "error comparing two columns"
-        # filter1 = F.col("col1") == "100"
-        # filter2 = F.col("col1") == "100"
-        # assert filter1._jc.equals(filter2._jc), "should equal."
+
+
+    def test_get_approx_distinct_count_for_col(self):
+        approx_cnt = self.helpers._get_approx_distinct_count_for_col(self.item_df, "i_item_id")
+        cnt = self.item_df.select("i_item_id").distinct().count()
+        assert float(cnt - approx_cnt)/cnt <= 0.05
 
     def tearDown(self):
         self.spark.stop()

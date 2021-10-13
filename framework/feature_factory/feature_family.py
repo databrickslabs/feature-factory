@@ -32,8 +32,8 @@ class FeatureFamily:
         """
         new_features = OrderedDict(self._features)
         self._reset_features()
-        for n, f in new_features.items():
-            f._populate_joiner_df(self.config)
+        # for n, f in new_features.items():
+        #     f._populate_joiner_df(self.config)
         return new_features
 
     def _create_feature(self, frame):
@@ -62,7 +62,6 @@ class FeatureFamily:
                                             _negative_value=input_config.get_or_else("_negative_value", 0),
                                             _agg_func=input_config.get_or_else("_agg_func", None),
                                             _agg_alias=input_config.get_or_else("_agg_alias", None),
-                                            _joiners=input_config.get_or_else("_joiners", {}),
                                             _kind=input_config.get_or_else("_kind", "multipliable"))
 
         return self._features[_name]

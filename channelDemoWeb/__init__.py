@@ -3,11 +3,12 @@ from channelDemoStore.sales import Sales
 from featurefamily_common.trends import TrendsCommon
 from framework.feature_factory.dtm import DateTimeManager
 from framework.feature_factory import Helpers
+from framework.feature_factory.data import Joiner
 from framework.spark_singleton import SparkSingleton
 from framework.configobj import ConfigObj
 from pyspark.sql.functions import col
 import sys, traceback, logging
-import calendar
+import pyspark.sql.functions as F
 
 logger = logging.getLogger(__name__)
 
@@ -25,10 +26,9 @@ class Web(Channel):
                                    _partition_dt_format="%Y%m")
         self.dtm.append_periods(["1m", "3m", "6m", "12m"])
         self.config = self.dtm.get_config()
-        Channel.__init__(self, "Store", self.dtm, self.config)
+        Channel.__init__(self, "Web", self.dtm, self.config)
         self.sales = Sales(self.config)
-        self._create_default_cores()
-        self._create_default_sources()
+        self._create_data_source()
         # self.groupby = Store._GroupBy(self)
 
 
@@ -59,30 +59,21 @@ class Web(Channel):
         trends = TrendsCommon(featureSet_to_trend, trend_ranges, dtm, time_helpers)
         return trends
 
-    def _create_default_cores(self):
+    def _create_data_source(self):
         try:
-            df = spark.read.table("tomes_tpcds_delta_1tb.web_sales_enhanced")
-            self.add_core("web_sales", df, ["p_yyyymm"])
-            df = spark.read.table("tomes_tpcds_delta_1tb.web_returns_enhanced")
-            self.add_core("web_returns", df, ["p_yyyymm"])
+            item_df = spark.read.table("tomes_tpcds_delta_1tb_item")
+            inventory_df = spark.read.table("tomes_tpcds_delta_1tb_inventory")
+            date_df = spark.read.table('tomes_tpcds_delta_1tb_date_dim')
 
+            web_sales_df = spark.read.table("tomes_tpcds_delta_1tb_web_sales_enhanced")
+            # store_returns_df = spark.read.table("tomes_tpcds_delta_1tb.store_returns_enhanced")
+
+            item_joiner = Joiner(item_df, on=F.col('i_item_sk') == F.col("ws_item_sk"), how="inner")
+            inventory_joiner = Joiner(inventory_df, on=F.col("ws_warehouse_sk") == F.col('inv_warehouse_sk'), how="inner")
+            date_joiner = Joiner(item_df, on=F.col("ws_sold_date_sk") == F.col('d_date_sk'), how="inner")
+            self.add_source("store_sales", web_sales_df, ["p_yyyymm"], joiners=[item_joiner, inventory_joiner, date_joiner])
         except Exception as e:
             logger.warning("Error loading default cores. {}".format(str(e)))
-            traceback.print_exc(file=sys.stdout)
-
-        return self.cores
-
-    def _create_default_sources(self):
-        try:
-            df = spark.read.table("tomes_tpcds_delta_1tb.item")
-            self.add_source("item", df, [])
-            df = spark.read.table("tomes_tpcds_delta_1tb.inventory")
-            self.add_source("inventory", df, [])
-            df = spark.read.table('tomes_tpcds_delta_1tb.date_dim')
-            self.add_source('date', df, [])
-
-        except Exception as e:
-            logger.warning("Error loading default sources. {}".format(str(e)))
             traceback.print_exc(file=sys.stdout)
 
         return self.sources

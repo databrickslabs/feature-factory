@@ -1,10 +1,12 @@
 import unittest
 from framework.feature_factory.feature import FeatureSet, Feature
 import pyspark.sql.functions as F
+from test.local_spark_singleton import SparkSingleton
+
 
 class TestFeatureSet(unittest.TestCase):
     def setUp(self):
-        pass
+        self.spark = SparkSingleton.get_instance()
 
     def test_add_feature(self):
         features = FeatureSet()
@@ -19,4 +21,4 @@ class TestFeatureSet(unittest.TestCase):
 
 
     def tearDown(self):
-        pass
+        self.spark.stop()

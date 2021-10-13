@@ -51,22 +51,12 @@ class Channel:
             self.config.add("cores", {})
         if not self.config.contains("sources"):
             self.config.add("sources", {})
-        self.cores = self.config.get_or_else("cores", None)
+        # self.cores = self.config.get_or_else("cores", None)
         self.sources = self.config.get_or_else("sources", None)
 
         self.ff = Feature_Factory()
         # self._populate_partition_range()
         self.helpers = Helpers()
-
-    def _create_joiner_df(self, joiner: dict):
-        if not isinstance(joiner["target_join_df"], DataFrame):
-            df_path = joiner["target_join_df"]
-            df_parts = [p.strip() for p in df_path.split(".")]
-            df = self.get_core(df_parts[1]) if df_parts[0] == "core" else self.get_source(df_parts[1])
-            joiner["target_join_df"] = df
-            return df
-        else:
-            return joiner["target_join_df"]
 
     def _get_groupby_cols(self):
         """
@@ -75,12 +65,12 @@ class Channel:
         """
         return self.groupby_cols
 
-    def list_cores(self):
-        """
-        Returns a list of keys of cores.
-        :return:
-        """
-        return list(self.cores.keys())
+    # def list_cores(self):
+    #     """
+    #     Returns a list of keys of cores.
+    #     :return:
+    #     """
+    #     return list(self.cores.keys())
 
     def list_sources(self):
         """
@@ -89,16 +79,16 @@ class Channel:
         """
         return list(self.sources.keys())
 
-    def get_core(self, name: str):
-        """
-        Gets the dataframe of a core by name.
-        :param name:
-        :return:
-        """
-        if name in self.cores:
-            return self._apply_metric_filters(name, self.cores[name].df)
-        else:
-            return None
+    # def get_core(self, name: str):
+    #     """
+    #     Gets the dataframe of a core by name.
+    #     :param name:
+    #     :return:
+    #     """
+    #     if name in self.cores:
+    #         return self._apply_metric_filters(name, self.cores[name].df)
+    #     else:
+    #         return None
 
     def get_source(self, name: str):
         """
@@ -133,16 +123,16 @@ class Channel:
             df.filter(metric_filter)
         return df
 
-    def add_core(self, name: str, table: DataFrame, partition_col=[]):
-        """
-        Adds a core to the partner.
-        :param name:
-        :param table: the dataframe of the core
-        :param partition_col: the columns to be filtered using partition_start and partition_end
-        :return:
-        """
-
-        self._add_data(self.cores, name, table, partition_col)
+    # def add_core(self, name: str, table: DataFrame, partition_col=[]):
+    #     """
+    #     Adds a core to the partner.
+    #     :param name:
+    #     :param table: the dataframe of the core
+    #     :param partition_col: the columns to be filtered using partition_start and partition_end
+    #     :return:
+    #     """
+    #
+    #     self._add_data(self.cores, name, table, partition_col)
 
     def add_source(self, name: str, table: DataFrame, partition_col=[], joiners=[]):
         """
@@ -187,8 +177,8 @@ class Channel:
 
         datalist[name] = d
 
-    def remove_core(self, name: str):
-        self.config.drop("cores.{}".format(name))
+    # def remove_core(self, name: str):
+    #     self.config.drop("cores.{}".format(name))
 
 
     def remove_source(self, name: str):
@@ -198,9 +188,9 @@ class Channel:
         time_helpers = self.config.get_config("time_helpers") if time_helpers is None else time_helpers
         return Multiplier._create_from_daterange(self.dtm, time_helpers)
 
-    def _create_groupby(self, joiner_key: str, groupby_col, assign_df: bool=True):
-        joiner_config = self.config.get_or_else(joiner_key, dict())
-        if assign_df:
-            table_name = self.helpers._get_joiner_key(joiner_key)
-            joiner_config["target_join_df"] = self.get_source(table_name)
-        return {"col": groupby_col, "joiner": joiner_config, "joiner_key": joiner_key}
+    # def _create_groupby(self, joiner_key: str, groupby_col, assign_df: bool=True):
+    #     joiner_config = self.config.get_or_else(joiner_key, dict())
+    #     if assign_df:
+    #         table_name = self.helpers._get_joiner_key(joiner_key)
+    #         joiner_config["target_join_df"] = self.get_source(table_name)
+    #     return {"col": groupby_col, "joiner": joiner_config, "joiner_key": joiner_key}
