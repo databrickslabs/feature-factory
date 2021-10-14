@@ -6,4 +6,5 @@ pyspark==3.1.2
 python-dateutil==2.8.1
 scipy==1.7.1
 six==1.15.0
+coverage
 
