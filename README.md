@@ -1,5 +1,7 @@
 # Feature Factory
 
+[![codecov](https://codecov.io/gh/databrickslabs/feature-factory/branch/master/graph/badge.svg)](https://codecov.io/gh/databrickslabs/feature-factory)
+
 Feature factory simplifies the task of feature engineering by providing APIs built on top of PySpark with proper optimization, validation, and deduplication in mind. 
 It is meant to be used as an accelerator for the organization to simplify and unify feature engineering workflow. The framework itself is just that - a framework. That is
 it is not meant to stand alone. The accelerator must be forked and configured for your organization.
