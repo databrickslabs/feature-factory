@@ -1,6 +1,5 @@
 [run]
 branch = True
-source = feature-factory
 
 [report]
 exclude_lines =
@@ -11,7 +10,7 @@ exclude_lines =
 
 ignore_errors = True
 omit =
-    tests/*
-    examples/*
+    test/*
+    Demo/*
     tutorial/*
     setup.py
