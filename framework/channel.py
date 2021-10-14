@@ -112,7 +112,7 @@ class Channel:
         sources = self.config.get_or_else("sources", {})
         data_source = cores if df_parts[0] == "cores" else sources
         if df_parts[1] in data_source:
-            return data_source[df_parts[1]].df
+            return data_source[df_parts[1]].to_df()
         else:
             return None
 

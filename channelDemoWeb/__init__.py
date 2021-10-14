@@ -79,25 +79,3 @@ class Web(Channel):
         return self.sources
 
 
-    class _GroupBy:
-        def __init__(self, _web):
-            self.helpers = Helpers()
-            self._groupby_cols = []
-            self._web = _web
-
-        def trans_date(self):
-            """
-                GroupBy ss_sold_date and name column 'SOLD_DATE'
-            :return:
-            """
-            self._groupby_cols.append(col("ws_sold_date_sk").alias("SOLD_DATE"))
-            return self
-
-        def warehouse_id(self):
-            """
-                GroupBy ws_warehouse_sk and name column 'WAREHOUSE_ID'
-            :return:
-            """
-            self._groupby_cols.append(col("ws_warehouse_sk").alias("WAREHOUSE_ID"))
-            return self
-

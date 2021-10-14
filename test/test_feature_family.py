@@ -43,6 +43,7 @@ class TestFeatureFamily(unittest.TestCase):
         assert len(store.sources) == 3
         multipliable, base = store.Sales().get_all()
         assert len(multipliable.features) > 0
+        assert store.get_data("sources.store")
 
     def test_web_sales(self):
         web = Web(_snapshot_date="2002-01-31")

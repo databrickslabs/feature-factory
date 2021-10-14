@@ -25,12 +25,14 @@ class Helpers:
             .rdd.map(lambda row: row[0]).collect()[0]
 
     def _get_cat_feature_val_col(self, agg_col):
-        if agg_col == 1:
-            return lit(1)
-        else:
+        if isinstance(agg_col, int):
+            return lit(agg_col)
+        elif isinstance(agg_col, str):
             return col(agg_col)
+        else:
+            return agg_col
 
-    def get_time_range_in_seconds(self, time_string: str):
+    def get_time_range_in_days(self, time_string: str):
         """
         Generates epoch seconds for a time string
         supported time range strings are
@@ -86,7 +88,7 @@ class Helpers:
                                            .distinct().rdd.map(lambda row: str(row[0])).collect())
                         filter_cols.append(dcol)
             # ?? TODO - What about the rest of the potential categorical types (i.e. bools/ints/floats/etc)
-            return feature_factory.feature.Multiplier.create_from_cats(filter_cols, filter_vals)
+            return feature_factory.feature.Multiplier._create_from_cats(filter_cols, filter_vals)
         else:
             for dcol in col_list:
                 if self._get_approx_distinct_count_for_col(df, dcol) > approx_distinct:

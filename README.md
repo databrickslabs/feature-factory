@@ -409,37 +409,22 @@ display(features_target_df.select(*[col("COLLECTOR_NUMBER")], *base_feature_cols
 ```
 
 #### b. Joiners
-Currently a joiner is a dictionary that is stored and managed through the config. This is subject to change
-in the near future to enable several enhancements. Joiners will become a stand-alone object that supports
-more complex logic.
-
+Class Joiner defines how a dataframe will be joined to the primiary data source. When creating a Data instance, joiners can be added to the Data object.
 For now a joiner is meant to join lookups and other simple tables for the purpose of generating a feature on
-the same aggregate level. While more complex joiners can be created, they may get complicated and difficult
-to maintain. It's recommended to use joiners only for simple join logic at present.
+the same aggregate level.
 
-A joiner is a dictionary which contains joining logic including 
-* Joiner key: the key used to identify and retrieve the joiner obj. e.g. joiners.sales.item
-* Sources/cores to join. Please note that the source/core needs to be added to the partner with a proper key (e.g. partner_offer_dim) before joining.
+A joiner is a class object which contains joining logic including
+* DataFrame to be joined with the primary data source.
+* The join conditions
 * Join type (i.e. inner, left outer, etc.)
-* Join optimizers (i.e. broadcast)
 
-Joiners are defined in the Feature Family and added to the features they support. Below is the definition
-of a joiner that will join the store dimension assuming the source df contains `ss_store_sk`. 
+Joiners are defined in the Feature Family and added to the primary data source. Below is the definition
+of a joiner that will join the store dimension to store_sales_df assuming the source df contains `ss_store_sk`. 
 ```python
-    @joiner_func
-    def join_store(self):
-        data_set_join_key = "joiners.sales.store"
-        if not self.config.contains(data_set_join_key):
-            conf = {'target_join_df': 'sources.store',
-                    'filter_condition': F.col("ss_store_sk") == F.col('s_store_sk'),
-                    'join_type': 'inner',
-                    'optmizer': "broadcast"}
-        else:
-            print("sources.item is already loaded to create join_product_item_dim.")
+    store_joiner = Joiner(store_df, on=F.col("ss_store_sk") == F.col('s_store_sk'), how="inner")
+    self.add_source("store_sales", store_sales_df, ["p_yyyymm"], joiners=[store_joiner]
 ```
-Joiners can also be defined in the config as any other complex item. Any joiners defined in the feature family
-will automatically be added to the config when the feature family is instantiated. Refer to 
-`channelDemoStore.sales.py` to see specific implementation of joiners.
+Refer to `channelDemoStore.sales.py` to see specific implementation of joiners.
 
 ## 4. Multipliers & Time Management
 Multipliers are very powerful as they combine multiple concepts/ideas together to derive complex, derived features.

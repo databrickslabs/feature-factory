@@ -30,7 +30,7 @@ class Store(Channel):
         Channel.__init__(self, "Store", self.dtm, self.config)
         self._create_data_source()
         self.sales = Sales(self.config)
-        self.groupby = Store._GroupBy(self)
+        # self.groupby = Store._GroupBy(self)
 
     def Sales(self):
         self.sales = Sales(self.config)
@@ -86,16 +86,3 @@ class Store(Channel):
 
         return self.sources
 
-    class _GroupBy(GroupByCommon):
-        def __init__(self, _store):
-            self.helpers = Helpers()
-            self._groupby_cols = []
-            self._store = _store
-
-        def store(self):
-            """
-                GroupBy TRANSACTION_DATE and name column 'TRANS_DATE'
-            :return:
-            """
-            self._groupby_cols.append(F.col("ss_store_sk").alias("STORE_ID"))
-            return self
