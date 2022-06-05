@@ -63,7 +63,7 @@ class Web(Channel):
         try:
             item_df = spark.read.table("tomes_tpcds_delta_1tb_item")
             inventory_df = spark.read.table("tomes_tpcds_delta_1tb_inventory")
-            date_df = spark.read.table('tomes_tpcds_delta_1tb_date_dim')
+            # date_df = spark.read.table('tomes_tpcds_delta_1tb_date_dim')
 
             web_sales_df = spark.read.table("tomes_tpcds_delta_1tb_web_sales_enhanced")
             # store_returns_df = spark.read.table("tomes_tpcds_delta_1tb.store_returns_enhanced")

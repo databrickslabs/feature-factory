@@ -1,6 +1,5 @@
 from pyspark.sql.functions import col, lit, when, struct
 from pyspark.sql import functions as F
-from pyspark.sql.dataframe import DataFrame
 from framework.feature_factory.feature import Feature
 from framework.feature_factory.feature_family import FeatureFamily
 from framework.feature_factory import Helpers
@@ -59,8 +58,6 @@ class Sales(FeatureFamily):
                       _base_col='net_profit_by_div',
                       _negative_value=0,
                       _agg_func=F.sum):
-        f = self._create_feature(inspect.currentframe())
-        # f._add_joiner("joiners.sales.store", self.config)
-        # f._add_joiner("joiners.sales.store_net_profit_by_division", self.config)
+        self._create_feature(inspect.currentframe())
         return self
 

@@ -476,6 +476,64 @@ categorical_multipliers = Helpers().get_categoricals_multiplier(df = store.get_s
 ex2 = ex.multiply(categorical_multipliers, 'STORE')
 
 ``` 
+## 5. Feature Dictionary
+
+In the reference implementation, a module is implemented as a Feature Family (a collection of features). A read-only property is defined for each feature to provide easy access. A feature family extends an ImmutableDictBase class, which is generic and can serve as base class for collections of features, filters and other objects. In the code example below, filter definitions are extracted from features and form a separate Filters class. The common features shared by multiple families are also extracted into a separate Common Features class for reuse. Both filters and common features are inherited by the StoreSales family class, which defines a new set of features based upon the common definitions.
+
+In the code example, there is only one channel; multiple channels share the same CommonFeatures. Retrieving a feature definition from a specific channel is as simple as accessing a property of that family class, e.g. store_channel.total_sales
+
+Here is an code example of feature dictionary implemented using ImmutableDictBase
+
+```python
+class CommonFeatures(ImmutableDictBase):
+    def __init__(self):
+        self._dct["customer_id"] = Feature(_name="customer_id", _base_col=f.col("ss_customer_sk"))
+        self._dct["trans_id"] = Feature(_name="trans_id", _base_col=f.concat("ss_ticket_number","d_date"))
+
+    @property
+    def collector(self):
+        return self._dct["customer_id"]
+
+    @property
+    def trans_id(self):
+        return self._dct["trans_id"]
+
+
+class Filters(ImmutableDictBase):
+    def __init__(self):
+        self._dct["valid_sales"] = f.col("ss_net_paid") > 0
+
+    @property
+    def valid_sales(self):
+        return self._dct["valid_sales"]
+
+
+class StoreSales(CommonFeatures, Filters):
+    def __init__(self):
+        self._dct = dict()
+        CommonFeatures.__init__(self)
+        Filters.__init__(self)
+
+        self._dct["total_trans"] = Feature(_name="total_trans",
+                                           _base_col=self.trans_id,
+                                           _filter=[],
+                                           _negative_value=None,
+                                           _agg_func=f.countDistinct)
+
+        self._dct["total_sales"] = Feature(_name="total_sales",
+                                           _base_col=f.col("ss_net_paid").cast("float"),
+                                           _filter=self.valid_sales,
+                                           _negative_value=0,
+                                           _agg_func=f.sum)
+
+    @property
+    def total_sales(self):
+        return self._dct["total_sales"]
+
+    @property
+    def total_trans(self):
+        return self._dct["total_trans"]
+```
 
 ## Project Support
 Please note that all projects in the /databrickslabs github account are provided for your exploration only, and are not formally supported by Databricks with Service Level Agreements (SLAs).  They are provided AS-IS and we do not make any guarantees of any kind.  Please do not submit a support ticket relating to any issues arising from the use of these projects.

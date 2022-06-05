@@ -1,7 +1,6 @@
 from pyspark.sql.functions import col, lit, when
 from pyspark.sql.column import Column
 from functools import reduce
-from pyspark.sql.dataframe import DataFrame
 from collections import OrderedDict
 from framework.configobj import ConfigObj
 from framework.feature_factory.dtm import DateTimeManager
