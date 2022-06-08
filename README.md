@@ -1,5 +1,7 @@
 # Feature Factory
 
+[![codecov](https://codecov.io/gh/databrickslabs/feature-factory/branch/master/graph/badge.svg)](https://codecov.io/gh/databrickslabs/feature-factory)
+
 Feature factory simplifies the task of feature engineering by providing APIs built on top of PySpark with proper optimization, validation, and deduplication in mind. 
 It is meant to be used as an accelerator for the organization to simplify and unify feature engineering workflow. The framework itself is just that - a framework. That is
 it is not meant to stand alone. The accelerator must be forked and configured for your organization.
@@ -407,37 +409,22 @@ display(features_target_df.select(*[col("COLLECTOR_NUMBER")], *base_feature_cols
 ```
 
 #### b. Joiners
-Currently a joiner is a dictionary that is stored and managed through the config. This is subject to change
-in the near future to enable several enhancements. Joiners will become a stand-alone object that supports
-more complex logic.
-
+Class Joiner defines how a dataframe will be joined to the primiary data source. When creating a Data instance, joiners can be added to the Data object.
 For now a joiner is meant to join lookups and other simple tables for the purpose of generating a feature on
-the same aggregate level. While more complex joiners can be created, they may get complicated and difficult
-to maintain. It's recommended to use joiners only for simple join logic at present.
+the same aggregate level.
 
-A joiner is a dictionary which contains joining logic including 
-* Joiner key: the key used to identify and retrieve the joiner obj. e.g. joiners.sales.item
-* Sources/cores to join. Please note that the source/core needs to be added to the partner with a proper key (e.g. partner_offer_dim) before joining.
+A joiner is a class object which contains joining logic including
+* DataFrame to be joined with the primary data source.
+* The join conditions
 * Join type (i.e. inner, left outer, etc.)
-* Join optimizers (i.e. broadcast)
 
-Joiners are defined in the Feature Family and added to the features they support. Below is the definition
-of a joiner that will join the store dimension assuming the source df contains `ss_store_sk`. 
+Joiners are defined in the Feature Family and added to the primary data source. Below is the definition
+of a joiner that will join the store dimension to store_sales_df assuming the source df contains `ss_store_sk`. 
 ```python
-    @joiner_func
-    def join_store(self):
-        data_set_join_key = "joiners.sales.store"
-        if not self.config.contains(data_set_join_key):
-            conf = {'target_join_df': 'sources.store',
-                    'filter_condition': F.col("ss_store_sk") == F.col('s_store_sk'),
-                    'join_type': 'inner',
-                    'optmizer': "broadcast"}
-        else:
-            print("sources.item is already loaded to create join_product_item_dim.")
+    store_joiner = Joiner(store_df, on=F.col("ss_store_sk") == F.col('s_store_sk'), how="inner")
+    self.add_source("store_sales", store_sales_df, ["p_yyyymm"], joiners=[store_joiner]
 ```
-Joiners can also be defined in the config as any other complex item. Any joiners defined in the feature family
-will automatically be added to the config when the feature family is instantiated. Refer to 
-`channelDemoStore.sales.py` to see specific implementation of joiners.
+Refer to `channelDemoStore.sales.py` to see specific implementation of joiners.
 
 ## 4. Multipliers & Time Management
 Multipliers are very powerful as they combine multiple concepts/ideas together to derive complex, derived features.
@@ -489,6 +476,64 @@ categorical_multipliers = Helpers().get_categoricals_multiplier(df = store.get_s
 ex2 = ex.multiply(categorical_multipliers, 'STORE')
 
 ``` 
+## 5. Feature Dictionary
+
+In the reference implementation, a module is implemented as a Feature Family (a collection of features). A read-only property is defined for each feature to provide easy access. A feature family extends an ImmutableDictBase class, which is generic and can serve as base class for collections of features, filters and other objects. In the code example below, filter definitions are extracted from features and form a separate Filters class. The common features shared by multiple families are also extracted into a separate Common Features class for reuse. Both filters and common features are inherited by the StoreSales family class, which defines a new set of features based upon the common definitions.
+
+In the code example, there is only one channel; multiple channels share the same CommonFeatures. Retrieving a feature definition from a specific channel is as simple as accessing a property of that family class, e.g. store_channel.total_sales
+
+Here is an code example of feature dictionary implemented using ImmutableDictBase
+
+```python
+class CommonFeatures(ImmutableDictBase):
+    def __init__(self):
+        self._dct["customer_id"] = Feature(_name="customer_id", _base_col=f.col("ss_customer_sk"))
+        self._dct["trans_id"] = Feature(_name="trans_id", _base_col=f.concat("ss_ticket_number","d_date"))
+
+    @property
+    def collector(self):
+        return self._dct["customer_id"]
+
+    @property
+    def trans_id(self):
+        return self._dct["trans_id"]
+
+
+class Filters(ImmutableDictBase):
+    def __init__(self):
+        self._dct["valid_sales"] = f.col("ss_net_paid") > 0
+
+    @property
+    def valid_sales(self):
+        return self._dct["valid_sales"]
+
+
+class StoreSales(CommonFeatures, Filters):
+    def __init__(self):
+        self._dct = dict()
+        CommonFeatures.__init__(self)
+        Filters.__init__(self)
+
+        self._dct["total_trans"] = Feature(_name="total_trans",
+                                           _base_col=self.trans_id,
+                                           _filter=[],
+                                           _negative_value=None,
+                                           _agg_func=f.countDistinct)
+
+        self._dct["total_sales"] = Feature(_name="total_sales",
+                                           _base_col=f.col("ss_net_paid").cast("float"),
+                                           _filter=self.valid_sales,
+                                           _negative_value=0,
+                                           _agg_func=f.sum)
+
+    @property
+    def total_sales(self):
+        return self._dct["total_sales"]
+
+    @property
+    def total_trans(self):
+        return self._dct["total_trans"]
+```
 
 ## Project Support
 Please note that all projects in the /databrickslabs github account are provided for your exploration only, and are not formally supported by Databricks with Service Level Agreements (SLAs).  They are provided AS-IS and we do not make any guarantees of any kind.  Please do not submit a support ticket relating to any issues arising from the use of these projects.

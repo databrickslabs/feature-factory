@@ -1,7 +1,6 @@
 from pyspark.sql.functions import col, lit, when
 from pyspark.sql.column import Column
 from functools import reduce
-from pyspark.sql.dataframe import DataFrame
 from collections import OrderedDict
 from framework.configobj import ConfigObj
 from framework.feature_factory.dtm import DateTimeManager
@@ -19,7 +18,6 @@ class Feature:
                  _negative_value=0,
                  _agg_func=None,
                  _agg_alias:str=None,
-                 _joiners={},
                  _kind="multipliable",
                  _is_temporary=False):
         """
@@ -31,10 +29,12 @@ class Feature:
         :param _negative_value: the value the feature is derived from when the filter condition is false
         :param _agg_func: the aggregation functions for computing the feature value from base_col or negative_value
         :param _agg_alias: alias name
-        :param _joiners: config of table joining for this feature
         """
         self.name = _name
-        self.base_col = _base_col if type(_base_col) is Column else col(_base_col)
+        if isinstance(_base_col, Feature):
+            self.base_col = _base_col.assembled_column
+        else:
+            self.base_col = _base_col if type(_base_col) is Column else col(_base_col)
         self.filter = _filter if type(_filter) is list else [_filter]
         self.negative_value = _negative_value if _negative_value != "" else None
         self.output_alias = _name if _agg_alias is None else _agg_alias
@@ -42,13 +42,12 @@ class Feature:
         self.aggs = []
         self.assembled_column = None
         self._assemble_column()
-        self.joiners = _joiners
         self.kind = _kind
         self.is_temporary = _is_temporary
 
     def _clone(self, _alias: str=None):
         alias = _alias if _alias is not None else self.output_alias
-        return Feature(alias, self.base_col, self.filter, self.negative_value, self.agg_func, alias, self.joiners, self.kind)
+        return Feature(alias, self.base_col, self.filter, self.negative_value, self.agg_func, alias, self.kind)
 
     def _assemble_column(self):
         if (self.base_col is not None) and (len(self.filter) > 0) and (self.agg_func is not None):
@@ -86,49 +85,6 @@ class Feature:
         that_copy = that._clone("colname")
         return this_copy._equals(that_copy)
 
-    def _add_joiner(self, join_key: str, partner_conf: ConfigObj):
-        joiner = partner_conf.get_or_else(join_key, {})
-        if join_key in self.joiners:
-            print("{} has been added already.".format(join_key))
-        else:
-            self.joiners[join_key] = joiner
-            # self._create_joiner_df(joiner, partner_conf)
-
-    def _populate_joiner_df(self, partner_conf: ConfigObj):
-        for k, joiner in self.joiners.items():
-            self._create_joiner_df(joiner, partner_conf)
-
-    def _remove_joiner(self, join_key: str):
-        if join_key in self.joiners:
-            del self.joiners[join_key]
-            print("{} deleted from joiners.".format(join_key))
-        else:
-            print("{} not in joiner. No action for delete.".format(join_key))
-
-    def _clear_joiner(self):
-        self.joiners.clear()
-
-    def _create_joiner_df(self, joiner: dict, partner_conf: ConfigObj):
-        """
-        Tries to create a dataframe from target_join_df of a joiner.
-        If the sources/cores does not contain the dataframe, keep the target_join_df as path string.
-        The path may be resovled later when more df is added to the partner.
-        :param joiner:
-        :param partner_conf:
-        :return:
-        """
-        if "target_join_df" in joiner:
-            if not isinstance(joiner["target_join_df"], DataFrame):
-                df_path = joiner["target_join_df"]
-                df_parts = [p.strip() for p in df_path.split(".")]
-                cores = partner_conf.get_or_else("cores", {})
-                sources = partner_conf.get_or_else("sources", {})
-                data_source = cores if df_parts[0] == "cores" else sources
-                if df_parts[1] in data_source:
-                    joiner["target_join_df"] = data_source[df_parts[1]].df
-
-            return joiner["target_join_df"]
-        return None
 
 class FeatureSet:
 
@@ -181,7 +137,6 @@ class FeatureSet:
                                                         _filter=feature_filter,
                                                         _negative_value=base_feature.negative_value,
                                                         _agg_func=base_feature.agg_func,
-                                                        _joiners=base_feature.joiners,
                                                         _is_temporary=is_temporary
                                                         )
         return FeatureSet(results)

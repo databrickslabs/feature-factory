@@ -25,12 +25,14 @@ class Helpers:
             .rdd.map(lambda row: row[0]).collect()[0]
 
     def _get_cat_feature_val_col(self, agg_col):
-        if agg_col == 1:
-            return lit(1)
-        else:
+        if isinstance(agg_col, int):
+            return lit(agg_col)
+        elif isinstance(agg_col, str):
             return col(agg_col)
+        else:
+            return agg_col
 
-    def get_time_range_in_seconds(self, time_string: str):
+    def get_time_range_in_days(self, time_string: str):
         """
         Generates epoch seconds for a time string
         supported time range strings are
@@ -74,7 +76,7 @@ class Helpers:
         filter_vals = []
         filter_cols = col_list
 
-        if len(col_list) == 0:
+        if not col_list:
             for (dcol, dtype) in df.drop(*ignore_cols).dtypes:
                 if dtype == 'string':
                     if self._get_approx_distinct_count_for_col(df, dcol, _rsd=rsd) <= approx_distinct:
@@ -86,7 +88,7 @@ class Helpers:
                                            .distinct().rdd.map(lambda row: str(row[0])).collect())
                         filter_cols.append(dcol)
             # ?? TODO - What about the rest of the potential categorical types (i.e. bools/ints/floats/etc)
-            return feature_factory.feature.Multiplier.create_from_cats(filter_cols, filter_vals)
+            return feature_factory.feature.Multiplier._create_from_cats(filter_cols, filter_vals)
         else:
             for dcol in col_list:
                 if self._get_approx_distinct_count_for_col(df, dcol) > approx_distinct:
@@ -103,7 +105,7 @@ class Helpers:
         :param alias:
         :return:
         """
-        return ''.join(ch for ch in alias if ch.isalnum() or ch in ['-', '_'])
+        return ''.join(ch for ch in alias if ch.isalnum() or ch in ['-', '_']).strip('_-')
 
     def _to_list(self, items):
         """
@@ -114,17 +116,17 @@ class Helpers:
         """
         return Converter(items, F.col).list
 
-    def _extract_groupby_joiner(self, groupby_cols):
-        groupbys = []
-        joiners = {}
-        for g in groupby_cols:
-            if isinstance(g, dict):
-                groupbys.append(g["col"])
-                joiners[g["joiner_key"]] = g["joiner"]
-            else:
-                item = F.col(g) if isinstance(g, str) else g
-                groupbys.append(item)
-        return groupbys, joiners
+    # def _extract_groupby_joiner(self, groupby_cols):
+    #     groupbys = []
+    #     joiners = {}
+    #     for g in groupby_cols:
+    #         if isinstance(g, dict):
+    #             groupbys.append(g["col"])
+    #             joiners[g["joiner_key"]] = g["joiner"]
+    #         else:
+    #             item = F.col(g) if isinstance(g, str) else g
+    #             groupbys.append(item)
+    #     return groupbys, joiners
 
     def _to_list_noconversion(self, items):
         if isinstance(items, dict):
@@ -207,57 +209,6 @@ class Helpers:
         logger.info("deduped features: {}".format(deduped))
         return deduped.values(), duplicated
 
-    def _optimize_joiner(self, joiner_df, optimizer: str):
-        if optimizer.lower() == "broadcast":
-            return F.broadcast(joiner_df)
-        else:
-            return joiner_df
-
-    def _get_joiner_key(self, full_key: str):
-        """
-        Gets the last part of a joiner key.
-        for a joiner key joiners.issuance.partner_offer_dim, this function will return partner_offer_dim.
-        :param full_key: joiner key in a config obj.
-        :return: the last component of the joiner key.
-        """
-        return full_key.split(".")[-1].strip()
-
-    def _resolve_feature_joiners(self, df: DataFrame, features: list, joiners: dict):
-        """
-        Joins the joiners specified with features to the dataframe.
-        :param df: a dataframe to be joined with joiners
-        :param features: features to be appended to the dataframe
-        :return: a dataframe joined with joiners.
-        """
-        for f in features:
-            for k, joiner in f.joiners.items():
-                logger.info("resolving {}".format(k))
-                joiners[k] = joiner
-        return self._apply_joiners_to_df(joiners, df)
-
-    def _apply_joiners_to_df(self, joiners: dict, df: DataFrame):
-        for k, joiner in joiners.items():
-            jk = self._get_joiner_key(k)
-            df = self._apply_joiner_to_df(jk, joiner, df)
-        return df
-
-    def _apply_joiner_to_df(self, source_name: str, joiner: dict, df: DataFrame):
-        joiner_df = joiner["target_join_df"].alias(source_name)
-        if isinstance(joiner_df, DataFrame):
-            if self._is_join_needed(joiner_df, df):
-                joiner["optimizer"] = "" if "optimizer" not in joiner else joiner["optimizer"]
-                optimized_joiner_df = self._optimize_joiner(joiner_df, joiner["optimizer"])
-                df = df.join(optimized_joiner_df,
-                             on=joiner["filter_condition"],
-                             how=joiner["join_type"])
-            else:
-                print("{} has already been joined to base df.".format(source_name))
-        else:
-            exception_msg = "{} cannot be resolved!!! Please add the source to the partner.".format(source_name)
-            raise Exception(exception_msg)
-        return df
-
-
     def _is_join_needed(self, from_df: DataFrame, to_df: DataFrame):
         from_cols = from_df.columns
         return not all(self._col_in_df(col, to_df) for col in from_cols)
@@ -307,19 +258,19 @@ class Helpers:
         registrar.all = registry
         return registrar
 
-    def _register_joiner_func(self):
-        """
-        Registers the function which is annotated with registrar
-        Registered functions are stored in registrar.all
-        :return: a wrapper function of the annotated function.
-        """
-        registry = OrderedDict()
-        def registrar(func):
-            registry[func.__name__] = func
-            return func  # normally a decorator returns a wrapped function,
-            # but here we return func unmodified, after registering it
-        registrar.all = registry
-        return registrar
+    # def _register_joiner_func(self):
+    #     """
+    #     Registers the function which is annotated with registrar
+    #     Registered functions are stored in registrar.all
+    #     :return: a wrapper function of the annotated function.
+    #     """
+    #     registry = OrderedDict()
+    #     def registrar(func):
+    #         registry[func.__name__] = func
+    #         return func  # normally a decorator returns a wrapped function,
+    #         # but here we return func unmodified, after registering it
+    #     registrar.all = registry
+    #     return registrar
 
     def get_current_date(self, strfmt: str):
         """

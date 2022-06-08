@@ -82,5 +82,3 @@ class TrendsCommon(FeatureFamily):
 
         return final_features
 
-# numbers = [1, 2, 3, 4]
-# squares = [n**2 for n in numbers]
