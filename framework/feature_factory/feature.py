@@ -141,6 +141,28 @@ class FeatureSet:
                                                         )
         return FeatureSet(results)
 
+    def divide(self, divisor):
+        assert len(self) == len(divisor), "The divisor and dividend need to have the same number of elements."
+        result_dct = OrderedDict()
+        for dividend, divisor in zip(self.features.values(), divisor.features.values()):
+            fn = f"{dividend.output_alias}_per_{divisor.output_alias}"
+            fcol = Feature(
+                _name=fn,
+                _base_col = col(dividend.output_alias)/col(divisor.output_alias),
+                 _is_temporary=False
+            )
+            result_dct[fn] = fcol
+        return FeatureSet(result_dct)
+
+    def __len__(self):
+        return len(self.features)
+
+    def __floordiv__(self, divisor):
+        return self.divide(divisor)
+
+    def __truediv__(self, divisor):
+        return self.divide(divisor)
+
 
 class Multiplier:
     def __init__(self, _filter_cols: list, _filter_vals: list, _filters: list, _filter_names: list=None):
