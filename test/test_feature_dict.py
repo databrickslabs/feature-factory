@@ -124,12 +124,30 @@ class TestFeatureDict(unittest.TestCase):
         features = StoreSales()
         multiplier = helpers.get_categoricals_multiplier(self.sales_df, ["i_category"])
         sales_per_quants = CompositeFeature("sales_quants", features.total_sales, "/", features.total_quants)
-        fs_result = sales_per_quants.multiply(multiplier)
+        fs_result = sales_per_quants.multiply(multiplier, include_lineage=True)
         ff = Feature_Factory()
         df = ff.append_features(self.sales_df, [features.collector], 
             fs_result)
         df.show()
-        assert df.count() > 0
+        print(f"the number of cols is: {len(df.columns)}")
+        assert len(df.columns) == 33 # 10 categories for sales, quants, sales_per_quants, and customer_id, total_sales, total_quants
+    
+    def test_composite_feature_no_lineage(self):
+        helpers = Helpers()
+        features = StoreSales()
+        multiplier = helpers.get_categoricals_multiplier(self.sales_df, ["i_category"])
+        multipliable = FeatureSet()
+        multipliable.add_feature(features.total_sales)
+        multipliable.add_feature(features.total_quants)
+        fs_multi = multipliable.multiply(multiplier, "")
+        sales_per_quants = CompositeFeature("sales_quants", features.total_sales, "/", features.total_quants)
+        fs_result = sales_per_quants.multiply(multiplier, include_lineage=False)
+        ff = Feature_Factory()
+        df = ff.append_features(self.sales_df, [features.collector], 
+            [multipliable, fs_multi] + fs_result)
+        df.show()
+        print(f"the number of cols is: {len(df.columns)}")
+        assert len(df.columns) == 33
 
 
     def tearDown(self) -> None:

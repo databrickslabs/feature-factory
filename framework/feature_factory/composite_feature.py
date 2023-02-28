@@ -36,12 +36,21 @@ class CompositeFeature:
             raise AttributeError("Composite feature only supports / + -")
 
     
-    def multiply(self, multiplier, name_prefix: str="", is_temporary=False):
+    def multiply(self, multiplier, name_prefix: str="", include_lineage=False):
+        """
+        :param multiplier:
+        :param name_prefix:
+        :param include_lineage: if True, all features will be inlucde in the final set.
+        e.g. f(A/B)*[1M, 3M] will generate A, B, A_1M, A_3M, B_1M, B_3M, A/B, A_1M/B_1M, A_3M/B_3M
+        If False, only the composite features are generated: A/B, A_1M/B_1M, A_3M/B_3M
+        """
         fs1 = FeatureSet()
         fs1.add_feature(self.operand1)
         fs2 = FeatureSet()
         fs2.add_feature(self.operand2)
-        fs1_multi = fs1.multiply(multiplier, name_prefix, is_temporary)
-        fs2_multi = fs2.multiply(multiplier, name_prefix, is_temporary)
+        fs1_multi = fs1.multiply(multiplier, name_prefix)
+        fs2_multi = fs2.multiply(multiplier, name_prefix)
         fs_result = self._internal_ops(fs1_multi, fs2_multi)
-        return [fs1, fs2, fs1_multi, fs2_multi, fs_result]
+        if include_lineage:
+            return [fs1, fs2, fs1_multi, fs2_multi, fs_result]
+        return [fs_result]
