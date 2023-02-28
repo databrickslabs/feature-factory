@@ -1,6 +1,7 @@
 import unittest
 from framework.feature_factory.feature import Feature, FeatureSet
 from framework.feature_factory.feature_dict import ImmutableDictBase
+from framework.feature_factory.composite_feature import CompositeFeature
 from framework.feature_factory import Feature_Factory
 from framework.feature_factory.helpers import Helpers
 import pyspark.sql.functions as f
@@ -114,8 +115,22 @@ class TestFeatureDict(unittest.TestCase):
         ff = Feature_Factory()
         df = ff.append_features(self.sales_df, [features.collector], 
             [fs_sales, fs_quants, cats_fs_sales, cats_fs_quants, sales_per_quants])
-        df.select("customer_id", "I_CATEGORY-HOME_SALES", "I_CATEGORY-HOME_QUANTS", "I_CATEGORY-HOME_SALES_per_I_CATEGORY-HOME_QUANTS").show()
+        # df.select("customer_id", "I_CATEGORY-HOME_SALES", "I_CATEGORY-HOME_QUANTS", "I_CATEGORY-HOME_SALES_per_I_CATEGORY-HOME_QUANTS").show()
+        df.show()
         assert df.count() == self.sales_df.select("ss_customer_sk").distinct().count()
+    
+    def test_composite_feature_v3(self):
+        helpers = Helpers()
+        features = StoreSales()
+        multiplier = helpers.get_categoricals_multiplier(self.sales_df, ["i_category"])
+        sales_per_quants = CompositeFeature("sales_quants", features.total_sales, "/", features.total_quants)
+        fs_result = sales_per_quants.multiply(multiplier)
+        ff = Feature_Factory()
+        df = ff.append_features(self.sales_df, [features.collector], 
+            fs_result)
+        df.show()
+        assert df.count() > 0
+
 
     def tearDown(self) -> None:
         pass

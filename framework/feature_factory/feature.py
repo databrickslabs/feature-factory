@@ -44,6 +44,7 @@ class Feature:
         self._assemble_column()
         self.kind = _kind
         self.is_temporary = _is_temporary
+        self.names = None
 
     def _clone(self, _alias: str=None):
         alias = _alias if _alias is not None else self.output_alias
@@ -84,6 +85,27 @@ class Feature:
         this_copy = self._clone("colname")
         that_copy = that._clone("colname")
         return this_copy._equals(that_copy)
+
+    def set_names(self, orig_name: str, prefix: str, surffix: str):
+        self.names = CompositeNames(orig_name, prefix, surffix)
+    
+    def get_orig_name(self):
+        if not self.names:
+            return ""
+        else:
+            return self.names.orig_name
+    
+    def get_surffix(self):
+        if not self.names:
+            return ""
+        else:
+            return self.names.surffix
+
+    def get_prefix(self):
+        if not self.names:
+            return ""
+        else:
+            return self.names.prefix
 
 
 class FeatureSet:
@@ -139,20 +161,42 @@ class FeatureSet:
                                                         _agg_func=base_feature.agg_func,
                                                         _is_temporary=is_temporary
                                                         )
+                        results[feature_name].set_names(orig_name=multipliable_name.upper(), prefix=_name_prefix, surffix=current_name.upper())
         return FeatureSet(results)
 
-    def divide(self, divisor):
-        assert len(self) == len(divisor), "The divisor and dividend need to have the same number of elements."
+    def _internal_col_ops(self, col1, col2, op):
+        if op == "/":
+            return col1/col2
+        elif op == "-":
+            return col1 - col2
+        elif op == "+":
+            return col1 + col2
+        else:
+            raise AttributeError("Feature set does not support operators other than / - +")
+    
+    def _internal_ops(self, fs1, fs2, op, name):
+        assert len(fs1) == len(fs2), "The divisor and dividend need to have the same number of elements."
         result_dct = OrderedDict()
-        for dividend, divisor in zip(self.features.values(), divisor.features.values()):
-            fn = f"{dividend.output_alias}_per_{divisor.output_alias}"
+        for dividend, divisor in zip(fs1.features.values(), fs2.features.values()):
+            # fn = f"{dividend.output_alias}_per_{divisor.output_alias}"
+            if not name:
+                fn = f"{dividend.get_prefix()}_{dividend.get_orig_name()}_PER_{divisor.get_orig_name()}_{dividend.get_surffix()}"
+            else:
+                fn = f"{dividend.get_prefix()}_{name}_{dividend.get_surffix()}"
             fcol = Feature(
-                _name=fn,
-                _base_col = col(dividend.output_alias)/col(divisor.output_alias),
-                 _is_temporary=False
+                _name=self.helpers._clean_alias(fn),
+                _base_col = self._internal_col_ops(col(dividend.output_alias), col(divisor.output_alias), op),
+                _is_temporary=False
             )
             result_dct[fn] = fcol
         return FeatureSet(result_dct)
+
+    def divide(self, divisor, name=""):
+        """
+        :param divisor: A FeatureSet to divide this FeatureSet. Each feature in this FeatureSet will be deivided by that of divisor.
+        """
+        return self._internal_ops(self, divisor, "/", name)
+        
 
     def __len__(self):
         return len(self.features)
@@ -242,3 +286,9 @@ class Multiplier:
             filter_vals.append(target_month_id)
 
         return Multiplier(filter_cols, [filter_vals], [filters], [filter_names])
+
+class CompositeNames:
+    def __init__(self, orig_name: str, prefix: str, surffix: str) -> None:
+        self.orig_name = orig_name
+        self.surffix = surffix
+        self.prefix = prefix 
