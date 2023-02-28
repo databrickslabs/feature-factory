@@ -1,7 +1,6 @@
 import unittest
-from framework.feature_factory.feature import Feature, FeatureSet
+from framework.feature_factory.feature import Feature, FeatureSet, CompositeFeature
 from framework.feature_factory.feature_dict import ImmutableDictBase
-from framework.feature_factory.composite_feature import CompositeFeature
 from framework.feature_factory import Feature_Factory
 from framework.feature_factory.helpers import Helpers
 import pyspark.sql.functions as f
@@ -50,11 +49,13 @@ class StoreSales(CommonFeatures, Filters):
                                            _negative_value=0,
                                            _agg_func=f.sum)
 
-        self._dct["sales_per_quants"] = Feature(_name="sales_per_quants",
-                                           _base_col=f.col("ss_net_paid").cast("float")/f.col("total_quants"),
-                                           _filter=self.valid_sales,
-                                           _negative_value=0,
-                                           _agg_func=f.sum)
+        self._dct["sales_per_quants"] = (self.total_sales / self.total_quants).withName("sales_per_quants")
+
+        # self._dct["sales_per_quants"] = Feature(_name="sales_per_quants",
+        #                                    _base_col=f.col("ss_net_paid").cast("float")/f.col("total_quants"),
+        #                                    _filter=self.valid_sales,
+        #                                    _negative_value=0,
+        #                                    _agg_func=f.sum)
 
     @property
     def total_sales(self):
@@ -93,7 +94,6 @@ class TestFeatureDict(unittest.TestCase):
         fs = FeatureSet()
         fs.add_feature(features.total_sales)
         fs.add_feature(features.total_quants)
-        fs.add_feature(features.sales_per_quants)
         cats_fs = fs.multiply(multiplier, "")
         ff = Feature_Factory()
         # df = ff.append_features(self.sales_df, [features.collector], [cats_fs])
@@ -149,6 +149,42 @@ class TestFeatureDict(unittest.TestCase):
         print(f"the number of cols is: {len(df.columns)}")
         assert len(df.columns) == 33
 
+    def test_sales_per_quants(self):
+        helpers = Helpers()
+        features = StoreSales()
+        multiplier = helpers.get_categoricals_multiplier(self.sales_df, ["i_category"])
+        sales_per_quants = features.sales_per_quants
+        fs_result = sales_per_quants.multiply(multiplier, include_lineage=True)
+        ff = Feature_Factory()
+        df = ff.append_features(self.sales_df, [features.collector], 
+            fs_result)
+        df.show()
+        print(f"the number of cols is: {len(df.columns)}")
+        assert len(df.columns) == 33 # 10 categories for sales, quants, sales_per_quants, and customer_id, total_sales, total_quants
+
+    def test_zero_sales(self):
+        helpers = Helpers()
+        features = StoreSales()
+        multiplier = helpers.get_categoricals_multiplier(self.sales_df, ["i_category"])
+        sales_zero = CompositeFeature("zero_sales", features.total_sales, "-", features.total_sales)
+        fs_result = sales_zero.multiply(multiplier, include_lineage=True)
+        ff = Feature_Factory()
+        df = ff.append_features(self.sales_df, [features.collector], 
+            fs_result)
+        df.select("zero_sales_I_CATEGORY-HOME","zero_sales_I_CATEGORY-SPORTS","zero_sales_I_CATEGORY-ELECTRONICS","zero_sales_I_CATEGORY-BOOKS","zero_sales_I_CATEGORY-MEN","zero_sales_I_CATEGORY-MUSIC","zero_sales_I_CATEGORY-WOMEN","zero_sales_I_CATEGORY-SHOES","zero_sales_I_CATEGORY-JEWELRY","zero_sales_I_CATEGORY-CHILDREN").show()
+        print(f"the number of cols is: {len(df.columns)}")
+        assert len(df.columns) == 22 # 10 categories for sales, sales-sales, and customer_id, total_sales
+
+    def test_to_feature(self):
+        features = StoreSales()
+        sales_per_quants = features.sales_per_quants.to_feature()
+        fs = FeatureSet()
+        fs.add_feature(features.total_sales)
+        fs.add_feature(features.total_quants)
+        fs.add_feature(sales_per_quants)
+        ff = Feature_Factory()
+        df = ff.append_features(self.sales_df, [features.collector], [fs])
+        df.show()
 
     def tearDown(self) -> None:
         pass

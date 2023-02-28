@@ -5,6 +5,7 @@ from collections import OrderedDict
 from framework.configobj import ConfigObj
 from framework.feature_factory.dtm import DateTimeManager
 import datetime
+import copy
 
 
 class Feature:
@@ -106,6 +107,21 @@ class Feature:
             return ""
         else:
             return self.names.prefix
+    
+    def divide(self, divisor, name=""):
+        return CompositeFeature.from_feature(self, "/", divisor)
+
+    def __floordiv__(self, divisor):
+        return self.divide(divisor)
+
+    def __truediv__(self, divisor):
+        return self.divide(divisor)
+
+    def __add__(self, other):
+        return CompositeFeature.from_feature(self, "+", other)
+
+    def __sub__(self, other):
+        return CompositeFeature.from_feature(self, "-", other)
 
 
 class FeatureSet:
@@ -164,16 +180,6 @@ class FeatureSet:
                         results[feature_name].set_names(orig_name=multipliable_name.upper(), prefix=_name_prefix, surffix=current_name.upper())
         return FeatureSet(results)
 
-    def _internal_col_ops(self, col1, col2, op):
-        if op == "/":
-            return col1/col2
-        elif op == "-":
-            return col1 - col2
-        elif op == "+":
-            return col1 + col2
-        else:
-            raise AttributeError("Feature set does not support operators other than / - +")
-    
     def _internal_ops(self, fs1, fs2, op, name):
         assert len(fs1) == len(fs2), "The divisor and dividend need to have the same number of elements."
         result_dct = OrderedDict()
@@ -185,7 +191,7 @@ class FeatureSet:
                 fn = f"{dividend.get_prefix()}_{name}_{dividend.get_surffix()}"
             fcol = Feature(
                 _name=self.helpers._clean_alias(fn),
-                _base_col = self._internal_col_ops(col(dividend.output_alias), col(divisor.output_alias), op),
+                _base_col = _internal_col_ops(col(dividend.output_alias), col(divisor.output_alias), op),
                 _is_temporary=False
             )
             result_dct[fn] = fcol
@@ -197,6 +203,17 @@ class FeatureSet:
         """
         return self._internal_ops(self, divisor, "/", name)
         
+    def plus(self, operand, name=""):
+        """
+        :param divisor: A FeatureSet to add to this FeatureSet. Each feature in this FeatureSet will be added by that of the other operand.
+        """
+        return self._internal_ops(self, operand, "+", name)
+    
+    def minus(self, operand, name=""):
+        """
+        :param divisor: A FeatureSet to subtract from this FeatureSet. Each feature in this FeatureSet will be subtracted by that of the other operand.
+        """
+        return self._internal_ops(self, operand, "-", name)
 
     def __len__(self):
         return len(self.features)
@@ -206,6 +223,74 @@ class FeatureSet:
 
     def __truediv__(self, divisor):
         return self.divide(divisor)
+
+
+class CompositeFeature:
+    """
+    CompositeFeature class.
+    With composite feature C = Feature A / Feature B
+    C.multiply([1M, 3M, 6M]) = A.multiply([1M, 3M, 6M]) / B.multiply([1M, 3M, 6M])
+                             = [A_1M/B_1M, A_3M/B_3M, A_6M/B_6M]
+    """
+    def __init__(self,
+                name,
+                operand1,
+                op,
+                operand2):
+        """
+        :param operand1: a Feature object as left operand
+        :param op: a String as operator
+        :param operand2: a Feature object as right operand
+        """
+        self.name = name
+        self.operand1 = operand1
+        self.operand2 = operand2
+        self.op = op
+    
+    def withName(self, name):
+        obj = copy.copy(self)
+        obj.name = name
+        return obj
+    
+    @classmethod
+    def from_feature(cls, operand1, op, operand2):
+        return CompositeFeature("", operand1, op, operand2)
+    
+    def _internal_ops(self, fs1, fs2):
+        if self.op == "/":
+            return fs1.divide(fs2, self.name)
+        elif self.op == "-":
+            return fs1.minus(fs2, self.name)
+        elif self.op == "+":
+            return fs1.plus(fs2, self.name)
+        else:
+            raise AttributeError("Composite feature only supports / + -")
+
+    
+    def multiply(self, multiplier, name_prefix: str="", include_lineage=False):
+        """
+        :param multiplier:
+        :param name_prefix:
+        :param include_lineage: if True, all features will be inlucde in the final set.
+        e.g. f(A/B)*[1M, 3M] will generate A, B, A_1M, A_3M, B_1M, B_3M, A/B, A_1M/B_1M, A_3M/B_3M
+        If False, only the composite features are generated: A/B, A_1M/B_1M, A_3M/B_3M
+        """
+        fs1 = FeatureSet()
+        fs1.add_feature(self.operand1)
+        fs2 = FeatureSet()
+        fs2.add_feature(self.operand2)
+        fs1_multi = fs1.multiply(multiplier, name_prefix)
+        fs2_multi = fs2.multiply(multiplier, name_prefix)
+        fs_result = self._internal_ops(fs1_multi, fs2_multi)
+        if include_lineage:
+            return [fs1, fs2, fs1_multi, fs2_multi, fs_result]
+        return [fs_result]
+
+    def to_feature(self):
+        return Feature(
+            _name = self.name,
+            _base_col = _internal_col_ops(col(self.operand1.output_alias), col(self.operand2.output_alias), self.op)
+        )
 
 
 class Multiplier:
@@ -292,3 +377,13 @@ class CompositeNames:
         self.orig_name = orig_name
         self.surffix = surffix
         self.prefix = prefix 
+
+def _internal_col_ops(col1, col2, op):
+        if op == "/":
+            return col1/col2
+        elif op == "-":
+            return col1 - col2
+        elif op == "+":
+            return col1 + col2
+        else:
+            raise AttributeError("Feature set does not support operators other than / - +")
