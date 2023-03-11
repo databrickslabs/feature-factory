@@ -238,8 +238,9 @@ class CompositeFeature:
                 op,
                 operand2):
         """
+        :param name: the Feature name
         :param operand1: a Feature object as left operand
-        :param op: a String as operator
+        :param op: a String as operator (+, -, /)
         :param operand2: a Feature object as right operand
         """
         self.name = name
@@ -254,6 +255,11 @@ class CompositeFeature:
     
     @classmethod
     def from_feature(cls, operand1, op, operand2):
+        """
+        :param operand1: a feature obj
+        :param op: operator including +, - , /
+        :param operand2: a feature obj 
+        """
         return CompositeFeature("", operand1, op, operand2)
     
     def _internal_ops(self, fs1, fs2):
@@ -269,8 +275,8 @@ class CompositeFeature:
     
     def multiply(self, multiplier, name_prefix: str="", include_lineage=False):
         """
-        :param multiplier:
-        :param name_prefix:
+        :param multiplier: a multiplier obj
+        :param name_prefix: prefix to the feature name.
         :param include_lineage: if True, all features will be inlucde in the final set.
         e.g. f(A/B)*[1M, 3M] will generate A, B, A_1M, A_3M, B_1M, B_3M, A/B, A_1M/B_1M, A_3M/B_3M
         If False, only the composite features are generated: A/B, A_1M/B_1M, A_3M/B_3M
@@ -287,6 +293,9 @@ class CompositeFeature:
         return [fs_result]
 
     def to_feature(self):
+        """
+        Convert the composite feature to a feature obj
+        """
         return Feature(
             _name = self.name,
             _base_col = _internal_col_ops(col(self.operand1.output_alias), col(self.operand2.output_alias), self.op)

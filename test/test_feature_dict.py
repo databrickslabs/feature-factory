@@ -184,7 +184,9 @@ class TestFeatureDict(unittest.TestCase):
         fs.add_feature(sales_per_quants)
         ff = Feature_Factory()
         df = ff.append_features(self.sales_df, [features.collector], [fs])
-        df.show()
+        # df.show()
+        assert len(df.columns) == 4 # three added features and collector id
+
 
     def tearDown(self) -> None:
         pass
