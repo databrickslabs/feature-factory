@@ -170,6 +170,19 @@ class TestFeatureDict(unittest.TestCase):
         rs = result_df.collect()[0]
         assert rs["sales_per_quants_DEPT-DEPT1"] == 5.0 and rs["sales_per_quants_DEPT-DEPT2"] == 10.0
 
+    def test_double_sales(self):
+        helpers = Helpers()
+        features = StoreSales()
+        df = SparkSingleton.get_instance().createDataFrame([(10.0, 2, 'dept1',1), (100.0, 10, 'dept2', 1)], ["ss_net_paid", "ss_quantity", "dept", "ss_customer_sk"])
+        multiplier = helpers.get_categoricals_multiplier(df, ["dept"])
+        double_sales = CompositeFeature("double_sales", features.total_sales, "+", features.total_sales)
+        fs_result = double_sales.multiply(multiplier, include_lineage=True)
+        ff = Feature_Factory()
+        result_df = ff.append_features(df, [features.collector], 
+            fs_result)
+        rs = result_df.collect()[0]
+        assert rs["double_sales_DEPT-DEPT1"] == 20.0 and rs["double_sales_DEPT-DEPT2"] == 200.0
+
     def test_zero_sales(self):
         helpers = Helpers()
         features = StoreSales()
@@ -179,7 +192,8 @@ class TestFeatureDict(unittest.TestCase):
         ff = Feature_Factory()
         df = ff.append_features(self.sales_df, [features.collector], 
             fs_result)
-        df.select("zero_sales_I_CATEGORY-HOME","zero_sales_I_CATEGORY-SPORTS","zero_sales_I_CATEGORY-ELECTRONICS","zero_sales_I_CATEGORY-BOOKS","zero_sales_I_CATEGORY-MEN","zero_sales_I_CATEGORY-MUSIC","zero_sales_I_CATEGORY-WOMEN","zero_sales_I_CATEGORY-SHOES","zero_sales_I_CATEGORY-JEWELRY","zero_sales_I_CATEGORY-CHILDREN").show()
+        rs = df.select("zero_sales_I_CATEGORY-HOME","zero_sales_I_CATEGORY-SPORTS").collect()[0]
+        assert rs["zero_sales_I_CATEGORY-HOME"] == 0.0 and rs["zero_sales_I_CATEGORY-SPORTS"] == 0.0
         print(f"the number of cols is: {len(df.columns)}")
         assert len(df.columns) == 22 # 10 categories for sales, sales-sales, and customer_id, total_sales
 
