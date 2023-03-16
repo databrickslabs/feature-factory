@@ -51,11 +51,6 @@ class StoreSales(CommonFeatures, Filters):
 
         self._dct["sales_per_quants"] = (self.total_sales / self.total_quants).withName("sales_per_quants")
 
-        # self._dct["sales_per_quants"] = Feature(_name="sales_per_quants",
-        #                                    _base_col=f.col("ss_net_paid").cast("float")/f.col("total_quants"),
-        #                                    _filter=self.valid_sales,
-        #                                    _negative_value=0,
-        #                                    _agg_func=f.sum)
 
     @property
     def total_sales(self):
@@ -161,6 +156,19 @@ class TestFeatureDict(unittest.TestCase):
         df.show()
         print(f"the number of cols is: {len(df.columns)}")
         assert len(df.columns) == 33 # 10 categories for sales, quants, sales_per_quants, and customer_id, total_sales, total_quants
+
+    def test_sales_per_quants_values(self):
+        helpers = Helpers()
+        features = StoreSales()
+        df = SparkSingleton.get_instance().createDataFrame([(10.0, 2, 'dept1',1), (100.0, 10, 'dept2', 1)], ["ss_net_paid", "ss_quantity", "dept", "ss_customer_sk"])
+        multiplier = helpers.get_categoricals_multiplier(df, ["dept"])
+        sales_per_quants = features.sales_per_quants
+        fs_result = sales_per_quants.multiply(multiplier, include_lineage=True)
+        ff = Feature_Factory()
+        result_df = ff.append_features(df, [features.collector], 
+            fs_result)
+        rs = result_df.collect()[0]
+        assert rs["sales_per_quants_DEPT-DEPT1"] == 5.0 and rs["sales_per_quants_DEPT-DEPT2"] == 10.0
 
     def test_zero_sales(self):
         helpers = Helpers()

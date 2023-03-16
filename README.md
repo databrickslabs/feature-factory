@@ -479,7 +479,7 @@ ex2 = ex.multiply(categorical_multipliers, 'STORE')
 
 ## 5. Composite Features
 
-A composite feature defines an operation (+, _ or /) between two features.  When multiplying a collection of categories or a time range, the composite feature will multipy the features first, then apply the operator between two generated feature vector. With composite feature C = Feature A / Feature B, C.multiply([1M, 3M, 6M]) => A.multiply([1M, 3M, 6M]) / B.multiply([1M, 3M, 6M]) => [A_1M/B_1M, A_3M/B_3M, A_6M/B_6M]
+A composite feature defines an operation (+, _ or /) between two features.  When multiplying a collection of categories or a time range, the composite feature will multiply the features first, then apply the operator between two generated feature vector. With composite feature C = Feature A / Feature B, C.multiply([1M, 3M, 6M]) => A.multiply([1M, 3M, 6M]) / B.multiply([1M, 3M, 6M]) => [A_1M/B_1M, A_3M/B_3M, A_6M/B_6M]
 
 For example, to define sales per quantity, a composite feature will be implemented as
 ```python
