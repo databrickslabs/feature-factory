@@ -476,7 +476,40 @@ categorical_multipliers = Helpers().get_categoricals_multiplier(df = store.get_s
 ex2 = ex.multiply(categorical_multipliers, 'STORE')
 
 ``` 
-## 5. Feature Dictionary
+
+## 5. Composite Features
+
+A composite feature defines an operation (+, - or /) between two features.  When multiplying a collection of categories or a time range, the composite feature will multiply the features first, then apply the operator between two generated feature vector. With composite feature C = Feature A / Feature B, C.multiply([1M, 3M, 6M]) => A.multiply([1M, 3M, 6M]) / B.multiply([1M, 3M, 6M]) => [A_1M/B_1M, A_3M/B_3M, A_6M/B_6M]
+
+For example, to define sales per quantity, a composite feature will be implemented as
+```python
+total_quants = Feature(_name="total_quants",
+            _base_col=f.col("ss_quantity"),
+            _filter=[],
+            _negative_value=None,
+            _agg_func=f.sum)
+total_sales = Feature(_name="total_sales",
+            _base_col=f.col("ss_net_paid").cast("float"),
+            _filter=self.valid_sales,
+            _negative_value=0,
+            _agg_func=f.sum)
+sales_per_quants = (total_sales / total_quants).withName("sales_per_quants")
+```
+To calculate sales_per_quants for each categories, the composite feature can simply be multiplied by the category column
+```python
+multiplier = helpers.get_categoricals_multiplier(sales_df, ["i_category"])
+fs_result = sales_per_quants.multiply(multiplier, include_lineage=False)
+```
+
+Note that there is an `include_lineage` option in the multiply method. By default, no lineage features will be generated. If set to True, all features in the lineage will be generated as well.
+For example C = (A/B) * [1m, 3m]. If `include_lineage` is True, multiply will give us:
+A, B, A_1m, A_3m, B_1m, B_3m, (A/B)_1m, (A/B)_3m
+
+If `include_lineage` is False, multiply will only give us:  (A+B)_1m, (A+B)_3m
+
+To compute A/B without multiplication, there is a to_feature() method to convert a composite feature to a regular feature.
+
+## 6. Feature Dictionary
 
 In the reference implementation, a module is implemented as a Feature Family (a collection of features). A read-only property is defined for each feature to provide easy access. A feature family extends an ImmutableDictBase class, which is generic and can serve as base class for collections of features, filters and other objects. In the code example below, filter definitions are extracted from features and form a separate Filters class. The common features shared by multiple families are also extracted into a separate Common Features class for reuse. Both filters and common features are inherited by the StoreSales family class, which defines a new set of features based upon the common definitions.
 
