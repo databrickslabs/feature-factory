@@ -5,12 +5,14 @@ from pyspark.sql.dataframe import DataFrame
 from framework.feature_factory.feature import Feature, FeatureSet, Multiplier
 from framework.configobj import ConfigObj
 from framework.feature_factory.helpers import Helpers
+from framework.feature_factory.agg_granularity import AggregationGranularity
 import re
 import logging
 import datetime
 import inspect
 from collections import OrderedDict
 from typing import List
+from enum import Enum
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +21,7 @@ class Feature_Factory():
     def __init__(self):
         self.helpers = Helpers()
 
-    def append_features(self, df: DataFrame, groupBy_cols, feature_sets: List[FeatureSet], withTrendsForFeatures: List[FeatureSet] = None):
+    def append_features(self, df: DataFrame, groupBy_cols, feature_sets: List[FeatureSet], withTrendsForFeatures: List[FeatureSet] = None, granularityEnum: Enum = None):
         """
         Appends features to incoming df. The features columns and groupby cols will be deduped and validated.
         If there's a group by, the groupby cols will be applied before appending features.
@@ -50,10 +52,13 @@ class Feature_Factory():
 
         # valid_result, undef_cols = self.helpers._validate_col(df, *groupBy_cols)
         # assert valid_result, "groupby cols {} are not defined in df columns {}".format(undef_cols, df.columns)
+        granularity_validator = AggregationGranularity(granularityEnum) if granularityEnum else None
         for feature in features:
             assert True if ((len(feature.aggs) > 0) and (len(
                 groupBy_cols) > 0) or feature.agg_func is None) else False, "{} has either aggs or groupBys " \
                                                "but not both, ensure both are present".format(feature.name)
+            if granularity_validator:
+                granularity_validator.validate(feature, groupBy_cols)
             # feature_cols.append(feature.assembled_column)
             # feature_cols.append(F.col(feature.output_alias))
             agg_cols += [agg_col for agg_col in feature.aggs]
@@ -76,7 +81,7 @@ class Feature_Factory():
         #     new_df = df.select(*df.columns + feature_cols)
         return final_df
 
-    def append_catalog(self, df: DataFrame, groupBy_cols, catalog_cls, feature_names = [], withTrendsForFeatures: List[FeatureSet] = None):
+    def append_catalog(self, df: DataFrame, groupBy_cols, catalog_cls, feature_names = [], withTrendsForFeatures: List[FeatureSet] = None, granularityEnum: Enum = None):
         """
         Appends features to incoming df. The features columns and groupby cols will be deduped and validated.
         If there's a group by, the groupby cols will be applied before appending features.
@@ -89,5 +94,5 @@ class Feature_Factory():
         # dct = self._get_all_features(catalog_cls)
         dct = catalog_cls.get_all_features()
         fs = FeatureSet(dct)
-        return self.append_features(df, groupBy_cols, [fs], withTrendsForFeatures)
+        return self.append_features(df, groupBy_cols, [fs], withTrendsForFeatures, granularityEnum)
 

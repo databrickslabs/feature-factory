@@ -21,7 +21,8 @@ class Feature:
                  _agg_func=None,
                  _agg_alias:str=None,
                  _kind="multipliable",
-                 _is_temporary=False):
+                 _is_temporary=False,
+                 _agg_granularity=None):
         """
 
         :param _name: name of the feature
@@ -47,6 +48,7 @@ class Feature:
         self.kind = _kind
         self.is_temporary = _is_temporary
         self.names = None
+        self.agg_granularity = _agg_granularity
 
     def set_feature_name(self, name: str):
         self._name = name
@@ -135,7 +137,8 @@ class Feature:
                filter: List[Column] = [],
                negative_value=None,
                agg_func=None,
-               agg_alias: str = None):
+               agg_alias: str = None,
+               agg_granularity: str = None):
         
         return Feature(
                  _name = "",
@@ -143,7 +146,8 @@ class Feature:
                  _filter = filter,
                  _negative_value = negative_value,
                  _agg_func = agg_func,
-                 _agg_alias = agg_alias)
+                 _agg_alias = agg_alias,
+                 _agg_granularity = agg_granularity)
 
 
 class FeatureSet:
