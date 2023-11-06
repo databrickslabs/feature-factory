@@ -33,25 +33,15 @@ class Feature_Factory():
         """
         # If groupBy Column is past in as something other than list, convert to list
         # Validation - If features, passed in is dict, convert to list of vals, etc.
-        # groupBy_cols = self.helpers._to_list(groupBy_cols)
-        # groupBy_cols, groupBy_joiners = self.helpers._extract_groupby_joiner(groupBy_cols)
         groupBy_cols = [gc.assembled_column if isinstance(gc, Feature) else gc for gc in groupBy_cols]
         features, dups = self.helpers._dedup_fast(df, [feature for feature_set in feature_sets for feature in feature_set.features.values()])
-        # df = self.helpers._resolve_feature_joiners(df, features, groupBy_joiners).repartition(*groupBy_cols)
         df = df.repartition(*groupBy_cols)
 
         # feature_cols = []
         agg_cols = []
         non_agg_cols = {}
         features_to_drop = []
-        # base_cols = [f.base_col for f in features]
-
-        # column validation
-        # valid_result, undef_cols = self.helpers.validate_col(df, *base_cols)
-        # assert valid_result, "base cols {} are not defined in df columns {}".format(undef_cols, df.columns)
-
-        # valid_result, undef_cols = self.helpers._validate_col(df, *groupBy_cols)
-        # assert valid_result, "groupby cols {} are not defined in df columns {}".format(undef_cols, df.columns)
+        
         granularity_validator = AggregationGranularity(granularityEnum) if granularityEnum else None
         for feature in features:
             assert True if ((len(feature.aggs) > 0) and (len(
@@ -77,8 +67,7 @@ class Feature_Factory():
             df = df.withColumn(fn, col)
 
         final_df = df.drop(*features_to_drop)
-        # else:
-        #     new_df = df.select(*df.columns + feature_cols)
+
         return final_df
 
     def append_catalog(self, df: DataFrame, groupBy_cols, catalog_cls, feature_names = [], withTrendsForFeatures: List[FeatureSet] = None, granularityEnum: Enum = None):
