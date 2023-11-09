@@ -35,8 +35,11 @@ class DocSplitter(LLMTool):
 
 class LlamaIndexDocReader(DocReader):
 
-    def apply(self):
-        documents = SimpleDirectoryReader(input_files=self.filenames).load_data()
+    def create(self):
+        ...
+
+    def apply(self, filename: str):
+        documents = SimpleDirectoryReader(input_files=[filename]).load_data()
         return documents
 
 
@@ -101,11 +104,16 @@ class LangChainRecursiveCharacterTextSplitter(DocSplitter):
         return chunks
 
 
-class ParserToolbox(LLMTool):
+class LLMFeature(LLMTool):
     
-    def __init__(self, reader: DocReader, splitter: DocSplitter) -> None:
+    def __init__(self, name: str, reader: DocReader, splitter: DocSplitter) -> None:
+        self.name = name
         self.reader = reader
         self.splitter = splitter
+    
+    def create(self):
+        self.reader.create()
+        self.splitter.create()
 
     def apply(self, filename: str):
         docs = self.reader.apply(filename)

@@ -10,6 +10,7 @@ from test.local_spark_singleton import SparkSingleton
 from framework.feature_factory.catalog import CatalogBase
 from enum import IntEnum
 
+spark = SparkSingleton.get_instance()
 class CommonCatalog(CatalogBase):
     total_sales = Feature.create(
         base_col=f.col("ss_net_paid").cast("float"),
