@@ -1,5 +1,5 @@
 from framework.channel import Channel
-from channelDemoStore.sales import Sales
+from .sales import Sales
 from featurefamily_common.trends import TrendsCommon
 from framework.feature_factory.dtm import DateTimeManager
 from framework.feature_factory import Helpers
