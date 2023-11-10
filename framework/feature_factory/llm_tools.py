@@ -10,7 +10,7 @@ from llama_index.text_splitter import TokenTextSplitter
 from llama_index.schema import MetadataMode, Document as Document
 from langchain.docstore.document import Document as LCDocument
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-
+from transformers import AutoTokenizer
 
 class LLMTool(ABC):
 
@@ -120,21 +120,28 @@ class LlamaIndexDocSplitter(DocSplitter):
         doc_nodes = self.node_parser.get_nodes_from_documents(docs)
         chunks = [node.get_content(metadata_mode=MetadataMode.LLM) for node in doc_nodes]
         return chunks
-        
+
 
 class LangChainRecursiveCharacterTextSplitter(DocSplitter):
 
-    def __init__(self, chunk_size=1024, chunk_overlap=64) -> None:
+    def __init__(self, chunk_size=1024, chunk_overlap=64, pretrained_model_path: str=None) -> None:
         super().__init__()
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
+        self.pretrained_model_path = pretrained_model_path
     
     def create(self):
         if super()._require_init():
-            self.text_splitter = RecursiveCharacterTextSplitter(
-                chunk_size = self.chunk_size, 
-                chunk_overlap = self.chunk_overlap
-            )
+            if self.pretrained_model_path:
+                tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_path)
+                self.text_splitter = RecursiveCharacterTextSplitter.from_huggingface_tokenizer(tokenizer, 
+                    chunk_size=self.chunk_size, 
+                    chunk_overlap=self.chunk_overlap)
+            else:
+                self.text_splitter = RecursiveCharacterTextSplitter(
+                    chunk_size = self.chunk_size, 
+                    chunk_overlap = self.chunk_overlap
+                )
     
     def apply(self, docs):
         self.create()
