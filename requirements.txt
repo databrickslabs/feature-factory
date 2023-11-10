@@ -10,3 +10,5 @@ coverage
 langchain>=0.0.317
 llama-index>=0.8.61
 pypdf>=3.17.0
+PyPDF2>=3.0.1
+transformers>=4.31.0
