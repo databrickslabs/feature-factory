@@ -36,3 +36,13 @@ class TestLLMTools(unittest.TestCase):
         txt = "a"*200 + "b"*30
         chunks = doc_splitter.apply(txt)
         assert len(chunks) == 2 and len(chunks[0]) == 200 and len(chunks[1]) == (30+10)
+
+    def test_recursive_splitter_llamaindex_docs(self):
+        doc_reader =  LlamaIndexDocReader()
+        docs = doc_reader.apply("test/data/sample.pdf")
+
+        doc_splitter = LangChainRecursiveCharacterTextSplitter(chunk_size = 200, chunk_overlap=10)
+        chunks = doc_splitter.apply(docs=docs)
+        assert len(chunks) > 0
+        assert doc_splitter._require_init() == False
+
