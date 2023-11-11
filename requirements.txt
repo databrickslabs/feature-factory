@@ -4,7 +4,13 @@ py4j==0.10.9
 pyarrow==5.0.0
 pyspark==3.1.3
 python-dateutil==2.8.1
+pdf2image>=1.16.3
 scipy==1.7.1
 six==1.15.0
 coverage
-
+langchain>=0.0.317
+llama-index>=0.8.61
+pypdf>=3.17.0
+PyPDF2>=3.0.1
+transformers>=4.31.0
+unstructured>=0.10.30
