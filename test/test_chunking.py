@@ -46,3 +46,68 @@ class TestLLMTools(unittest.TestCase):
         assert len(chunks) > 0
         assert doc_splitter._require_init() == False
 
+    def test_process_docs(self):
+        doc_reader =  LlamaIndexDocReader()
+        doc_splitter = LlamaIndexDocSplitter()
+        llm_feature = LLMFeature("test_llm", reader=doc_reader, splitter=doc_splitter)
+        chunks = LLMUtils.process_docs(["test/data/sample.pdf"], llmFeat=llm_feature)
+        for chunk in chunks:
+            assert len(chunk) == 1
+
+    def test_wrap_docs(self):
+        doc = LCDocument(page_content="test", metadata={"filepath": "/tmp/filename"})
+        docs = DocSplitter._wrap_docs(doc)
+        assert docs[0] == doc
+
+        doc = Document(txt="test")
+        docs = DocSplitter._wrap_docs(doc)
+        assert docs[0] == doc
+
+        docs = DocSplitter._wrap_docs("test")
+        assert docs == "test"
+
+
+    def test_convert_to_text(self):
+        assert DocSplitter._to_text(None) == ""
+        doc = LCDocument(page_content="test", metadata={"filepath": "/tmp/filename"})
+        txt = DocSplitter._to_text([doc])
+        assert txt == "test"
+
+        doc = Document(text="test")
+        txt = DocSplitter._to_text([doc])
+        assert txt == "test"
+
+        txt = DocSplitter._to_text("test")
+        assert txt == "test"
+
+    def test_convert_to_document(self):
+        assert DocSplitter._to_documents(None) is None
+        doc = LCDocument(page_content="test", metadata={"filepath": "/tmp/filename"})
+        new_docs = DocSplitter._to_documents([doc])
+        assert new_docs[0].text == "test"
+
+        doc = Document(text="test")
+        new_docs = DocSplitter._to_documents([doc])
+        assert new_docs[0].text == "test"
+
+        new_docs = DocSplitter._to_documents("test")
+        assert new_docs[0].text == "test"
+
+    def test_convert_to_lcdocument(self):
+        assert DocSplitter._to_lcdocuments(None) is None
+        doc = LCDocument(page_content="test", metadata={"filepath": "/tmp/filename"})
+        new_docs = DocSplitter._to_lcdocuments([doc])
+        assert new_docs[0].page_content == "test"
+
+        doc = Document(text="test")
+        new_docs = DocSplitter._to_lcdocuments([doc])
+        assert new_docs[0].page_content == "test"
+
+        new_docs = DocSplitter._to_lcdocuments("test")
+        assert new_docs[0].page_content == "test"
+
+    # def test_unstructured_doc_reader(self):
+    #     doc_reader = UnstructuredDocReader()
+    #     txt = doc_reader.apply("./test/data/sample.pdf")
+    #     assert len(txt) > 0
+    

@@ -6,7 +6,7 @@ from framework.feature_factory.feature import Feature, FeatureSet, Multiplier
 from framework.configobj import ConfigObj
 from framework.feature_factory.helpers import Helpers
 from framework.feature_factory.agg_granularity import AggregationGranularity
-from framework.feature_factory.llm_tools import LLMFeature
+from framework.feature_factory.llm_tools import LLMFeature, LLMUtils
 import re
 import logging
 import datetime
@@ -88,21 +88,10 @@ class Feature_Factory():
 
     def assemble_llm_feature(self, spark: SparkSession, srcDirectory: str, llmFeature: LLMFeature, partitionNum: int):
         
-        def split_docs(fileName: str, llmFeat: LLMFeature):
-            print(fileName)
-            chunks = llmFeat.apply(fileName)
-            return (chunks,)
-        
-        def process_docs(partitionData, llmFeat):
-            llmFeat.create()
-            for row in partitionData:
-                yield split_docs(row, llmFeat)
-        
-        src_pdf_loc = "/dbfs/tmp/li_yu/va_llms/pdf"
-        all_files = self.helpers.list_files_recursively(src_pdf_loc)
+        all_files = self.helpers.list_files_recursively(srcDirectory)
         src_rdd = spark.sparkContext.parallelize(all_files, partitionNum)
 
-        rdd = src_rdd.mapPartitions(lambda partition_data: process_docs(partitionData=partition_data, llmFeat=llmFeature)).repartition(partitionNum)
+        rdd = src_rdd.mapPartitions(lambda partition_data: LLMUtils.process_docs(partitionData=partition_data, llmFeat=llmFeature)).repartition(partitionNum)
         rdd.cache()
         df = rdd.toDF([llmFeature.name])
         return df.select(F.explode(llmFeature.name).alias(llmFeature.name))
