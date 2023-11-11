@@ -12,6 +12,7 @@ from langchain.docstore.document import Document as LCDocument
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from transformers import AutoTokenizer
 from langchain.document_loaders import UnstructuredPDFLoader
+import math
 
 
 class LLMTool(ABC):
@@ -214,6 +215,35 @@ class LangChainRecursiveCharacterTextSplitter(DocSplitter):
         self.create()
         txt = DocSplitter._to_text(docs)
         chunks = self.text_splitter.split_text(txt)
+        return chunks
+
+
+class TokenizerTextSpliter(DocSplitter):
+
+    def __init__(self, chunk_size=1024, chunk_overlap=64, pretrained_tokenizer_path: str=None) -> None:
+        super().__init__()
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
+        self.pretrained_tokenizer_path = pretrained_tokenizer_path
+        self.tokenizer = None
+
+    def create(self):
+        if not self.pretrained_tokenizer_path:
+            raise ValueError("Pretrained tokenizer is not defined in TokenizerTextSplitter.")
+        if super()._require_init():
+            self.tokenizer = AutoTokenizer.from_pretrained(self.pretrained_tokenizer_path)
+
+    def apply(self, text: Union[str, List[Document]]) -> List[str]:
+        self.create()
+        text = DocSplitter._to_text(text)
+        text_length = len(self.tokenizer.encode(text))
+        num_chunks = math.ceil(text_length / self.chunk_size)
+        chunk_length = math.ceil(len(text) / num_chunks)
+        chunks = []
+        for i in range(0, len(text), chunk_length):
+            start = max(0, i-self.chunk_overlap)
+            end = min(len(text), i + chunk_length + self.chunk_overlap)  
+            chunks.append(text[start:end])
         return chunks
 
 

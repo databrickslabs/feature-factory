@@ -106,8 +106,11 @@ class TestLLMTools(unittest.TestCase):
         new_docs = DocSplitter._to_lcdocuments("test")
         assert new_docs[0].page_content == "test"
 
-    # def test_unstructured_doc_reader(self):
-    #     doc_reader = UnstructuredDocReader()
-    #     txt = doc_reader.apply("./test/data/sample.pdf")
-    #     assert len(txt) > 0
+    def test_token_splitter(self):
+        doc_reader = LlamaIndexDocReader()
+        docs = doc_reader.apply("./test/data/sample.pdf")
+        assert len(docs) > 0
+        doc_splitter = TokenizerTextSpliter(chunk_size=1024, chunk_overlap=32, pretrained_tokenizer_path="hf-internal-testing/llama-tokenizer")
+        chunks = doc_splitter.apply(docs)
+        assert len(chunks) == 1
     
