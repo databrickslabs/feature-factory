@@ -7,7 +7,7 @@ import pyspark.sql.functions as f
 import json
 from pyspark.sql.types import StructType
 from test.local_spark_singleton import SparkSingleton
-from framework.feature_factory.catalog import CatalogBase
+from framework.feature_factory.catalog import LLMCatalogBase
 from enum import IntEnum
 from framework.feature_factory.llm_tools import *
 
@@ -49,7 +49,7 @@ class TestLLMTools(unittest.TestCase):
     def test_process_docs(self):
         doc_reader =  LlamaIndexDocReader()
         doc_splitter = LlamaIndexDocSplitter()
-        llm_feature = LLMFeature("test_llm", reader=doc_reader, splitter=doc_splitter)
+        llm_feature = LLMFeature(reader=doc_reader, splitter=doc_splitter)
         chunks = LLMUtils.process_docs(["test/data/sample.pdf"], llmFeat=llm_feature)
         for chunk in chunks:
             assert len(chunk) == 1
@@ -114,3 +114,19 @@ class TestLLMTools(unittest.TestCase):
         chunks = doc_splitter.apply(docs)
         assert len(chunks) == 1
     
+    def test_llm_catalog(self):
+        class TestCatalog(LLMCatalogBase):
+
+            # define a reader for the documents
+            doc_reader = LlamaIndexDocReader()
+
+            # define a text splitter
+            doc_splitter = LangChainRecursiveCharacterTextSplitter()
+
+            # define a LLM feature, the name is the column name in the result dataframe
+            chunk_col_name = LLMFeature(reader=doc_reader, splitter=doc_splitter)
+        
+        llm_feature = TestCatalog.get_all_features()
+        assert llm_feature.name == "chunk_col_name"
+        assert llm_feature.reader == TestCatalog.doc_reader
+        assert llm_feature.splitter == TestCatalog.doc_splitter

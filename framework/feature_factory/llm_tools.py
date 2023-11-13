@@ -249,7 +249,7 @@ class TokenizerTextSpliter(DocSplitter):
 
 class LLMFeature(LLMTool):
     
-    def __init__(self, name: str, reader: DocReader, splitter: DocSplitter) -> None:
+    def __init__(self, reader: DocReader, splitter: DocSplitter, name: str = "chunks") -> None:
         super().__init__()
         self.name = name
         self.reader = reader
@@ -279,3 +279,4 @@ class LLMUtils:
         llmFeat.create()
         for row in partitionData:
             yield cls.split_docs(row, llmFeat)
+
