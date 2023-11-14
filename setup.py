@@ -18,7 +18,8 @@ setup(
     author="Databricks",
     packages=find_packages(exclude=['tests', 'tests.*', 'data', 'data.*', 'notebook', 'notebook.*']),
     install_requires=[
-        'python-dateutil'
+        'python-dateutil',
+        'openai==0.27.8'
     ],
     description='feature factory',
     long_description=read('README.md'),

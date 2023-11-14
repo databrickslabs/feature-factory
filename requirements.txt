@@ -7,7 +7,6 @@ python-dateutil==2.8.1
 scipy==1.7.1
 six==1.15.0
 coverage
-openai==0.27.8
 langchain==0.0.317
 llama-index==0.8.61
 pypdf>=3.17.0
