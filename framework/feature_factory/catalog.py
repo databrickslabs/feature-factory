@@ -1,5 +1,5 @@
 from .feature import Feature
-
+from .llm_tools import LLMFeature
 
 class CatalogBase:
     @classmethod
@@ -29,3 +29,19 @@ class CatalogBase:
                     members[nm] = variable
                     variable.set_feature_name(nm)
         return members
+
+class LLMCatalogBase:
+    @classmethod
+    def get_all_features(cls) -> LLMFeature:
+        """
+        Returns a LLMFeature which contains a DocReader and DocSplitter instance.
+        """
+        llm_feat = None
+        for aclass in reversed(cls.__mro__):
+            vars_dct = vars(aclass)
+            for nm, variable in vars_dct.items():
+                if not callable(getattr(aclass, nm)) and not nm.startswith("__"):
+                    if isinstance(variable, LLMFeature):
+                        llm_feat = variable
+                        llm_feat.name = nm
+        return llm_feat

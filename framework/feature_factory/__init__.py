@@ -87,7 +87,15 @@ class Feature_Factory():
         return self.append_features(df, groupBy_cols, [fs], withTrendsForFeatures, granularityEnum)
 
     def assemble_llm_feature(self, spark: SparkSession, srcDirectory: str, llmFeature: LLMFeature, partitionNum: int):
-        
+        """
+        Creates a dataframe which contains only one column named as llmFeature.name.
+        The method will distribute the files under srcDirectory to the partitions determined by the partitionNum.
+        Each file will be parsed and chunked using the reader and splitter in the llmFeature object.
+        :param spark: a spark session instance
+        :param srcDirectory: the directory containing documents to parse
+        :llmFeature: the LLM feature instance 
+        :partitionNum: the number of partitions the src documents will be distributed onto.
+        """
         all_files = self.helpers.list_files_recursively(srcDirectory)
         src_rdd = spark.sparkContext.parallelize(all_files, partitionNum)
 
