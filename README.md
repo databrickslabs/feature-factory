@@ -583,6 +583,7 @@ In this example, `srcDirectory` is the directory containing all intput documents
 
 The current implementation of doc splitters supports `SimpleNodeParser` of LlamaIndex, `RecursiveCharacterTextSplitter` of LangChain, and a custom tokeninzer based splitter (`TokenizerTextSpliter`). Like doc readers, the splitter classes can be extended by subclass DocSplitter. Please note that meta data extractor is supported for the `SimpleNodeParser`. A LLM instance needs to be created for the metadata extracion. The LLM definition needs to subclass `LLMDef` and override the `create` method. An example of LLM definition can be found at: [LLM notebook](./notebooks/feature_factory_llms.py).
 
+Metadata of documents can be extracted using the Metadata extractor of LlamaIndex. Feature factory also provides a method to extract metadadta from the file pathes. For example, if your documents are stored in directories of years, you can extract the year as metadata if the directories are named as `year=[actual year]`. For example, if your document has the path of /tmp/year_of_publication=2023/doc1, after splitting, each chunk from that document will have `year of publication: 2023` as the part of the header of the chunk.
 
 
 ## Project Support

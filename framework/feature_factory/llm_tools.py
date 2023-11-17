@@ -12,7 +12,7 @@ from langchain.docstore.document import Document as LCDocument
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from transformers import AutoTokenizer
 from langchain.document_loaders import UnstructuredPDFLoader
-import math
+import math, os, re
 
 
 class LLMTool(ABC):
@@ -115,6 +115,17 @@ class DocSplitter(LLMTool):
                 new_docs.append(new_doc)
             return new_docs
 
+    @classmethod
+    def extract_directory_metadata(cls, fileName: str):
+        path_parts = os.path.normpath(fileName).split(os.path.sep)
+        attrs = {}
+        for part in path_parts:
+            if "=" in part:
+                attr, val = part.split('=')
+                if attr and val:
+                    attr = re.sub(r'[-_]', ' ', attr, flags=re.IGNORECASE)
+                    attrs[attr] = val
+        return attrs
 
     def apply(self, docs: Union[str, List[Document]]) -> List[str]:
         ...
@@ -204,6 +215,11 @@ class LlamaIndexDocSplitter(DocSplitter):
         docs = DocSplitter._to_documents(docs)
         self.create()
         doc_nodes = self.node_parser.get_nodes_from_documents(docs)
+        for node in doc_nodes:
+            if 'file_path' in node.metadata:
+                filepath = node.metadata['file_path']
+                doc_attrs = DocSplitter.extract_directory_metadata(filepath)
+                node.metadata.update(doc_attrs)
         chunks = [node.get_content(metadata_mode=MetadataMode.LLM) for node in doc_nodes]
         return chunks
 

@@ -130,3 +130,7 @@ class TestLLMTools(unittest.TestCase):
         assert llm_feature.name == "chunk_col_name"
         assert llm_feature.reader == TestCatalog.doc_reader
         assert llm_feature.splitter == TestCatalog.doc_splitter
+
+    def test_dir_meta_extraction(self):
+        attrs = DocSplitter.extract_directory_metadata("/tmp/year_of_publication=2023")
+        assert attrs["year of publication"] == "2023"
