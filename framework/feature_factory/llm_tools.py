@@ -4,7 +4,8 @@ from llama_index import SimpleDirectoryReader
 from llama_index.node_parser import SimpleNodeParser
 from llama_index.node_parser.extractors import (
     MetadataExtractor,
-    TitleExtractor
+    TitleExtractor,
+    MetadataFeatureExtractor
 )
 from llama_index.text_splitter import TokenTextSplitter
 from llama_index.schema import MetadataMode, Document as Document
@@ -24,6 +25,7 @@ class LLMTool(ABC):
     """
     def __init__(self) -> None:
         self._initialized = False
+        self.instance = None
 
     def _require_init(self) -> bool:
         if self._initialized:
@@ -39,6 +41,9 @@ class LLMTool(ABC):
     @abstractmethod
     def create(self):
         ...
+
+    def get_instance(self):
+        return self._instance
 
 
 class DocReader(LLMTool):
@@ -165,16 +170,31 @@ class UnstructuredDocReader(DocReader):
     
 
 
-class LLMDef(LLMTool):
-    """ A generic class to define LLM instance e.g. using HuggingFace APIs.
-    An example can be found at notebooks/feature_factory_llms.py
-    """
-    def __init__(self) -> None:
-        self._instance = None
+# class LLMDef(LLMTool):
+#     """ A generic class to define LLM instance e.g. using HuggingFace APIs.
+#     An example can be found at notebooks/feature_factory_llms.py
+#     """
+#     def __init__(self) -> None:
+#         self._instance = None
 
-    def get_instance(self):
-        return self._instance
+#     def get_instance(self):
+#         return self._instance
     
+class LlamaIndexTitleExtractor(LLMTool):
+
+    def __init__(self, llm_def, nodes) -> None:
+        super().__init__()
+        self.llm_def = llm_def
+        self.nodes = nodes
+
+    def create(self):
+        if super()._require_init():
+            self.llm_def.create()
+            self._instance = TitleExtractor(nodes=self.nodes, llm=self.llm_def.get_instance())
+    
+    def apply(self):
+        self.create()
+
 
 
 class LlamaIndexDocSplitter(DocSplitter):
@@ -183,23 +203,23 @@ class LlamaIndexDocSplitter(DocSplitter):
     `chunk_size`, `chunk_overlap` are the super parameters to tweak for better response from LLMs.
     `llm` is the LLM instance used for metadata extraction. If not provided, the splitter will generate text chunks only.
     """
-    def __init__(self, chunk_size:int=1024, chunk_overlap:int=64, llm:LLMDef=None) -> None:
+    def __init__(self, chunk_size:int=1024, chunk_overlap:int=64, extractors:List[LLMTool]=None) -> None:
         super().__init__()
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        self.llm = llm
+        self.extractors = extractors
 
     def create(self):
         if super()._require_init():
             text_splitter = TokenTextSplitter(
                 separator=" ", chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap
             )
-            if self.llm:
-                self.llm.create()
+            if self.extractors:
+                for extractor in self.extractors:
+                    extractor.create()
+                extractor_instances = [e.get_instance() for e in self.extractors]
                 metadata_extractor = MetadataExtractor(
-                    extractors=[
-                        TitleExtractor(nodes=5, llm=self.llm.get_instance())
-                    ],
+                    extractors=extractor_instances,
                     in_place=False,
                 )
             else:

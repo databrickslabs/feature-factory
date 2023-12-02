@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %pip install llama-index pypdf
+# MAGIC %pip install llama-index==0.8.61 pypdf
 
 # COMMAND ----------
 
@@ -11,7 +11,11 @@ dbutils.library.restartPython()
 
 # COMMAND ----------
 
-from framework.feature_factory.llm_tools import LLMFeature, LlamaIndexDocReader, LlamaIndexDocSplitter, LLMDef
+# MAGIC %pip list
+
+# COMMAND ----------
+
+from framework.feature_factory.llm_tools import LLMFeature, LlamaIndexDocReader, LlamaIndexDocSplitter, LLMTool, LangChainRecursiveCharacterTextSplitter, LlamaIndexTitleExtractor
 from framework.feature_factory import Feature_Factory
 import torch
 from llama_index.llms import HuggingFaceLLM
@@ -22,7 +26,7 @@ ff = Feature_Factory()
 
 # COMMAND ----------
 
-class MPT7b(LLMDef):
+class MPT7b(LLMTool):
   def create(self):
     torch.cuda.empty_cache()
     generate_params = {
@@ -35,7 +39,7 @@ class MPT7b(LLMDef):
       "pad_token_id": 0
     }
 
-    self._instance = HuggingFaceLLM(
+    llm = HuggingFaceLLM(
       max_new_tokens=256,
       generate_kwargs=generate_params,
       # system_prompt=system_prompt,
@@ -46,18 +50,30 @@ class MPT7b(LLMDef):
       tokenizer_kwargs={"max_length": 1024},
       model_kwargs={"torch_dtype": torch.float16, "trust_remote_code": True}
     )
-    return None
+    self._instance = llm
+    return llm
   
   def apply(self):
     ...
 
 # COMMAND ----------
 
+title_extractor = LlamaIndexTitleExtractor(nodes=5, llm_def = MPT7b())
+
+# COMMAND ----------
+
 doc_splitter = LlamaIndexDocSplitter(
   chunk_size = 1024,
   chunk_overlap = 32,
-  llm = MPT7b()
+  extractors = [title_extractor]
 )
+
+# COMMAND ----------
+
+# doc_splitter = LangChainRecursiveCharacterTextSplitter(
+#   chunk_size = 1024,
+#   chunk_overlap = 32
+# )
 
 # COMMAND ----------
 
@@ -73,12 +89,17 @@ partition_num = 2
 
 # COMMAND ----------
 
-df = ff.assemble_llm_feature(spark, srcDirectory= "/dbfs/tmp/li_yu/va_llms/pdf", llmFeature=llm_feature, partitionNum=partition_num)
+df = ff.assemble_llm_feature(spark, srcDirectory= "your source document directory", llmFeature=llm_feature, partitionNum=partition_num)
 
 # COMMAND ----------
 
 display(df)
 
 # COMMAND ----------
+
+df.write.mode("overwrite").saveAsTable("<catalog>.<schema>.<table>")
+
+# COMMAND ----------
+
 
 

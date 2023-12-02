@@ -10,6 +10,8 @@ from test.local_spark_singleton import SparkSingleton
 from framework.feature_factory.catalog import LLMCatalogBase
 from enum import IntEnum
 from framework.feature_factory.llm_tools import *
+from llama_index.llms import HuggingFaceLLM
+import torch
 
 
 class TestLLMTools(unittest.TestCase):
@@ -19,6 +21,35 @@ class TestLLMTools(unittest.TestCase):
         doc_reader.create()
         docs = doc_reader.apply("test/data/sample.pdf")
         assert len(docs) == 2
+
+    def test_metadata_extractor(self):
+        class MPT7b(LLMTool):
+            def create(self):
+                generate_params = {
+                    "temperature": 1.0, 
+                    "top_p": 1.0, 
+                    "top_k": 50, 
+                    "use_cache": True, 
+                    "do_sample": True, 
+                    "eos_token_id": 0, 
+                    "pad_token_id": 0
+                }
+
+                self._instance = HuggingFaceLLM(
+                    max_new_tokens=256,
+                    generate_kwargs=generate_params,
+                    tokenizer_name="mosaicml/mpt-7b-instruct",
+                    model_name="mosaicml/mpt-7b-instruct",
+                    device_map="auto",
+                    tokenizer_kwargs={"max_length": 1024},
+                    model_kwargs={"torch_dtype": torch.float16, "trust_remote_code": True}
+                )
+                return None
+            def apply(self):
+                ...
+
+        title_extractor = LlamaIndexTitleExtractor(nodes=5, llm_def=MPT7b())
+        assert title_extractor.nodes == 5 and isinstance(title_extractor.llm_def, MPT7b)
         
     def test_llamaindex_splitter(self):
         doc_reader =  LlamaIndexDocReader()
