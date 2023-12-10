@@ -7,6 +7,10 @@ from llama_index.node_parser.extractors import (
     TitleExtractor,
     MetadataFeatureExtractor
 )
+from llama_index.node_parser.extractors.metadata_extractors import (
+    DEFAULT_TITLE_COMBINE_TEMPLATE, 
+    DEFAULT_TITLE_NODE_TEMPLATE
+)
 from llama_index.text_splitter import TokenTextSplitter
 from llama_index.schema import MetadataMode, Document as Document
 from langchain.docstore.document import Document as LCDocument
@@ -182,15 +186,22 @@ class UnstructuredDocReader(DocReader):
     
 class LlamaIndexTitleExtractor(LLMTool):
 
-    def __init__(self, llm_def, nodes) -> None:
+    def __init__(self, llm_def, nodes, prompt_template=DEFAULT_TITLE_NODE_TEMPLATE, combine_template=DEFAULT_TITLE_COMBINE_TEMPLATE) -> None:
         super().__init__()
         self.llm_def = llm_def
         self.nodes = nodes
+        self.prompt_template = prompt_template
+        self.combine_template = combine_template
 
     def create(self):
         if super()._require_init():
             self.llm_def.create()
-            self._instance = TitleExtractor(nodes=self.nodes, llm=self.llm_def.get_instance())
+            self._instance = TitleExtractor(
+                nodes=self.nodes, 
+                llm=self.llm_def.get_instance(),
+                node_template=self.prompt_template,
+                combine_template= self.combine_template
+            )
     
     def apply(self):
         self.create()

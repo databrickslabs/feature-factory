@@ -58,7 +58,20 @@ class MPT7b(LLMTool):
 
 # COMMAND ----------
 
-title_extractor = LlamaIndexTitleExtractor(nodes=5, llm_def = MPT7b())
+TITLE_NODE_TEMPLATE = "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n### Instruction:\nGive a title that summarizes this paragraph: {context_str}.\n### Response:\n"
+
+# COMMAND ----------
+
+TITLE_COMBINE_TEMPLATE = "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n### Instruction:\nGive a title that summarizes the following: {context_str}.\n### Response:\n"
+
+# COMMAND ----------
+
+title_extractor = LlamaIndexTitleExtractor(
+  nodes=5, 
+  llm_def = MPT7b(),
+  prompt_template = TITLE_NODE_TEMPLATE,
+  combine_template = TITLE_COMBINE_TEMPLATE
+)
 
 # COMMAND ----------
 
@@ -89,7 +102,7 @@ partition_num = 2
 
 # COMMAND ----------
 
-df = ff.assemble_llm_feature(spark, srcDirectory= "your source document directory", llmFeature=llm_feature, partitionNum=partition_num)
+df = ff.assemble_llm_feature(spark, srcDirectory= "directory to your documents", llmFeature=llm_feature, partitionNum=partition_num)
 
 # COMMAND ----------
 
@@ -97,9 +110,12 @@ display(df)
 
 # COMMAND ----------
 
-df.write.mode("overwrite").saveAsTable("<catalog>.<schema>.<table>")
+df.write.mode("overwrite").saveAsTable("<catalog>.<database>.<table>")
 
 # COMMAND ----------
 
+# MAGIC %sql select * from liyu_demo.va.chunks
+
+# COMMAND ----------
 
 

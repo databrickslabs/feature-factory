@@ -152,10 +152,16 @@ class TestLLMTools(unittest.TestCase):
             doc_reader = LlamaIndexDocReader()
 
             # define a text splitter
-            doc_splitter = LangChainRecursiveCharacterTextSplitter()
+            doc_splitter = LangChainRecursiveCharacterTextSplitter(
+                chunk_size=1024, 
+                chunk_overlap=64
+            )
 
             # define a LLM feature, the name is the column name in the result dataframe
-            chunk_col_name = LLMFeature(reader=doc_reader, splitter=doc_splitter)
+            chunk_col_name = LLMFeature(
+                reader=doc_reader, 
+                splitter=doc_splitter
+            )
         
         llm_feature = TestCatalog.get_all_features()
         assert llm_feature.name == "chunk_col_name"
