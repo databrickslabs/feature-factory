@@ -568,6 +568,24 @@ class StoreSales(CommonFeatures, Filters):
         return self._dct["total_trans"]
 ```
 
+## 6. LLM Support
+
+Feature Factory supports Retrieval Augmented Generaetion by creating chunks of texts from documents. Vector store indices can be populated from the chunks of texts and be utilized for augmenting the prompts before feeding into LLMs.
+
+A LLM feature is a column of a dataframe which contains the chunks generated from input documents. This is an example of how can Feature Facotry APIs can be invoked to create a LLM feature:
+
+```python
+df = ff.assemble_llm_feature(spark, srcDirectory= "a directory containing documents", llmFeature=llm_feature, partitionNum=partition_num)
+```
+In this example, `srcDirectory` is the directory containing all intput documents. The `partitionNum` is the number of spark partitions during computation: i.e. if you have two work nodes as GPU instances, you can set the partitionNum to be 2 to distribute the documents onto the two worker nodes. 
+
+`llm_feature` is an instance of class `LLMFeature`, which consists of a doc reader and splitter. The current implementation of doc readers includes SimpleDirectoryReader of LlamaIndex and UnstructuredDocReader using Unstructured API. Cusotimized readers can be implemented by overriding class DocReader and re-implement the `create` and `apply` method. `create` method is called to create the resources needed for the computation, and the `apply` make inference for each file/row.
+
+The current implementation of doc splitters supports `SimpleNodeParser` of LlamaIndex, `RecursiveCharacterTextSplitter` of LangChain, and a custom tokeninzer based splitter (`TokenizerTextSpliter`). Like doc readers, the splitter classes can be extended by subclass DocSplitter. Please note that meta data extractor is supported for the `SimpleNodeParser`. A LLM instance needs to be created for the metadata extracion. The LLM definition needs to subclass `LLMDef` and override the `create` method. An example of LLM definition can be found at: [LLM notebook](./notebooks/feature_factory_llms.py).
+
+Metadata of documents can be extracted using the Metadata extractor of LlamaIndex. Feature factory also provides a method to extract metadadta from the file pathes. For example, if your documents are stored in directories of years, you can extract the year as metadata if the directories are named as `year=[actual year]`. For example, if your document has the path of /tmp/year_of_publication=2023/doc1, after splitting, each chunk from that document will have `year of publication: 2023` as the part of the header of the chunk.
+
+
 ## Project Support
 Please note that all projects in the /databrickslabs github account are provided for your exploration only, and are not formally supported by Databricks with Service Level Agreements (SLAs).  They are provided AS-IS and we do not make any guarantees of any kind.  Please do not submit a support ticket relating to any issues arising from the use of these projects.
 

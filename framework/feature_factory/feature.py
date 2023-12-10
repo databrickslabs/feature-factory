@@ -6,6 +6,7 @@ from framework.configobj import ConfigObj
 from framework.feature_factory.dtm import DateTimeManager
 import datetime
 import copy
+from typing import List
 
 
 class Feature:
@@ -20,7 +21,8 @@ class Feature:
                  _agg_func=None,
                  _agg_alias:str=None,
                  _kind="multipliable",
-                 _is_temporary=False):
+                 _is_temporary=False,
+                 _agg_granularity=None):
         """
 
         :param _name: name of the feature
@@ -46,6 +48,13 @@ class Feature:
         self.kind = _kind
         self.is_temporary = _is_temporary
         self.names = None
+        self.agg_granularity = _agg_granularity
+
+    def set_feature_name(self, name: str):
+        self._name = name
+        self.output_alias = name
+        self.aggs = []
+        self._assemble_column()
 
     def _clone(self, _alias: str=None):
         alias = _alias if _alias is not None else self.output_alias
@@ -122,6 +131,23 @@ class Feature:
 
     def __sub__(self, other):
         return CompositeFeature.from_feature(self, "-", other)
+    
+    @classmethod
+    def create(cls, base_col: Column,
+               filter: List[Column] = [],
+               negative_value=None,
+               agg_func=None,
+               agg_alias: str = None,
+               agg_granularity: str = None):
+        
+        return Feature(
+                 _name = "",
+                 _base_col = base_col,
+                 _filter = filter,
+                 _negative_value = negative_value,
+                 _agg_func = agg_func,
+                 _agg_alias = agg_alias,
+                 _agg_granularity = agg_granularity)
 
 
 class FeatureSet:

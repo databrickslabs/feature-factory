@@ -3,17 +3,16 @@ from pyspark.sql.column import Column
 from pyspark.sql import functions as F
 from pyspark.sql.dataframe import DataFrame
 from framework.feature_factory.feature import Feature
-from framework.spark_singleton import SparkSingleton
 from framework import feature_factory
 
 from datetime import datetime
 from datetime import timedelta
-import inspect
+import os
 from collections import OrderedDict
 import logging
 
 logger = logging.getLogger(__name__)
-spark = SparkSingleton.get_instance()
+# spark = SparkSingleton.get_instance()
 
 
 class Helpers:
@@ -325,6 +324,14 @@ class Helpers:
             dt2 = self.subtract_months(dt, i)
             months_range.append(dt2)
         return months_range
+    
+    def list_files_recursively(self, directory: str):
+        file_list = []
+        for root, _, files in os.walk(directory):
+            for file in files:
+                file_path = os.path.join(root, file)
+                file_list.append(file_path)
+        return file_list
 
 class Converter:
     def __init__(self, items, target_type):

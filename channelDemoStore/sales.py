@@ -4,12 +4,14 @@ from framework.feature_factory.feature import Feature
 from framework.feature_factory.feature_family import FeatureFamily
 from framework.feature_factory import Helpers
 from framework.configobj import ConfigObj
+from framework.spark_singleton import SparkSingleton
 import inspect
 
 # joiner_func = Helpers()._register_joiner_func()
 multipliable = Helpers()._register_feature_func()
 base_feat = Helpers()._register_feature_func()
 
+spark = SparkSingleton.get_instance()
 
 # Extend FeatureFamily
 class Sales(FeatureFamily):
